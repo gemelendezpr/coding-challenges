@@ -9,7 +9,10 @@ function sayHello(str) {
 console.log(sayHello("Mary")); // should log: 'Hi, Mary'
 console.log(sayHello("Haley")); // should log: 'Hi, Haley'
 
-// 2. Complete the function droids that accepts an array of strings and iterates through the array using a FOR loop. Update the variable result to "Found Droids!" if the array contains the string "Droids". Otherwise update the variable result to "These are not the droids you're looking for." Return your updated result.
+// 2. Complete the function droids that accepts an array of strings and iterates through the array using a FOR loop.
+//  Update the variable result to "Found Droids!" if the array contains the string "Droids". 
+// Otherwise update the variable result to "These are not the droids you're looking for." Return your updated result.
+
 function droids(arr) {
   let result = "";
   // ADD CODE HERE
@@ -27,8 +30,8 @@ function droids(arr) {
 }
 
 // Uncomment these to check your work!
-const starWars = ["Luke", "Finn", "Rey", "Kylo", "Droids"];
-const thrones = ["Jon", "Danny", "Tyrion", "The Mountain", "Cersei"];
+const StarWars = ["Luke", "Finn", "Rey", "Kylo", "Droids"];
+const Thrones = ["Jon", "Danny", "Tyrion", "The Mountain", "Cersei"];
 console.log(droids(starWars)); // should log: "Found Droids!"
 console.log(droids(thrones)); // should log: "These are not the droids you're looking for."
 
@@ -53,4 +56,46 @@ const thrones = ["Jon", "Danny", "Tyrion", "The Mountain", "Cersei"];
 console.log(droids(starWars)); // should log: "Found Droids!"
 console.log(droids(thrones)); //should log: "These are not the droids you're looking for."
 
-//4. 
+//4. Challenge: For Loops - Updating Array Elements -> Using a FOR loop,
+//  write a function addN which adds the argument n to each number in the array arr and returns the updated arr.
+
+//Function to add n to each element in the array
+function addN(arr, n){
+  // ADD CODE HERE
+  // Loop through the array using a for loop  
+  for (let i = 0; i < arr.length; i++) {
+    // Inside the loop, add n to the current element in the array
+    arr[i] += n;
+  }
+  // Return the updated array
+  return arr;
+} 
+
+// Uncomment these to check your work!
+ console.log(addN([1, 2, 3], 3)); // expected log [4, 5, 6]
+ console.log(addN([3, 4, 5], 2)); // expected log [5, 6, 7]
+
+ //5. Challenge: makePlural -> Create a function makePlural that accepts an array argument. 
+//  makePlural will iterate through the array, add an 's' to the end of each array element, and return the mutated array.
+
+// Function to make plural by adding 's' to the end of each element
+function makePlural(arr){
+  // ADD CODE HERE
+  // Initialize a for loop to iterate through the array
+for (let i = 0; i < arr.length; i++) {
+  // inside the loop add an "s" to the end of each array element
+	arr[i] += "s";
+}
+  // return the modified array
+  return arr;
+} 
+
+
+const arr1 = ['lion', 'tiger', 'bear']
+const arr2 = ['computer', 'video game', 'system']
+
+// Uncomment these to check your work!
+ console.log(makePlural(arr1)); // should log: ['lions', 'tigers', 'bears']
+ console.log(makePlural(arr2)); // should log: ['computers', 'video games', 'systems']
+
+ //6.
