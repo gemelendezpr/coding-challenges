@@ -98,4 +98,23 @@ const arr2 = ['computer', 'video game', 'system']
  console.log(makePlural(arr1)); // should log: ['lions', 'tigers', 'bears']
  console.log(makePlural(arr2)); // should log: ['computers', 'video games', 'systems']
 
- //6.
+ //6. Using a FOR loop, write a function getTheSum which adds each element in arr to find the array total.
+ 
+ // function to get the sum of each element in the array
+function getTheSum(arr){
+  // ADD CODE HERE
+   // Declare a variable total and set it to 0.
+  let total = 0;
+  // Initialized a for loop to iterate through the array 
+  for (let i = 0; i < arr.length; i ++){
+   // Add the current element to the total
+   // In each iteration, add the current element to the total.
+   total += arr[i];
+  }
+  // Return the calculated total 
+  return total;
+}
+
+// Uncomment these to check your work!
+console.log(getTheSum([3, 6, 9])); // expected log 18
+console.log(getTheSum([10, 11, 12])); // expected log 33
