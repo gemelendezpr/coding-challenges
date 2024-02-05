@@ -99,7 +99,7 @@ const arr2 = ['computer', 'video game', 'system']
  console.log(makePlural(arr2)); // should log: ['computers', 'video games', 'systems']
 
  //6. Using a FOR loop, write a function getTheSum which adds each element in arr to find the array total.
- 
+
  // function to get the sum of each element in the array
 function getTheSum(arr){
   // ADD CODE HERE
@@ -118,3 +118,21 @@ function getTheSum(arr){
 // Uncomment these to check your work!
 console.log(getTheSum([3, 6, 9])); // expected log 18
 console.log(getTheSum([10, 11, 12])); // expected log 33
+
+//7. Write a function mergingElements which adds each element in array1 to the corresponding element of array2 and returns the new array.
+function mergingElements(array1, array2){
+  // ADD CODE HERE
+  
+  let newArray =[]
+   // iterate through arrays
+  for (let i = 0; i < array1.length; i++) {
+    // add the corresponding elemnt in the array 1 to the correspongind element in the array 2
+    newArray.push(array1[i] += array2[i]);
+  }
+  // return the new array
+  return newArray;
+}
+
+// Uncomment these to check your work!
+console.log(mergingElements([1, 2, 3, 4], [5, 6, 7, 8])); // expected log [6, 8, 10, 12]
+console.log(mergingElements([7, 3, 6, 0], [3, 9, 17, 81])); // expected log [10, 12, 23, 81]
