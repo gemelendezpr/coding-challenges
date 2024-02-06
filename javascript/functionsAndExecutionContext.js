@@ -155,3 +155,27 @@ function mergingElements(array1, array2){
 // Uncomment these to check your work!
 console.log(mergingElements([1, 2, 3, 4], [5, 6, 7, 8])); // expected log [6, 8, 10, 12]
 console.log(mergingElements([7, 3, 6, 0], [3, 9, 17, 81])); // expected log [10, 12, 23, 81]
+
+//9. Write a function mergingTripletsAndQuints which takes in two arrays as arguments. This function will return a new array replacing the elements in array1 if they are divisible by 3 or 5. 
+//The number should be replaced with the sum of itself added to the element at the corresponding index in array2.
+
+function mergingTripletsAndQuints(array1, array2) {
+  // ADD CODE HERE
+   // Initialize an empty array to store the merged elements
+   let newArray =[]
+   for (let i = 0; i < array1.length; i++) {
+     // If the element is divisible by 3 or 5, replace it with the sum of itself and the corresponding element in array2.
+     if (array1[i] % 3 === 0 || array1[i] % 5 === 0) {
+       newArray.push(array1[i] + array2[i]);
+     } else {
+       // Otherwise, keep the original element from array1.
+       newArray.push(array1[i]);
+     }
+   }
+   // After the loop, return the newArray containing the modified or original elements.
+   return newArray;
+ }
+ 
+ // Uncomment these to check your work!
+  console.log(mergingTripletsAndQuints([1, 2, 3, 4, 5, 15], [1, 3, 6, 7, 8, 9])); // expected log [1, 2, 9, 4, 13, 24]
+  console.log(mergingTripletsAndQuints([1, 1, 3, 9, 5, 15], [1, 2, 3, 4, 5, 6])); // expected log [1, 1, 6, 13, 10, 21]
