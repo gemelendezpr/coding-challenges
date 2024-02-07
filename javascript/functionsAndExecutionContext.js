@@ -211,3 +211,27 @@ function imAboutToExplodeWithExcitement(n){
 // Uncomment the line below to check your work!
 // Function Invocation: Finally, call the imAboutToExplodeWithExcitement function with an initial value of 10 to start the countdown.
 imAboutToExplodeWithExcitement(10); // expected log 10, 9, 8, 7, 6, 'Oh wow, I can't handle the anticipation!', 4, I'm about to explode with excitement!', 2, 1, 'That was kind of a let down'
+
+//11. Using an IF/ELSE statement, write a function closestToTheMark that takes two player inputs as number arguments. The function will return 'Player 1 is closest' or 'Player 2 is closest' depending on which player input is closest to the randomly generated number.
+//Note: Due to the output being based off of a random factor, the tests provided below cannot determine if you have solved the prompt exactly. The test cases for this challenge check for the correct data types only.
+
+// Define a function called closestToTheMark that takes two player inputs as number arguments
+function closestToTheMark(player1, player2){
+  //Generate a random number between 0 and 99 (inclusive) and assign it to the variable theMark.
+  const theMark = Math.floor(Math.random() * 100)
+  console.log(`If theMark is ${theMark}...`);
+  // ADD CODE HERE
+   // Calculate the absolute differences between theMark and the player inputs and store it in diff1, diff
+  const diff1 = Math.abs(theMark - player1);
+  const diff2 = Math.abs(theMark - player2);
+
+  // Compare the differences and return the result
+  if (diff1 < diff2) {
+    return 'Player 1 is closest';
+  } else {
+    return 'Player 2 is closest';
+  }
+}
+
+// Uncomment the line below to check your work!
+console.log(closestToTheMark(25, 75));
