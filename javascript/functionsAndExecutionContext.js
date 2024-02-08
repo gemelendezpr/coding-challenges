@@ -235,3 +235,30 @@ function closestToTheMark(player1, player2){
 
 // Uncomment the line below to check your work!
 console.log(closestToTheMark(25, 75));
+
+//12.Using a loop, write a function getTheRange which finds the range (difference between high and low) of arr. 
+//The value returned should be an array with the low, high, and range.
+
+function getTheRange(arr){
+  // ADD CODE HERE
+  if (arr.length === 0) {
+    return [null, null, 0];
+  }
+
+  let low = arr[0];
+  let high = arr[0];
+
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < low) {
+      low = arr[i];
+    } else if (arr[i] > high) {
+      high = arr[i];
+    }
+  }
+
+  const range = high - low;
+
+  return [low, high, range];
+}
+// Uncomment these to check your work!
+console.log(getTheRange([3, 2, 5, 4, 7, 9, 10])); // expect log [2, 10, 8]
