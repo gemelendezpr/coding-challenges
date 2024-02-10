@@ -262,3 +262,50 @@ function getTheRange(arr){
 }
 // Uncomment these to check your work!
 console.log(getTheRange([3, 2, 5, 4, 7, 9, 10])); // expect log [2, 10, 8]
+
+//13. Write a function addingAllTheWeirdStuff which adds the sum of all the odd numbers in array2 to each element under 10 in array1. 
+//Similarly, addingAllTheWeirdStuff should also add the sum of all the even numbers in array2 to those elements over 10 in array1.
+//BONUS: If any element in array2 is greater than 20, add 1 to every element in array1.
+
+function addingAllTheWeirdStuff(array1, array2){
+  // ADD CODE HERE
+  // adds the sum of all odd numbers in array2 to each element under 10 in array1
+  // add the sum of all even numbers in array2 to those elements over 10 in array1
+  // If any element in array2 is greater than 20, add 1 to every element in array1
+
+  let oddSum = 0;
+  let evenSum = 0;
+  let isOverThen20 = false;
+
+  array2.forEach(ele=>{
+    if(ele % 2 !== 0){
+      oddSum += ele;
+    } else {
+      evenSum += ele;
+    }
+    
+    if(ele >20) {
+      isOverThen20 = true;
+    }
+  })
+  
+  array1.forEach((ele,i)=>{
+    if(ele < 10){
+      array1[i] = oddSum + ele;
+    }else if(ele > 10){
+      array1[i] = evenSum + ele;
+    }
+    if(isOverThen20){
+      array1[i] = array1[i]+1;
+    }
+  });
+  // return array
+  return array1;
+  }
+
+// Uncomment these to check your work!
+
+ console.log(addingAllTheWeirdStuff([1, 3, 5, 17, 15], [1, 2, 3, 4, 5])); // expected log [10, 12, 14, 23, 21]
+ console.log(addingAllTheWeirdStuff([1, 3, 5, 17, 15, 1], [1, 2, 3, 4, 5, 22])); // expected log [11, 13, 15, 46, 44, 11]
+
+
