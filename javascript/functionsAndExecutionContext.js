@@ -311,12 +311,18 @@ function addingAllTheWeirdStuff(array1, array2){
  //14. Write a function disemvowel that takes in a string and returns a new string with all vowels removed.
 
  function disemvowel(string) {
-  // ADD CODE HERE
+  // Use a regular expression to match vowels (case-insensitive)
+  const vowelRegex = /[aeiou]/gi;
+
+  // Use replace method to remove all vowels from the input string
+  const resultString = string.replace(vowelRegex, '');
+
+  return resultString;
 }
 
-// Uncomment these to check your work!
-// console.log(disemvowel('CodeSmith')); // => 'CdSmth'
-// console.log(disemvowel('BANANA')); // => 'BNN'
-// console.log(disemvowel('hello world')); // => 'hll wrld'
 
+// Uncomment these to check your work!
+console.log(disemvowel('CodeSmith')); // => 'CdSmth'
+console.log(disemvowel('BANANA')); // => 'BNN'
+console.log(disemvowel('hello world')); // => 'hll wrld'
 
