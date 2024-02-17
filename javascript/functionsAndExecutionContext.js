@@ -331,7 +331,14 @@ console.log(disemvowel('hello world')); // => 'hll wrld'
 //For example addWaldo({'Luke': 'Skywalker', 'Harley': 'Quinn', 'Ryan': 'Reynolds'}) should add the key 'Waldo' with the value 'unknown' to the object and return the mutated object.
 
 // ADD CODE HERE 
+function addWaldo(namesObject) {
+  // Add 'Waldo' with the value 'unknown' to the original object
+  namesObject['Waldo'] = 'unknown';
+
+  // Return the mutated object (not necessary, but follows the original pattern)
+  return namesObject;
+}
 
 // Uncomment these to check your work!
-// const siliconValley = {'Richard': 'Hendricks', 'Erlich': 'Bachman', 'Bertram': 'Gilfoyle'}
-// console.log(addWaldo(siliconValley)) // should log:{ Richard: 'Hendricks', Erlich: 'Bachman', Bertram: 'Gilfoyle', Waldo: 'unknown' }
+const siliconValley = {'Richard': 'Hendricks', 'Erlich': 'Bachman', 'Bertram': 'Gilfoyle'}
+console.log(addWaldo(siliconValley)) // should log:{ Richard: 'Hendricks', Erlich: 'Bachman', Bertram: 'Gilfoyle', Waldo: 'unknown' }
