@@ -347,9 +347,18 @@ console.log(addWaldo(siliconValley)) // should log:{ Richard: 'Hendricks', Erlic
 //If the key 'Waldo' is not found, the function should return 'Where's Waldo?'
 
 // ADD CODE HERE
-
+function findWaldo(object) {
+  // Check if 'Waldo' key exists in the object
+  if ('Waldo' in object) {
+    // Return the value associated with the key 'Waldo'
+    return object['Waldo'];
+  } else {
+    // Return 'Where's Waldo?' if the key is not found
+    return "Where's Waldo?";
+  }
+}
 // Uncomment these to check your work!
-// const DC = {'Bruce': 'Wayne', 'Harley': 'Quinn'}
-// const supernatural = {'Sam': 'Winchester', 'Dean': 'Winchester', 'Waldo': 'unknown'}
-// console.log(findWaldo(DC)) // should log: 'Where's Waldo?'
-// console.log(findWaldo(supernatural)) // should log: 'unknown'
+const DC = {'Bruce': 'Wayne', 'Harley': 'Quinn'}
+const supernatural = {'Sam': 'Winchester', 'Dean': 'Winchester', 'Waldo': 'unknown'}
+console.log(findWaldo(DC)) // should log: 'Where's Waldo?'
+console.log(findWaldo(supernatural)) // should log: 'unknown'
