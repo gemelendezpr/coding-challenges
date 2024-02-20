@@ -362,3 +362,24 @@ const DC = {'Bruce': 'Wayne', 'Harley': 'Quinn'}
 const supernatural = {'Sam': 'Winchester', 'Dean': 'Winchester', 'Waldo': 'unknown'}
 console.log(findWaldo(DC)) // should log: 'Where's Waldo?'
 console.log(findWaldo(supernatural)) // should log: 'unknown'
+
+//17. Write a function arrayBuilder that takes in a count object and returns an array filled with the appropriate numbers of elements. 
+//The order of the elements in the array does not matter, but repeated elements should be grouped.
+
+function arrayBuilder(obj) {
+  const resultArray = [];
+ 
+   // Iterate through the keys of the object
+   for (const key in obj) {
+     if (obj.hasOwnProperty(key)) { // Check if the key is a direct property of the object
+       // Use Array.fill and Array.concat to build the result array
+       resultArray.push(...Array(obj[key]).fill(key));
+     }
+   }
+ 
+   return resultArray;
+ }
+ 
+ // Uncomment these to check your work!
+ console.log(arrayBuilder({'cats': 2, 'dogs': 1})); // => ['cats', 'cats', 'dogs']
+ console.log(arrayBuilder({})); // => []
