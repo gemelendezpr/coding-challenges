@@ -365,6 +365,30 @@ console.log(findWaldo(supernatural)) // should log: 'unknown'
 
 //17. Write a function arrayBuilder that takes in a count object and returns an array filled with the appropriate numbers of elements. 
 //The order of the elements in the array does not matter, but repeated elements should be grouped.
+// Brute Force Solution. In this approach, we manually loop through the keys and push each element into the result array the specified number of times.
+
+function arrayBuilder(obj) {
+  // Initialize an empty array to store the result
+  const resultArray = [];
+
+  // Iterate through the keys of the object
+  for (const key in obj) {
+    if (obj.hasOwnProperty(key)) { // Check if the key is a direct property of the object
+      // Loop to push each element the specified number of times
+      for (let i = 0; i < obj[key]; i++) {
+        resultArray.push(key);
+      }
+    }
+  }
+
+  return resultArray;
+}
+
+// Uncomment these to check your work!
+console.log(arrayBuilder({'cats': 2, 'dogs': 1})); // => ['cats', 'cats', 'dogs']
+console.log(arrayBuilder({})); // => []
+
+// More Efficient Solution
 
 function arrayBuilder(obj) {
   const resultArray = [];
@@ -383,3 +407,21 @@ function arrayBuilder(obj) {
  // Uncomment these to check your work!
  console.log(arrayBuilder({'cats': 2, 'dogs': 1})); // => ['cats', 'cats', 'dogs']
  console.log(arrayBuilder({})); // => []
+
+ //18. Convert the function named functionDeclaration to an anonymous function expression and assign it to a variable called myFunc.
+ //first
+
+// MODIFY THE CODE BELOW 
+function functionDeclaration() {
+  return "Hi there!";
+}
+
+// console.log(myFunc()) //should log: "Hi there!"
+
+//after solving:
+// MODIFY THE CODE BELOW 
+function myFunc() {
+  return "Hi there!";
+}
+
+console.log(myFunc()) //should log: "Hi there!"
