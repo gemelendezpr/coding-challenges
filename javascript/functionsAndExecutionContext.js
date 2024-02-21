@@ -425,3 +425,17 @@ function myFunc() {
 }
 
 console.log(myFunc()) //should log: "Hi there!"
+
+//19. For this challenge, convert the function myJob from ES5 syntax to arrow function syntax.
+function myJob (name, profession) {
+  return `Hi, my name is ${name} and I'm a ${profession}.`
+}
+
+console.log(myJob("Jon", "Knights Watchman"));
+
+//Solution
+
+const myJob = (name, profession) => `Hi, my name is ${name} and I'm a ${profession}.`;
+
+console.log(myJob("Jon", "Knights Watchman"));
+
