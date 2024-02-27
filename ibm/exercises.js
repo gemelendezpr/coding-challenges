@@ -1,4 +1,4 @@
-// Topic String and Data Structure 
+// (Topic String and Data Structure )
 //Given a string, check if all its characters are the same or not.
 // Example 1:
 
@@ -56,7 +56,7 @@ console.log(check(s2)); // Output: true
 // Explanation: It checks if the string is empty or has only one character. Then, it iterates through the characters starting from the second character and compares each character with the first character. 
 //If any character is different, it returns false; otherwise, it returns true.
 
-//2. You are given a string s of x and y. You need to verify whether the string follows the pattern xnyn. That is the string is valid only if equal number of ys follow equal number of xs.
+//2. (STRING) You are given a string s of x and y. You need to verify whether the string follows the pattern xnyn. That is the string is valid only if equal number of ys follow equal number of xs.
 // As an example: xxyyxxyy is valid. xy is valid. xxyyx is invalid. xxxyyyxxyyxy is valid.
 
 // Example 1:
@@ -109,3 +109,34 @@ console.log(follPatt("xyx"));   // Output: 0
 
 // This JavaScript code counts the occurrences of 'x' and 'y' while iterating through the string and checks if the counts are equal after each 'x' and 'y'. 
 //If the counts are not equal at any point, it returns 0, indicating an invalid pattern. If the counts are equal at the end, it returns 1, indicating a valid pattern.
+
+// 3. (ARRAYS) You are given an array arr[] of length n, you have to re-construct the same array arr[] in-place. The arr[i] after reconstruction will become arr[i] OR arr[i+1], where OR is bitwise or. If for some i, i+1 does not exists, then do not change arr[i].
+
+// Your Task:
+// You are required to implement the function game_with_number(), which takes an array arr, representing values at each index, and the size of the array n. The function should modify the elements of the same array arr[] in-place by replacing them with the values obtained by performing the bitwise OR operation on consecutive elements.
+
+// Expected Time Complexity: O(n).
+// Expected Auxiliary Space: O(1).
+
+// Constraints:
+// 1 ≤ n ≤ 105
+// 1 ≤ arr[i] ≤ 107
+
+function game_with_number(arr, n) {
+    for (let i = 0; i < n - 1; i++) {
+        arr[i] = arr[i] | arr[i + 1];
+    }
+}
+
+// Example usage:
+const arr1 = [10, 11, 1, 2, 3];
+const n1 = 5;
+game_with_number(arr1, n1);
+console.log(arr1);  // Output: [11, 11, 3, 3, 3]
+
+const arr2 = [5, 9, 2, 6];
+const n2 = 4;
+game_with_number(arr2, n2);
+console.log(arr2);  // Output: [13, 11, 6, 6]
+
+// This code iterates through the array, and at each index, it performs the bitwise OR operation between the current element and the next element. The modified array is updated in place.
