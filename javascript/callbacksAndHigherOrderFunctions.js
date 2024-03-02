@@ -58,7 +58,7 @@ function subtractTwo(number) {
   console.log(typeof map); // should log: 'function'
   console.log(map([3,4,5], subtractTwo)); // should log: [ 1, 2, 3 ]
 
-//   Challenge: forEach
+// 3.  Challenge: forEach
 
 // Part 1
 // Create a function forEach which takes an array and a callback, and runs the callback on each element of the array. forEach does not return anything. Please do not use the native forEach or map method.
@@ -130,3 +130,47 @@ function func2(num) {
   // Uncomment these to check your work!
   console.log(filterArray(arrOfNums, func1)); // should log: [2, 4]
   console.log(filterArray(arrOfNums, func2)); // should log: [1, 3, 5]
+
+  //5. Challenge: eitherFilter
+
+// Add code to the function eitherFilter in the place marked "ADD CODE HERE" in order to achieve the desired console logs. 
+//The array returned from eitherFilter should contain all elements in the passed-in array that yield a truthy return value when passed into EITHER of the two callbacks passed into eitherFilter.
+
+function eitherFilter(array, callback1, callback2) {
+  // ADD CODE HERE
+const filteredArray = array.filter((element) => callback1(element) || callback2(element));
+  return filteredArray;
+}
+
+// Uncomment these to check your work!
+const arrayOfNums = [10, 35, 105, 9];
+const integerSquareRoot = n => Math.sqrt(n) % 1 === 0;
+const over100 = n => n > 100;
+console.log(eitherFilter(arrOfNums, integerSquareRoot, over100)); // should log: [105, 9]
+
+//6. Challenge: eitherCallback
+
+// Add code to the function eitherCallback in the place marked "ADD CODE HERE" in order to achieve the desired console logs. 
+//Notice that the lines of code testing your work are using functions and an array from previous challenges. 
+//The result of using eitherCallback to combine two callbacks into one callback and then passing that one callback into filterArray should match the results of simply passing the two callbacks into eitherFilter in the previous challenge.
+
+function eitherCallback(callback1, callback2) {
+  // ADD CODE HERE
+  return function (value, index, array) {
+    return callback1(value, index, array) || callback2(value, index, array);
+  };
+}
+
+// Uncomment these to check your work!
+function filterArray(array, callback) {
+  const newArray = [];
+  for (let i = 0; i < array.length; i += 1) {
+    if (callback(array[i], i, array)) newArray.push(array[i]);
+  }
+  return newArray;
+}
+const arrOfNums = [10, 35, 105, 9];
+const integerSquareRoot = n => Math.sqrt(n) % 1 === 0;
+const over100 = n => n > 100;
+const intSqRtOrOver100 = eitherCallback(integerSquareRoot, over100);
+console.log(filterArray(arrOfNums, intSqRtOrOver100)); // should log: [105, 9]
