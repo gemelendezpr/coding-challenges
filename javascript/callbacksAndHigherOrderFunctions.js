@@ -205,3 +205,27 @@ function reduce(array, callback, initialValue) {
 const nums = [4, 1, 3];
 const add = function(a, b) { return a + b; }
 console.log(reduce(nums, add, 0)); // should log 8
+
+//8. Challenge: intersection
+
+// Construct a function intersection that compares input arrays and returns a new array with elements found in all of the inputs. BONUS - Use reduce!
+
+// Is it working? Check my answer
+// intersection should be a function
+
+// intersection should return an array
+
+// intersection should find common elements in two arrays
+
+// intersection should find common elements in many arrays
+
+function intersection(arrays) {
+  return arrays.reduce((commonElements, currentArray) => {
+    return commonElements.filter(element => currentArray.includes(element));
+  });
+}
+// Uncomment these to check your work!
+const arr1 = [5, 10, 15, 20];
+const arr2 = [15, 88, 1, 5, 7];
+const arr3 = [1, 10, 15, 5, 20];
+console.log(intersection([arr1, arr2, arr3])); // should log: [5, 15]
