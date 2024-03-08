@@ -278,3 +278,25 @@ const arr1 = ['hi', 'howdy', 'bye', 'later', 'hello'];
 const arr2 = ['HI', 'Howdy', 'BYE', 'later', 'HELLO'];
 function uppercaser(str) { return str.toUpperCase(); }
 console.log(objOfMatches(arr1, arr2, uppercaser)); // should log: { hi: 'HI', bye: 'BYE', hello: 'HELLO' }
+
+//11. Challenge: arrToObj
+
+// Add code to the function arrToObj in the place marked "ADD CODE HERE" in order to achieve the desired console logs. arrToObj should return an object that has elements from the passed-in array as keys, and the outputs from the callback (when those elements are passed in) as the corresponding values.
+
+// Is it working? Check my answer
+// arrToObj should be a function
+
+// arrToObj(arrOfStrings, capitalize) should return { beer: 'BEER', glue: 'GLUE' }
+
+function arrToObj(array, callback) {
+  // ADD CODE HERE
+    return array.reduce((obj, element) => {
+    obj[element] = callback(element);
+    return obj;
+  }, {});
+}
+
+// Uncomment these to check your work!
+const arrOfStrings = ['beer', 'glue'];
+const capitalize = str => str.toUpperCase();
+console.log(arrToObj(arrOfStrings, capitalize)); // should log: { beer: 'BEER', glue: 'GLUE' }
