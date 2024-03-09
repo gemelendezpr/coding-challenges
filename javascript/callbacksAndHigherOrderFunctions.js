@@ -300,3 +300,27 @@ function arrToObj(array, callback) {
 const arrOfStrings = ['beer', 'glue'];
 const capitalize = str => str.toUpperCase();
 console.log(arrToObj(arrOfStrings, capitalize)); // should log: { beer: 'BEER', glue: 'GLUE' }
+
+//12. Challenge: joinAndMap
+
+// Construct a function joinAndMap with three parameters: array1, array2, and a callback function. The function should combine the two arrays then invoke the callback function on each element, returning the resulting array. This function should not mutate the passed-in arrays.
+
+// Is it working? Check my answer
+// joinAndMap should be a function
+
+// joinAndMap should return an empty array when called with two empty arrays
+
+// joinAndMap should not mutate either input array
+
+// joinAndMap should join and map the items in the input array
+
+
+function joinAndMap(array1, array2, callback) {
+  const combinedArray = array1.concat(array2);
+  return combinedArray.map(element => callback(element));
+}
+// Uncomment these to check your work!
+const arrRed = ['strawberry', 'cherry', 'wine'];
+const arrBlue = ['blueberry', 'sky', 'ocean'];
+const capitalize = str => str.toUpperCase();
+console.log(joinAndMap(arrRed, arrBlue, capitalize)); // should log: ['STRAWBERRY', 'CHERRY', 'WINE', 'BLUEBERRY', 'SKY', 'OCEAN']
