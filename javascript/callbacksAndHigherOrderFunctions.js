@@ -370,3 +370,31 @@ function repeater(str) { return str + str; }
 const items = ['catfood', 'glue', 'beer'];
 const functions = [uppercaser, capitalize, repeater];
 console.log(multiMap(items, functions)); // should log: { catfood: ['CATFOOD', 'Catfood', 'catfoodcatfood'], glue: ['GLUE', 'Glue', 'glueglue'], beer: ['BEER', 'Beer', 'beerbeer'] }
+
+//14. Challenge: majority
+
+// Create a function majority that accepts an array and a callback. The callback will return either true or false. majority will iterate through the array and perform the callback on each element until it can be determined if the majority of the return values from the callback are true.
+// If the number of true returns is equal to the number of false returns, majority should return false.
+
+// ADD CODE HERE
+//trueCount and falseCount variables are used to keep track of the number of true and false returns, respectively.
+//The forEach loop iterates through each element in the array and increments the appropriate count based on the result of the callback.
+//The function returns true if the majority of returns are true; otherwise, it returns false.
+function majority(array, callback) {
+  let trueCount = 0;
+  let falseCount = 0;
+
+  array.forEach(element => {
+    if (callback(element)) {
+      trueCount++;
+    } else {
+      falseCount++;
+    }
+  });
+
+  return trueCount > falseCount;
+}
+// Uncomment these to check your work!
+const isOdd = function(num) { return num % 2 === 1; };
+console.log(majority([1, 2, 3, 4, 5], isOdd)); // should log: true
+console.log(majority([2, 3, 4, 5], isOdd)); // should log: false
