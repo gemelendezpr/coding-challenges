@@ -258,13 +258,13 @@ console.log(union([arr1, arr2, arr3])); // should log: [5, 10, 15, 88, 1, 7, 100
 //If there is a match, the element from the first array becomes a key in an object, and the element from the second array becomes the corresponding value.
 
 // ADD CODE HERE
-function objOfMatches(arr1, arr2, callback) {
+function objOfMatches(arr4, arr5, callback) {
 
   const resultObj = {};
 
-  for (let i = 0; i < arr1.length; i++) {
-    const key = arr1[i];
-    const value = arr2[i];
+  for (let i = 0; i < arr4.length; i++) {
+    const key = arr4[i];
+    const value = arr5[i];
 
     if (callback(key) === value) {
       resultObj[key] = value;
@@ -274,8 +274,8 @@ function objOfMatches(arr1, arr2, callback) {
   return resultObj;
 }
 // Uncomment these to check your work!
-const arr1 = ['hi', 'howdy', 'bye', 'later', 'hello'];
-const arr2 = ['HI', 'Howdy', 'BYE', 'later', 'HELLO'];
+const arr4 = ['hi', 'howdy', 'bye', 'later', 'hello'];
+const arr5 = ['HI', 'Howdy', 'BYE', 'later', 'HELLO'];
 function uppercaser(str) { return str.toUpperCase(); }
 console.log(objOfMatches(arr1, arr2, uppercaser)); // should log: { hi: 'HI', bye: 'BYE', hello: 'HELLO' }
 
@@ -398,3 +398,40 @@ function majority(array, callback) {
 const isOdd = function(num) { return num % 2 === 1; };
 console.log(majority([1, 2, 3, 4, 5], isOdd)); // should log: true
 console.log(majority([2, 3, 4, 5], isOdd)); // should log: false
+
+//15. Challenge: prioritize
+
+// Create a function prioritize that accepts an array and a callback. 
+//The callback will return either true or false. prioritize will iterate through the array and perform the callback on each element, and return a new array, where all the elements that yielded a return value of true come first in the array, and the rest of the elements come second.
+
+// ADD CODE HERE
+function prioritize(array, callback) {
+  // Create an empty array to store elements that yield true returns from the callback
+  const trueArray = [];
+  // Create an empty array to store elements that yield false returns from the callback
+  const falseArray = [];
+
+  // Iterate through each element in the array
+  array.forEach(element => {
+    // Check if the callback returns true for the current element
+    if (callback(element)) {
+      // If true, push the element into the trueArray
+      trueArray.push(element);
+    } else {
+      // If false, push the element into the falseArray
+      falseArray.push(element);
+    }
+  });
+
+  // Concatenate trueArray and falseArray to create a new array
+  // where elements yielding true values come first
+  return trueArray.concat(falseArray);
+}
+
+// Uncomment these to check your work!
+// Define a callback function that checks if a string starts with 's'
+function startsWithS(str) { return str[0].toLowerCase() === 's'; }
+// Define an array of TV shows
+const tvShows = ['curb', 'rickandmorty', 'seinfeld', 'sunny', 'friends'];
+// Call prioritize function with tvShows array and startsWithS callback
+console.log(prioritize(tvShows, startsWithS)); // should log: ['seinfeld', 'sunny', 'curb', 'rickandmorty', 'friends']
