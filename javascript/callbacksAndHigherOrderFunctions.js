@@ -435,3 +435,8 @@ function startsWithS(str) { return str[0].toLowerCase() === 's'; }
 const tvShows = ['curb', 'rickandmorty', 'seinfeld', 'sunny', 'friends'];
 // Call prioritize function with tvShows array and startsWithS callback
 console.log(prioritize(tvShows, startsWithS)); // should log: ['seinfeld', 'sunny', 'curb', 'rickandmorty', 'friends']
+
+//16.Challenge: countBy
+
+// Create a function countBy that accepts an array and a callback, and returns an object. countBy will iterate through the array and perform the callback on each element. 
+//Each return value from the callback will be saved as a key on the object. The value associated with each key will be the number of times that particular return value was returned.
