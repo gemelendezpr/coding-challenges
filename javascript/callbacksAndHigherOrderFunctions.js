@@ -317,26 +317,38 @@ console.log(union([arr1, arr2, arr3])); // should log: [5, 10, 15, 88, 1, 7, 100
 //If there is a match, the element from the first array becomes a key in an object, and the element from the second array becomes the corresponding value.
 
 // ADD CODE HERE
-function objOfMatches(arr4, arr5, callback) {
-
+// Define the function objOfMatches that takes three parameters: arr1, arr2, and callback
+function objOfMatches(arr1, arr2, callback) {
+  // Initialize an empty object to store the result
   const resultObj = {};
 
-  for (let i = 0; i < arr4.length; i++) {
-    const key = arr4[i];
-    const value = arr5[i];
+  // Loop through each element in arr1 using a for loop
+  for (let i = 0; i < arr1.length; i++) {
+    // Get the current key from arr1
+    const key = arr1[i];
+    // Get the corresponding value from arr2
+    const value = arr2[i];
 
+    // Check if the result of applying the callback to the key matches the value
     if (callback(key) === value) {
+      // If there's a match, add the key-value pair to the resultObj
       resultObj[key] = value;
     }
   }
 
+  // Return the populated resultObj
   return resultObj;
 }
+
 // Uncomment these to check your work!
-const arr4 = ['hi', 'howdy', 'bye', 'later', 'hello'];
-const arr5 = ['HI', 'Howdy', 'BYE', 'later', 'HELLO'];
+// Define two arrays
+const arr1 = ['hi', 'howdy', 'bye', 'later', 'hello'];
+const arr2 = ['HI', 'Howdy', 'BYE', 'later', 'HELLO'];
+// Define the callback function
 function uppercaser(str) { return str.toUpperCase(); }
+// Log the result of objOfMatches using the arrays and callback
 console.log(objOfMatches(arr1, arr2, uppercaser)); // should log: { hi: 'HI', bye: 'BYE', hello: 'HELLO' }
+
 
 //11. Challenge: arrToObj
 
@@ -347,18 +359,25 @@ console.log(objOfMatches(arr1, arr2, uppercaser)); // should log: { hi: 'HI', by
 
 // arrToObj(arrOfStrings, capitalize) should return { beer: 'BEER', glue: 'GLUE' }
 
+// Define the function arrToObj that takes an array and a callback function as parameters
 function arrToObj(array, callback) {
-  // ADD CODE HERE
-    return array.reduce((obj, element) => {
+  // Use the reduce method on the array to transform it into an object
+  return array.reduce((obj, element) => {
+    // For each element in the array, apply the callback function and assign the result as the value to the element key in the object
     obj[element] = callback(element);
+    // Return the updated object
     return obj;
-  }, {});
+  }, {}); // Initialize the accumulator as an empty object
 }
 
 // Uncomment these to check your work!
+// Define an array of strings
 const arrOfStrings = ['beer', 'glue'];
+// Define the callback function to capitalize each string
 const capitalize = str => str.toUpperCase();
+// Log the result of arrToObj using the array and callback
 console.log(arrToObj(arrOfStrings, capitalize)); // should log: { beer: 'BEER', glue: 'GLUE' }
+
 
 //12. Challenge: joinAndMap
 
@@ -374,15 +393,24 @@ console.log(arrToObj(arrOfStrings, capitalize)); // should log: { beer: 'BEER', 
 // joinAndMap should join and map the items in the input array
 
 
+// Define the function joinAndMap that takes two arrays and a callback function as parameters
 function joinAndMap(array1, array2, callback) {
+  // Concatenate the two input arrays into a single array
   const combinedArray = array1.concat(array2);
+  // Map over the combined array and apply the callback function to each element
+  // Return the resulting array
   return combinedArray.map(element => callback(element));
 }
+
 // Uncomment these to check your work!
+// Define the arrays
 const arrRed = ['strawberry', 'cherry', 'wine'];
 const arrBlue = ['blueberry', 'sky', 'ocean'];
+// Define the callback function to capitalize each element
 const capitalize = str => str.toUpperCase();
+// Call the joinAndMap function with the arrays and the capitalize callback function
 console.log(joinAndMap(arrRed, arrBlue, capitalize)); // should log: ['STRAWBERRY', 'CHERRY', 'WINE', 'BLUEBERRY', 'SKY', 'OCEAN']
+
 
 
 //13. Challenge: multiMap
@@ -395,15 +423,28 @@ console.log(joinAndMap(arrRed, arrBlue, capitalize)); // should log: ['STRAWBERR
 function multiMap(values, callbacks) {
   // Initializes an empty object resultObj to store the final result.
   const resultObj = {};
-// Utilizes the forEach method to iterate through each element (value) in the values array.
-// Inside the loop, it uses the map method on the callbacks array to apply each callback to the current value.
-// The result of each map operation (an array of callback results) is assigned as the value for the current value key in the resultObj.
+  // Utilizes the forEach method to iterate through each element (value) in the values array.
   values.forEach(value => {
+    // Inside the loop, it uses the map method on the callbacks array to apply each callback to the current value.
+    // The result of each map operation (an array of callback results) is assigned as the value for the current value key in the resultObj.
     resultObj[value] = callbacks.map(callback => callback(value));
   });
-// After the loop completes, the function returns the resultObj, which now contains keys from the values array and corresponding values as arrays generated by applying each callback.
+  // After the loop completes, the function returns the resultObj, which now contains keys from the values array and corresponding values as arrays generated by applying each callback.
   return resultObj;
 }
+
+// Uncomment these to check your work!
+// Define callback functions to uppercase, capitalize, and repeat the strings
+function uppercaser(str) { return str.toUpperCase(); }
+function capitalize(str) { return str[0].toUpperCase() + str.slice(1).toLowerCase(); }
+function repeater(str) { return str + str; }
+// Define an array of strings to be processed
+const items = ['catfood', 'glue', 'beer'];
+// Define an array of callback functions
+const functions = [uppercaser, capitalize, repeater];
+// Call the multiMap function with the items array and the functions array
+console.log(multiMap(items, functions)); // should log: { catfood: ['CATFOOD', 'Catfood', 'catfoodcatfood'], glue: ['GLUE', 'Glue', 'glueglue'], beer: ['BEER', 'Beer', 'beerbeer'] }
+
 
 //Without arrow function:
 
@@ -412,22 +453,26 @@ function multiMap(values, callbacks) {
 function multiMap(values, callbacks) {
   // Initializes an empty object resultObj to store the final result.
   const resultObj = {};
-// Utilizes the forEach method to iterate through each element (value) in the values array.
-// Inside the loop, it uses the map method on the callbacks array to apply each callback to the current value.
-// The result of each map operation (an array of callback results) is assigned as the value for the current value key in the resultObj.
+  // Utilizes the forEach method to iterate through each element (value) in the values array.
   values.forEach(value => {
+    // Inside the loop, it uses the map method on the callbacks array to apply each callback to the current value.
+    // The result of each map operation (an array of callback results) is assigned as the value for the current value key in the resultObj.
     resultObj[value] = callbacks.map(callback => callback(value));
   });
-// After the loop completes, the function returns the resultObj, which now contains keys from the values array and corresponding values as arrays generated by applying each callback.
+  // After the loop completes, the function returns the resultObj, which now contains keys from the values array and corresponding values as arrays generated by applying each callback.
   return resultObj;
 }
 
 // Uncomment these to check your work!
+// Define callback functions to uppercase, capitalize, and repeat the strings
 function uppercaser(str) { return str.toUpperCase(); }
 function capitalize(str) { return str[0].toUpperCase() + str.slice(1).toLowerCase(); }
 function repeater(str) { return str + str; }
+// Define an array of strings to be processed
 const items = ['catfood', 'glue', 'beer'];
+// Define an array of callback functions
 const functions = [uppercaser, capitalize, repeater];
+// Call the multiMap function with the items array and the functions array
 console.log(multiMap(items, functions)); // should log: { catfood: ['CATFOOD', 'Catfood', 'catfoodcatfood'], glue: ['GLUE', 'Glue', 'glueglue'], beer: ['BEER', 'Beer', 'beerbeer'] }
 
 //14. Challenge: majority
@@ -436,27 +481,37 @@ console.log(multiMap(items, functions)); // should log: { catfood: ['CATFOOD', '
 // If the number of true returns is equal to the number of false returns, majority should return false.
 
 // ADD CODE HERE
-//trueCount and falseCount variables are used to keep track of the number of true and false returns, respectively.
-//The forEach loop iterates through each element in the array and increments the appropriate count based on the result of the callback.
-//The function returns true if the majority of returns are true; otherwise, it returns false.
+
+// Defines a function named majority that takes two parameters, array and callback.
 function majority(array, callback) {
+  // Initializes counters for true and false results.
   let trueCount = 0;
   let falseCount = 0;
 
+  // Iterates through each element in the array.
   array.forEach(element => {
+    // Checks if the callback returns true for the current element.
     if (callback(element)) {
+      // If true, increments the trueCount.
       trueCount++;
     } else {
+      // If false, increments the falseCount.
       falseCount++;
     }
   });
 
+  // Returns true if the trueCount is greater than falseCount, indicating a majority of true results.
   return trueCount > falseCount;
 }
+
 // Uncomment these to check your work!
+// Defines a callback function to check if a number is odd.
 const isOdd = function(num) { return num % 2 === 1; };
+// Checks if there is a majority of odd numbers in the array [1, 2, 3, 4, 5].
 console.log(majority([1, 2, 3, 4, 5], isOdd)); // should log: true
+// Checks if there is a majority of odd numbers in the array [2, 3, 4, 5].
 console.log(majority([2, 3, 4, 5], isOdd)); // should log: false
+
 
 //15. Challenge: prioritize
 
