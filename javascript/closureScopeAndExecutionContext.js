@@ -53,3 +53,40 @@ function createFunctionWithInput(input) {
   //3. Challenge: Scoping
 
 // Examine the code for the outer function. Notice that we are returning a function and that function is using variables that are outside of its scope. Uncomment those lines of code. Try to deduce the output before executing.
+
+// Defines a function named outer, which encloses another function named incrementCounter.
+function outer() {
+    // Declares a variable counter with initial value 0 inside the outer function's scope.
+    let counter = 0; // this variable is outside incrementCounter's scope
+    
+    // Defines an inner function named incrementCounter that increments the counter variable and logs its value.
+    function incrementCounter() {
+      counter++;
+      console.log('counter', counter);
+    }
+    
+    // Returns the incrementCounter function.
+    return incrementCounter;
+  }
+  
+  // Assigns the result of calling outer function to the variable willCounter.
+  const willCounter = outer();
+  
+  // Assigns the result of calling outer function to the variable jasCounter.
+  const jasCounter = outer();
+  
+  // Calls the function assigned to willCounter. Since it's the first time it's being called, the counter value will be 1.
+  willCounter(); // counter 1
+  
+  // Calls the function assigned to willCounter again. The counter value will increment to 2.
+  willCounter(); // counter 2
+  
+  // Calls the function assigned to willCounter again. The counter value will increment to 3.
+  willCounter(); // counter 3
+  
+  // Calls the function assigned to jasCounter. Since it's a new instance of the outer function, it will have its own counter variable starting from 1.
+  jasCounter(); // counter 1
+  
+  // Calls the function assigned to willCounter again. It continues incrementing the counter from where it left off, so the counter value will be 4.
+  willCounter(); // counter 4
+  
