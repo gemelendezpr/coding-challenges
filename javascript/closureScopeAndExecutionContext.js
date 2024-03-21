@@ -49,3 +49,7 @@ function createFunctionWithInput(input) {
   console.log(sampleFunc()); // should log: 'sample'
   const helloFunc = createFunctionWithInput('hello');
   console.log(helloFunc()); // should log: 'hello'
+
+  //3. Challenge: Scoping
+
+// Examine the code for the outer function. Notice that we are returning a function and that function is using variables that are outside of its scope. Uncomment those lines of code. Try to deduce the output before executing.
