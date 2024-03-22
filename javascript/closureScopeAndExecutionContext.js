@@ -127,4 +127,39 @@ function addByX(x) {
   // Calls addByTwo with an input of 1 and logs the output, which should be 2 + 1 = 3.
   console.log(addByTwo(1)); // should return 3
   
+  //5. Challenge: once
+
+// Write a function once that accepts a callback as input and returns a function. When the returned function is called the first time, it should call the callback and return that output. If it is called any additional times, instead of calling the callback again it will simply return the output value from the first time it was called.
+
+// Is it working? Check my answer
+// once should create and return a function
+
+// A function returned from once should run the callback the first time it is called
+
+// A function returned from once should return the output of the first call on subsequent calls
+
+// ADD CODE HERE
+// Defines a function named once that takes one parameter callback.
+function once(callback) {
+    let result; // Declares a variable to store the result of the first function call.
   
+    // Returns an inner function that takes any number of parameters.
+    return function(...args) {
+      // Checks if result is undefined, indicating that the callback hasn't been called yet.
+      if (result === undefined) {
+        // Calls the callback with the provided arguments and stores the result.
+        result = callback(...args);
+      }
+      // Returns the stored result.
+      return result;
+    };
+  }
+  
+  const addByTwoOnce = once(function(num) {
+    return num + 2;
+  });
+  
+  // UNCOMMENT THESE TO TEST YOUR WORK!
+  console.log(addByTwoOnce(5));  //should log 7
+  console.log(addByTwoOnce(10));  //should log 7
+  console.log(addByTwoOnce(9001));  //should log 7
