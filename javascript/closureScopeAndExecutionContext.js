@@ -163,3 +163,39 @@ function once(callback) {
   console.log(addByTwoOnce(5));  //should log 7
   console.log(addByTwoOnce(10));  //should log 7
   console.log(addByTwoOnce(9001));  //should log 7
+
+  //6. Challenge: after
+
+// Write a function after that takes the number of times the callback needs to be called before being executed as the first parameter and the callback as the second parameter.
+
+// ADD CODE HERE
+// Defines a function named after that takes two parameters: times and callback.
+function after(times, callback) {
+    // Declares a variable to keep track of how many times the callback has been called.
+    let counter = 0;
+  
+    // Returns an inner function that takes any number of parameters.
+    return function(...args) {
+      // Increments the counter each time the inner function is called.
+      counter++;
+  
+      // Checks if the counter is greater than or equal to the specified times.
+      if (counter >= times) {
+        // Calls the callback with the provided arguments and returns its result.
+        return callback(...args);
+      } else {
+        // If the counter is less than the specified times, returns undefined.
+        return undefined;
+      }
+    };
+  }
+  
+  // Defines a callback function called called.
+  const called = function(string) { return('hello ' + string); };
+  // Calls the after function with 3 as the number of times and the callback called.
+  const afterCalled = after(3, called);
+  
+  // UNCOMMENT THESE LINES TO TEST YOUR WORK
+  console.log(afterCalled('world')); // -> undefined is printed
+  console.log(afterCalled('world')); // -> undefined is printed
+  console.log(afterCalled('world')); // -> 'hello world' is printed
