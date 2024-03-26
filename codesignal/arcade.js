@@ -48,3 +48,21 @@ function solution(year) {
 console.log(solution(1905)); // Output: 20
 // Call the solution function with year = 1700 and log the result.
 console.log(solution(1700)); // Output: 17
+
+//3. Challenge: add
+
+// Write a function that returns the sum of two numbers.
+
+// Example
+
+// For param1 = 1 and param2 = 2, the output should be
+// solution(param1, param2) = 3.
+
+function solution(param1, param2) {
+    // Return the sum of param1 and param2
+    return param1 + param2;
+}
+
+//Call the solution function wuti param1 = 1 and param2 = 2 and log the result. 
+console.log(solution(1, 2)); //Output:3
+
