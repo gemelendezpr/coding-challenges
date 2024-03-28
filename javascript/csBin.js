@@ -95,3 +95,59 @@
 // buildGreeting(12, "John") //=> "Good Afternoon, John!"
 // buildGreeting(22, "Stacey") //=> "Good Evening, Stacey!"
 // buildGreeting(31, "Derrick") //=> "That's not a real time, Derrick. Maybe you need some sleep!"
+
+// Challenge 5
+// indexOf is a function that you can call on a string (string1) and accepts another string (string2) as an argument.
+// It searches through string1 from left to right checking each character to see if it can find string2.
+// If it finds string2 it returns the index position of the FIRST character that matches string2. If it cannot find string2 it returns negative one: -1.
+// Enter the index position you think indexOf will return for each below.
+
+/* ========== *
+* Challenge 5 *
+* =========== */
+
+// function indexOf(string1, string2) {
+//     // Loop through each character of string1
+//     for (var i = 0; i < string1.length; i++) {
+//       // Check if the current character matches the first character of string2
+//       if (string1[i] === string2[0]) {
+//         // Check if the substring starting from the current index matches string2
+//         if (string1.substring(i, i + string2.length) === string2) {
+//           // If true, return the index position
+//           return i;
+//         }
+//       }
+//     }
+//     // If string2 is not found, return -1
+//     return -1;
+//   }
+  
+  // Uncomment the lines below to test your code
+  // console.log( indexOf("CodeSmith", "o") === 1 ) //=> true
+  // console.log( indexOf("hello", "ll") === 2 ) //=> true
+  // console.log( indexOf("zebra", "z") === 0 ) //=> true
+  // console.log( indexOf("banana", "B") === -1 ) //=> true
+  
+  //Challenge 6
+// Create a function letterExists that takes a word (string) and a character (string), and console.logs whether that letter can be found inside that word.
+
+// function letterExists(word, letter) {
+//     //your code goes here...
+//     // Loop through each character of the word
+//     for (var i = 0; i < word.length; i++) {
+//       // Check if the current character matches the letter
+//       if (word[i] === letter) {
+//         // If true, the letter exists in the word, so return true
+//         console.log(true);
+//         return;
+//       }
+//     }
+//     // If the loop finishes without finding the letter, it does not exist in the word, so return false
+//     console.log(false);
+  
+//   }
+  
+//   letterExists("superman", "e") //=> true
+//   letterExists("starship", "S") //=> false
+//   letterExists("th1s", "1") //=> true
+//   letterExists("he!lo", "!") //=> true
