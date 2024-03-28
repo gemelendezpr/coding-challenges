@@ -151,3 +151,38 @@
 //   letterExists("starship", "S") //=> false
 //   letterExists("th1s", "1") //=> true
 //   letterExists("he!lo", "!") //=> true
+
+// Challenge 7
+// Create a function isPrime that console.logs a boolean indicating if `number` is prime or not.
+
+/* =========== *
+* Challenge 7 *
+* ============ */
+
+// function isPrime(number) {
+//     // your code here...
+//     // Check if number is less than 2
+//     if (number < 2) {
+//       // If true, number is not prime, so return false
+//       console.log(false);
+//       return;
+//     }
+    
+//     // Check for divisibility by numbers from 2 to the square root of number
+//     for (var i = 2; i <= Math.sqrt(number); i++) {
+//       // If number is divisible by any number other than 1 and itself, it is not prime
+//       if (number % i === 0) {
+//         // If true, number is not prime, so return false
+//         console.log(false);
+//         return;
+//       }
+//     }
+    
+//     // If the loop finishes without finding any divisors, number is prime, so return true
+//     console.log(true);
+//   }
+  
+//   isPrime(-7); // => false
+//   isPrime(2); // => true
+//   isPrime(11); // => true
+//   isPrime(15); // => false
