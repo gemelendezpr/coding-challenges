@@ -186,3 +186,48 @@
 //   isPrime(2); // => true
 //   isPrime(11); // => true
 //   isPrime(15); // => false
+
+// Challenge 8
+// Create a function range that console.logs all numbers between 'start' and 'end' in sequential order.
+
+/* ========== *
+* Challenge 8 *
+* =========== */
+
+
+function range(start, end) {
+    //your code goes here...
+   let result = ''; // Initialize an empty string to store the output
+    
+    // Check if start is less than or equal to end
+    if (start <= end) {
+      // Loop from start to end, inclusive
+      for (var i = start; i <= end; i++) {
+        // Append the current number to the result string
+        result += i.toString();
+        
+        // Append a comma and space if it's not the last number
+        if (i !== end) {
+          result += ", ";
+        }
+      }
+    } else {
+      // Loop from start to end, inclusive
+      for (var i = start; i >= end; i--) {
+        // Append the current number to the result string
+        result += i.toString();
+        
+        // Append a comma and space if it's not the last number
+        if (i !== end) {
+          result += ", ";
+        }
+      }
+    }
+    
+    // Print the result string
+    console.log(result);
+  }
+  
+  //Uncomment the lines below to test your code
+  range(1,4) //=> 1, 2, 3, 4
+  range(4,2) //=> '4, 3, 2'
