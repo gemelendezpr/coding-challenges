@@ -324,3 +324,55 @@ function defineFirstArg(func, arg) {
 const subtract = function(big, small) { return big - small; };
 const subFrom20 = defineFirstArg(subtract, 20);
 console.log(subFrom20(5)); // should log: 15
+
+//11. Challenge: hobbyTracker
+
+// Create a function hobbyTracker that takes an array of hobbies as a parameter and creates a cache object with each hobby as a key. hobbyTracker should return a function that takes a string representing the hobby and an integer representing how many hours practiced as parameters.
+
+// When the returned function is invoked, it should update the cache object adding the value of the passed in integer to the cache at the key corresponding with the passed in 'hobby' then should return the updated cache object. If the returned function is invoked with no arguments, it should reset all values in the cache object to zero and return the string 'tracker has been reset!'
+
+// hobbyTracker hobbyTracker should create and return a function
+
+// hobbyTracker updateHobbies('piano', 2) should return an object: { yoga: 3, baking: 4, piano: 2 }
+
+// hobbyTracker updateHobbies() should return string: 'tracker has been reset'
+
+// hobbyTracker updateHobbies('baking', 1) should return an object: { yoga: 0, baking: 1, piano: 0 }
+
+function hobbyTracker(hobbies) {
+  // Create a cache object with each hobby as a key initialized to 0
+   const cache = {};
+   hobbies.forEach(hobby => {
+     cache[hobby] = 0;
+   });
+ 
+   // Return a function that updates the cache based on passed parameters
+   return function(hobby, hours) {
+     // If no arguments are provided, reset all values in the cache to zero
+     if (hobby === undefined && hours === undefined) {
+       Object.keys(cache).forEach(key => {
+         cache[key] = 0;
+       });
+       return 'tracker has been reset!';
+     }
+ 
+     // Update the cache with the passed-in hobby and hours
+     cache[hobby] += hours;
+ 
+     // Return the updated cache object
+     return cache;
+   };
+ }
+ 
+ 
+ 
+ 
+ // Uncomment the code below to check your code:
+ const updateHobbies = hobbyTracker(['yoga', 'baking', 'piano']);
+ updateHobbies('yoga', 2);
+ updateHobbies('baking', 4);
+ updateHobbies('yoga', 1);
+ console.log(updateHobbies('piano', 2)); // --> { yoga: 3, baking: 4, piano: 2 }
+ console.log(updateHobbies()); // --> 'tracker has been reset!'
+ console.log(updateHobbies('baking', 1)); // --> { yoga: 0, baking: 1, piano: 0}
+
