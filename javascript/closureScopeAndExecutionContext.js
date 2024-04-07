@@ -376,3 +376,46 @@ function hobbyTracker(hobbies) {
  console.log(updateHobbies()); // --> 'tracker has been reset!'
  console.log(updateHobbies('baking', 1)); // --> { yoga: 0, baking: 1, piano: 0}
 
+//12. Challenge: dateStamp
+
+// Create a function dateStamp that accepts a function and returns a function. The returned function will accept whatever arguments the passed-in function accepts and return an object with a date key whose value is today's date (not including the time) represented as a human-readable string (see the Date object for conversion methods), and an output key that contains the result from invoking the passed-in function.
+
+// Is it working? Check my answer
+// dateStamp should create and return a function
+
+// The function returned from dateStamp should return an object
+
+// The returned object should have a date key and an output key
+
+// The date key on the returned object should have today's date as its value
+
+// expected '04/07/2024' to equal 'Sun Apr 07 2024'
+// The output key on the returned object should contain the result from invoking the passed-in function
+
+// ADD CODE HERE
+function dateStamp(func) {
+  // Return a new function that accepts any number of arguments using the rest parameter syntax
+  return function(...args) {
+    // Get today's date in a human-readable string format (e.g., "YYYY-MM-DD")
+    const today = new Date().toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit'
+    });
+
+    // Invoke the passed-in function with the provided arguments
+    const output = func(...args);
+
+    // Return an object containing the date and output
+    return {
+      date: today,
+      output: output
+    };
+  };
+}
+
+
+// Uncomment these to check your work!
+const stampedMultBy2 = dateStamp(n => n * 2);
+console.log(stampedMultBy2(4)); // should log: { date: (today's date), output: 8 }
+console.log(stampedMultBy2(6)); // should log: { date: (today's date), output: 12 }
