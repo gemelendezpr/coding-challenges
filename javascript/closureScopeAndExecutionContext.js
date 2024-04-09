@@ -419,3 +419,74 @@ function dateStamp(func) {
 const stampedMultBy2 = dateStamp(n => n * 2);
 console.log(stampedMultBy2(4)); // should log: { date: (today's date), output: 8 }
 console.log(stampedMultBy2(6)); // should log: { date: (today's date), output: 12 }
+
+//13. Challenge: censor
+
+// Create a function censor that accepts no arguments. censor will return a function that will accept either two strings, or one string. When two strings are given, the returned function will hold onto the two strings as a pair, for future use. When one string is given, the returned function will return the same string, except all instances of a first string (of a saved pair) will be replaced with the second string (of a saved pair).
+
+// Is it working? Check my answer
+// censor should create and return a function
+
+// The function returned from censor should not return anything when two strings are given
+
+// The function returned from censor should return a string when one string is given
+
+// The returned string should be the same as the input string, with all instances of a first string in a saved pair replaced with the second string
+
+// ADD CODE HERE
+function censor() {
+  // Initialize an empty object to hold pairs of strings
+  const pairs = {};
+
+  // Define and return the inner function
+  return function(arg1, arg2) {
+    // Check the number of arguments passed to the inner function
+    if (arguments.length === 2) {
+      // If two arguments are provided, save them as a pair in the 'pairs' object
+      pairs[arg1] = arg2;
+    } else if (arguments.length === 1) {
+      // If one argument is provided, replace instances of the first string in saved pairs
+      let result = arg1;
+      // Iterate over each pair in 'pairs' object
+      for (const key in pairs) {
+        if (pairs.hasOwnProperty(key)) {
+          // Replace all instances of 'key' with its corresponding value in 'pairs'
+          result = result.split(key).join(pairs[key]);
+        }
+      }
+      // Return the modified string
+      return result;
+    }
+  };
+}
+
+// Uncomment these to check your work!
+const changeScene = censor();
+changeScene('dogs', 'cats');
+changeScene('quick', 'slow');
+console.log(changeScene('The quick, brown fox jumps over the lazy dogs.')); // should log: 'The slow, brown fox jumps over the lazy cats.'
+
+
+// Explanation:
+
+// 1. `function censor() { ... }`: Defines a function named `censor` that accepts no arguments. This function will return another function.
+
+// 2. `const pairs = {};`: Initializes an empty object `pairs` to store pairs of strings. Each pair consists of a first string and its replacement string.
+
+// 3. `return function(arg1, arg2) { ... }`: Returns an inner function that accepts either one or two arguments.
+
+// 4. `if (arguments.length === 2) { ... }`: Checks if the inner function is called with two arguments. This scenario is used to save a pair of strings (`arg1` as key and `arg2` as value) into the `pairs` object.
+
+// 5. `else if (arguments.length === 1) { ... }`: Checks if the inner function is called with only one argument. This scenario is used to replace instances of the first string (of a saved pair) with the second string (of the same pair) in the provided argument.
+
+// 6. `let result = arg1;`: Initializes `result` variable with the provided string (`arg1`).
+
+// 7. `for (const key in pairs) { ... }`: Iterates over each pair in the `pairs` object using a `for...in` loop.
+
+// 8. `result = result.split(key).join(pairs[key]);`: Uses the `split()` method to split `result` into an array of substrings at each occurrence of `key` (the first string of a saved pair), and then uses `join()` method to join the array back into a string using the corresponding value from `pairs` (the second string of the same pair) to replace `key`.
+
+// 9. `return result;`: Returns the modified string after replacing all instances of saved pairs.
+
+// 10. Finally, we create an instance of the `censor` function named `changeScene`. We use `changeScene` to save pairs of strings ('dogs' and 'cats', 'quick' and 'slow') and then apply the string replacement logic to a given input string using the `changeScene` function.
+
+// When you run this code, the `console.log(changeScene('The quick, brown fox jumps over the lazy dogs.'));` statement will output: `'The slow, brown fox jumps over the lazy cats.'` This demonstrates the successful replacement of strings based on the saved pairs using the `censor` function.
