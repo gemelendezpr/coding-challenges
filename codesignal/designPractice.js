@@ -42,3 +42,133 @@ function sameRowSimpler(board) {
 
 // Both functions sameRowComplex and sameRowSimpler take a TicTacToe board as input and return true if any row of the board has the same character in all its positions, and false otherwise.
 // sameRowSimpler uses a simpler approach with nested loops to check each row of the board for equality of elements.
+
+//2. Sample problem: Growing Hedges
+// Problem statement
+
+// Create a function that takes in:
+// . an integer that represents a number of years,
+// . a 2 dimensional matrix filled with 0s and 1s that describes a garden. 1s represent hedges, and 0s represent empty spaces. 
+
+// The function should simulate the growth of hedges over the given number of years, according to the following rules:
+// 1.An empty square which is adjacent to a hedge (including diagonally) will be filled in the next year. 
+// 2.A square which is filled with a hedge will be empty the following year if it is surrounded on all eight sides by other hedges, which prevents it from getting enough sun. Note that hedges on the edge squares will always get enough sun.
+// 3.Any other squares will be left intact.
+
+// The function should return the number of pairs of adjacent hedges (including diagonally) at the end of this process. We’d like you to focus on writing simple, well-structured code; you will not be graded on optimizing the performance of your solution.
+
+// Examples:
+// Example 1. If the number of years is 1, and the initial matrix is
+// [[0, 0, 1],
+//  [0, 0, 0]]
+// the final matrix will be:
+// [[0, 1, 1],
+//  [0, 1, 1]]
+// and the function should output 6. Here are the six pairs of adjacent hedges in this garden:
+// [[0, 1, 1],    [[0, 1, 1],    [[0, 1, 1],    [[0, 1, 1],    [[0, 1, 1],    [[0, 1, 1],
+//  [0, 1, 1]]     [0, 1, 1]]     [0, 1, 1]]     [0, 1, 1]]     [0, 1, 1]]     [0, 1, 1]]
+// Example 2. If the number of years is 2, and the initial matrix is:
+// [[1, 0, 0, 0],
+//  [1, 1, 0, 0],
+//  [1, 0, 0, 1]]
+// the final matrix will be:
+// [[1, 1, 1, 1],
+//  [1, 0, 1, 1],
+//  [1, 1, 1, 1]]
+// And the function should output 21.
+
+// First, we'll define the countPopulatedNeighbors function to count the number of populated (hedge) neighbors around a given cell in the garden. Then, we'll implement the simulateOneYearGrowth function to simulate the garden's growth for one year based on the given rules. Finally, we'll use these functions to create the neighborsAfterYears function to simulate growth over multiple years and count the adjacent hedge pairs.
+
+// Function to count populated neighbors of a cell (i, j) in the garden
+function countPopulatedNeighbors(garden, i, j) {
+    let populatedNeighbors = 0;
+    const directions = [
+        [-1, -1], [-1, 0], [-1, 1],
+        [0, -1],         [0, 1],
+        [1, -1], [1, 0], [1, 1]
+    ];
+
+    for (const [deltaI, deltaJ] of directions) {
+        const neighborI = i + deltaI;
+        const neighborJ = j + deltaJ;
+
+        if (neighborI >= 0 && neighborI < garden.length &&
+            neighborJ >= 0 && neighborJ < garden[0].length &&
+            garden[neighborI][neighborJ] === 1) {
+            populatedNeighbors++;
+        }
+    }
+
+    return populatedNeighbors;
+}
+
+// Function to simulate garden growth for one year
+function simulateOneYearGrowth(garden) {
+    const newGarden = new Array(garden.length).fill(null)
+                        .map(() => new Array(garden[0].length).fill(0));
+
+    for (let i = 0; i < garden.length; i++) {
+        for (let j = 0; j < garden[0].length; j++) {
+            const populatedNeighbors = countPopulatedNeighbors(garden, i, j);
+
+            if (garden[i][j] === 1 && populatedNeighbors === 8) {
+                newGarden[i][j] = 0;
+            } else if (garden[i][j] === 0 && populatedNeighbors > 0) {
+                newGarden[i][j] = 1;
+            } else {
+                newGarden[i][j] = garden[i][j];
+            }
+        }
+    }
+
+    return newGarden;
+}
+
+// Function to count adjacent pairs of hedges in the final garden
+function countAdjacentPairs(garden) {
+    let adjacentPairs = 0;
+
+    for (let i = 0; i < garden.length; i++) {
+        for (let j = 0; j < garden[0].length; j++) {
+            if (garden[i][j] === 1) {
+                adjacentPairs += countPopulatedNeighbors(garden, i, j);
+            }
+        }
+    }
+
+    // Each pair was counted twice, so divide the result by 2
+    return Math.floor(adjacentPairs / 2);
+}
+
+// Function to simulate garden growth over given number of years and count adjacent pairs
+function neighborsAfterYears(garden, years) {
+    for (let year = 0; year < years; year++) {
+        garden = simulateOneYearGrowth(garden);
+    }
+
+    return countAdjacentPairs(garden);
+}
+
+// Example usage:
+const initialGarden1 = [
+    [0, 0, 1],
+    [0, 0, 0]
+];
+
+console.log(neighborsAfterYears(initialGarden1, 1)); // Output: 6
+
+const initialGarden2 = [
+    [1, 0, 0, 0],
+    [1, 1, 0, 0],
+    [1, 0, 0, 1]
+];
+
+console.log(neighborsAfterYears(initialGarden2, 2)); // Output: 21
+
+// In this implementation:
+
+// countPopulatedNeighbors: Counts the number of populated (hedge) neighbors around a given cell.
+// simulateOneYearGrowth: Simulates the garden's growth for one year based on the rules provided.
+// countAdjacentPairs: Counts the number of adjacent pairs of hedges in the final garden.
+// neighborsAfterYears: Simulates garden growth over the given number of years and counts adjacent pairs of hedges in the final garden.
+// We used nested loops to iterate over the garden cells and implemented the rules specified in the problem to update the garden state accordingly. Finally, we applied these functions to the provided examples to verify correctness.
