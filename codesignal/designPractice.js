@@ -172,3 +172,60 @@ console.log(neighborsAfterYears(initialGarden2, 2)); // Output: 21
 // countAdjacentPairs: Counts the number of adjacent pairs of hedges in the final garden.
 // neighborsAfterYears: Simulates garden growth over the given number of years and counts adjacent pairs of hedges in the final garden.
 // We used nested loops to iterate over the garden cells and implemented the rules specified in the problem to update the garden state accordingly. Finally, we applied these functions to the provided examples to verify correctness.
+
+// General Explanation:
+
+// The code snippet you provided is a call to the neighborsAfterYears function, which simulates the growth of a garden over a given number of years and counts the number of adjacent pairs of hedges in the final garden. The initialGarden1 variable is a 2D array that represents the initial state of the garden, with 1s representing hedges and 0s representing empty spaces.
+
+// The neighborsAfterYears function takes two arguments: the initial garden and the number of years to simulate growth. It works by repeatedly calling the simulateOneYearGrowth function to update the state of the garden each year. The simulateOneYearGrowth function counts the number of populated neighbors for each cell in the garden and updates the cell's state accordingly. If a cell has 8 populated neighbors, it dies. If a cell has 0 populated neighbors, it remains empty. If a cell has 1-7 populated neighbors, it becomes a hedge.
+
+// After simulating the growth of the garden for the given number of years, the neighborsAfterYears function calls the countAdjacentPairs function to count the number of adjacent pairs of hedges in the final garden. The countAdjacentPairs function iterates over each cell in the garden and counts the number of populated neighbors for each cell that is a hedge. It then divides the result by 2 to account for the fact that each pair of hedges was counted twice.
+
+// In the example usage, the neighborsAfterYears function is called with the initialGarden1 variable and the number of years to simulate growth set to 1. The result is then printed to the console. In this case, the output is 6, which means that there are 6 adjacent pairs of hedges in the final garden after 1 year of growth.
+
+//Visualization:
+
+// To visualize the garden matrix initialGarden1 from the example usage, let's represent it as a 2-dimensional grid where 1s represent hedges and 0s represent empty spaces.
+
+// The initialGarden1 matrix is:
+
+// [[0, 0, 1],
+//  [0, 0, 0]]
+
+//  Let's visualize this as a grid:
+
+//  0 0 1
+//  0 0 0
+
+//  In this grid:
+
+// 0 represents an empty space.
+// 1 represents a hedge.
+
+// So, the garden looks like this:
+
+// 0 1 2
+// 0 [0,0,1]
+// 1 [0,0,0]
+
+// After one year of growth, the garden will evolve based on the specified rules. The function neighborsAfterYears(initialGarden1, 1) will simulate this growth and return the number of adjacent hedge pairs.
+
+// Let's walk through the growth process:
+
+// The 1 at position (0,2) (row 0, column 2) has one adjacent empty space, so it will fill the adjacent empty space in the next year.
+// After one year, the garden will look like:
+
+//    0 1 2
+// 0 [0,1,1]
+// 1 [0,1,1]
+
+
+// Here, six pairs of adjacent hedges (`1`s) have formed:
+// - (0,1) and (0,2)
+// - (0,2) and (1,1)
+// - (0,2) and (1,2)
+// - (1,1) and (0,2)
+// - (1,1) and (1,2)
+// - (1,2) and (0,2)
+
+// Therefore, the function `neighborsAfterYears(initialGarden1, 1)` should return `6`, which represents the number of adjacent hedge pairs after one year of growth.
