@@ -195,39 +195,71 @@
 * =========== */
 
 
-function range(start, end) {
-    //your code goes here...
-   let result = ''; // Initialize an empty string to store the output
+// function range(start, end) {
+//     //your code goes here...
+//    let result = ''; // Initialize an empty string to store the output
     
-    // Check if start is less than or equal to end
-    if (start <= end) {
-      // Loop from start to end, inclusive
-      for (var i = start; i <= end; i++) {
-        // Append the current number to the result string
-        result += i.toString();
+//     // Check if start is less than or equal to end
+//     if (start <= end) {
+//       // Loop from start to end, inclusive
+//       for (var i = start; i <= end; i++) {
+//         // Append the current number to the result string
+//         result += i.toString();
         
-        // Append a comma and space if it's not the last number
-        if (i !== end) {
-          result += ", ";
-        }
-      }
-    } else {
-      // Loop from start to end, inclusive
-      for (var i = start; i >= end; i--) {
-        // Append the current number to the result string
-        result += i.toString();
+//         // Append a comma and space if it's not the last number
+//         if (i !== end) {
+//           result += ", ";
+//         }
+//       }
+//     } else {
+//       // Loop from start to end, inclusive
+//       for (var i = start; i >= end; i--) {
+//         // Append the current number to the result string
+//         result += i.toString();
         
-        // Append a comma and space if it's not the last number
-        if (i !== end) {
-          result += ", ";
-        }
-      }
-    }
+//         // Append a comma and space if it's not the last number
+//         if (i !== end) {
+//           result += ", ";
+//         }
+//       }
+//     }
     
-    // Print the result string
-    console.log(result);
-  }
+//     // Print the result string
+//     console.log(result);
+//   }
   
-  //Uncomment the lines below to test your code
-  range(1,4) //=> 1, 2, 3, 4
-  range(4,2) //=> '4, 3, 2'
+//   //Uncomment the lines below to test your code
+//   range(1,4) //=> 1, 2, 3, 4
+//   range(4,2) //=> '4, 3, 2'
+
+
+// Group Meetings CSBin 
+// Challenge 1
+
+// Return the number of times that the string "hi" appears anywhere in the given string.
+
+// countHi("abc hi ho") → 1
+// countHi("ABChi hi") → 2
+// countHi("hihi") → 2
+
+function countHi(str) {
+  // Step 1: Initialize a counter to keep track of the number of "hi" occurrences
+  let count = 0;
+
+  // Step 2: Loop through the string to check for "hi" occurrences
+  for (let i = 0; i < str.length - 1; i++) {
+    // Step 3: Check if the current character and the next character form the substring "hi"
+    if (str.substring(i, i + 2) === 'hi') {
+      // If "hi" is found, increment the counter
+      count++;
+    }
+  }
+
+  // Step 4: Return the final count of "hi" occurrences
+  return count;
+}
+
+// Test cases to check the function
+console.log(countHi("abc hi ho")); // Output: 1 (one occurrence of "hi")
+console.log(countHi("ABChi hi")); // Output: 2 (two occurrences of "hi")
+console.log(countHi("hihi")); // Output: 2 (two occurrences of "hi")
