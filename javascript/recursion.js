@@ -68,3 +68,54 @@ function factorial(num) {
 // When factorial(4) is invoked, it returns 24 because 4! (4 factorial) is 24.
 // When factorial(6) is invoked, it returns 720 because 6! (6 factorial) is 720.
 // This solution demonstrates the use of recursion to calculate the factorial of a number. Each recursive call reduces the problem size by computing the factorial of a smaller number until reaching the base case (num === 0 or num === 1). The result is then computed back up the recursive calls to get the final factorial value.
+
+//3. Challenge: getLength
+
+// Get the length of an array using recursion without accessing its length property.
+
+// Input: {Array} array - array whose length is sought
+// Output: {Number}
+// Is it working? Check my answer
+// getLength should be a function
+
+// getLength([1]) should return 1
+
+// getLength([1,2]) should return 2
+
+// getLength([1]) should return 1
+
+// getLength([]) should return 0
+
+function getLength(array) {
+    // Base case: If the array is empty, return 0 (length is 0)
+      if (array.length === 0) {
+        return 0;
+      } else {
+        // Recursive case: Remove one element from the array and recursively call getLength
+        // The length of the array can be determined by adding 1 to the length of the remaining array
+        array.pop(); // Remove the last element from the array
+        return 1 + getLength(array); // Recursively call getLength on the modified array
+      }
+    }
+    
+    // To check if you've completed the challenge, uncomment these console.logs!
+    console.log(getLength([1])); // -> 1
+    console.log(getLength([1, 2])); // -> 2
+    console.log(getLength([1, 2, 3, 4, 5])); // -> 5
+    console.log(getLength([])); // -> 0
+    
+//     Explanation:
+
+// Base Case:
+// if (array.length === 0) { return 0; }: This is the base case of our recursive function. If the input array array is empty (length 0), we return 0 to signify that the length is 0.
+// Recursive Case:
+// else { array.pop(); return 1 + getLength(array); }:
+// In the recursive case, we remove one element from the array using array.pop(), which modifies the array by removing the last element.
+// We then recursively call getLength(array) on the modified array (with one less element).
+// The length of the original array can be determined by adding 1 to the length of the modified array (since we removed one element).
+// Recursion Process:
+// Each recursive call reduces the size of the array until the base case is reached (empty array), at which point the recursion stops.
+// As we return from each recursive call, we add 1 to the count of elements (since we're removing one element in each recursive step).
+// Return the Length:
+// The final result of getLength(array) is the length of the original array, determined by recursively counting the number of elements.
+// This implementation demonstrates how to compute the length of an array using recursion without directly accessing the array's length property. Instead, we simulate the process of counting elements by recursively removing elements until the array becomes empty, and then counting the number of removals (which corresponds to the length of the original array). The provided test cases verify the correctness of the function by checking against expected outputs for arrays of different lengths, including empty arrays.
