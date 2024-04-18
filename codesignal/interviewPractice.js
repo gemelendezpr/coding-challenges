@@ -64,8 +64,6 @@ function solution(a) {
 
 // You can return the answer in any order.
 
- 
-
 // Example 1:
 
 // Input: nums = [2,7,11,15], target = 9
@@ -333,3 +331,156 @@ console.log("Number of 3x3 magic square subgrids:", result); // => Number of 3x3
 
 // // Log the result
 // console.log("Number of 3x3 magic square subgrids:", result); // => Number of 3x3 magic square subgrids: 0
+
+
+
+
+//Challenge 5. 121. Best Time to Buy and Sell Stock
+// Easy
+
+// Topics
+// Companies
+// You are given an array prices where prices[i] is the price of a given stock on the ith day.
+
+// You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+
+// Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+
+// Example 1:
+
+// Input: prices = [7,1,5,3,6,4]
+// Output: 5
+// Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+// Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+// Example 2:
+
+// Input: prices = [7,6,4,3,1]
+// Output: 0
+// Explanation: In this case, no transactions are done and the max profit = 0.
+
+// To solve the problem of finding the maximum profit from buying and selling a stock given its prices on different days, we can use a simple approach that involves tracking the minimum price encountered so far and calculating the potential profit if we were to sell the stock on that day.
+
+// Here's the complete code with detailed explanations:
+
+
+var maxProfit = function(prices) {
+  // Step 1: Initialize variables to track maximum profit and minimum price
+  let maxProfit = 0;
+  let minPrice = Infinity;
+
+  // Step 2: Loop through the prices array
+  for (let i = 0; i < prices.length; i++) {
+    // Step 3: Update the minimum price encountered so far
+    minPrice = Math.min(minPrice, prices[i]);
+
+    // Step 4: Calculate potential profit if selling on the current day
+    maxProfit = Math.max(maxProfit, prices[i] - minPrice);
+  }
+
+  // Step 5: Return the maximum profit obtained
+  return maxProfit;
+};
+
+// Test cases
+console.log(maxProfit([7, 1, 5, 3, 6, 4])); // Output: 5
+console.log(maxProfit([7, 6, 4, 3, 1])); // Output: 0
+
+
+// Explanation:
+
+// 1. **Initialization**:
+//    - We initialize two variables: `maxProfit` to track the maximum profit achieved and `minPrice` to track the minimum price encountered so far. We start `minPrice` with `Infinity` to ensure any stock price encountered will be smaller.
+
+// 2. **Loop through Prices** (`for (let i = 0; i < prices.length; i++)`):
+//    - We iterate through the `prices` array using a `for` loop.
+
+// 3. **Update Minimum Price** (`minPrice = Math.min(minPrice, prices[i]);`):
+//    - For each day's price `prices[i]`, we update `minPrice` to be the minimum of the current `minPrice` and the current price `prices[i]`. This ensures we always have the lowest price encountered so far.
+
+// 4. **Calculate Potential Profit** (`maxProfit = Math.max(maxProfit, prices[i] - minPrice);`):
+//    - For each day's price `prices[i]`, we calculate the potential profit if we were to sell the stock on that day (`prices[i] - minPrice`). We update `maxProfit` to be the maximum of the current `maxProfit` and this potential profit.
+
+// 5. **Return Maximum Profit**:
+//    - After iterating through all prices, `maxProfit` will contain the maximum profit achievable by buying the stock at the lowest price encountered and selling it at the highest price thereafter.
+//    - We return `maxProfit` as the final result.
+
+// This approach leverages a single pass through the `prices` array (`O(n)` time complexity) and constant additional space (`O(1)` space complexity), making it efficient for finding the maximum profit from a single buy-sell transaction of a stock. The provided test cases demonstrate the correctness of the solution for different scenarios of stock prices.
+
+
+
+
+// Challenge 6. 238. Product of Array Except Self
+// Medium
+
+// Topics
+// Companies
+
+// Hint
+// Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].
+
+// The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
+
+// You must write an algorithm that runs in O(n) time and without using the division operation.
+
+// Example 1:
+
+// Input: nums = [1,2,3,4]
+// Output: [24,12,8,6]
+// Example 2:
+
+// Input: nums = [-1,1,0,-3,3]
+// Output: [0,0,9,0,0]
+
+// To solve the problem of computing the product of all elements in an array except for the current element, we can use an efficient approach that utilizes prefix and suffix products. The goal is to achieve a solution with O(n) time complexity and without using division.
+
+// Here's the step-by-step explanation and implementation:
+
+var productExceptSelf = function(nums) {
+  // Step 1: Initialize variables
+  const n = nums.length;
+  const output = new Array(n);
+  
+  // Step 2: Calculate prefix products
+  let prefixProduct = 1;
+  for (let i = 0; i < n; i++) {
+    output[i] = prefixProduct;
+    prefixProduct *= nums[i];
+  }
+  
+  // Step 3: Calculate suffix products and combine with prefix products
+  let suffixProduct = 1;
+  for (let i = n - 1; i >= 0; i--) {
+    output[i] *= suffixProduct;
+    suffixProduct *= nums[i];
+  }
+  
+  // Step 4: Return the final output array
+  return output;
+};
+
+// Test cases
+console.log(productExceptSelf([1, 2, 3, 4])); // Output: [24, 12, 8, 6]
+console.log(productExceptSelf([-1, 1, 0, -3, 3])); // Output: [0, 0, 9, 0, 0]
+
+
+// Explanation:
+
+// 1. **Initialization**:
+//    - Initialize `n` to the length of the input array `nums`.
+//    - Create a new array `output` of the same length to store the results.
+
+// 2. **Calculate Prefix Products**:
+//    - Use a loop to calculate the product of all elements to the left of each element in `nums`.
+//    - Initialize `prefixProduct` to `1` and iterate over `nums`.
+//    - Store the current `prefixProduct` in `output[i]` and update `prefixProduct` by multiplying it with `nums[i]`.
+
+// 3. **Calculate Suffix Products and Combine**:
+//    - Use another loop to calculate the product of all elements to the right of each element in `nums`.
+//    - Initialize `suffixProduct` to `1` and iterate backwards over `nums`.
+//    - Multiply `output[i]` with the current `suffixProduct` and update `suffixProduct` by multiplying it with `nums[i]`.
+
+// 4. **Return Final Output**:
+//    - After both prefix and suffix products are calculated and combined in `output`, return `output` as the final result.
+
+// This approach efficiently computes the product of all elements except the current element by leveraging prefix and suffix products. The algorithm runs in O(n) time complexity since it involves two passes over the input array (`nums`). The solution avoids using division, ensuring that it meets the problem's requirements. The provided test cases demonstrate the correctness of the solution for different input arrays.
+
