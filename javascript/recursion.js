@@ -119,3 +119,27 @@ function getLength(array) {
 // Return the Length:
 // The final result of getLength(array) is the length of the original array, determined by recursively counting the number of elements.
 // This implementation demonstrates how to compute the length of an array using recursion without directly accessing the array's length property. Instead, we simulate the process of counting elements by recursively removing elements until the array becomes empty, and then counting the number of removals (which corresponds to the length of the original array). The provided test cases verify the correctness of the function by checking against expected outputs for arrays of different lengths, including empty arrays.
+
+//4. Challenge: POW
+
+// Write a function that takes two inputs, a base and an exponent, and returns the expected value of base ^ exponent. For instance, if our base is 2 and our exponent is 3, then return 8 because 2^3 = 2*2*2 = 8.
+
+function pow(base, exponent) {
+    // Base case: If exponent is 0, return 1 (base^0 is 1)
+    if (exponent === 0) {
+      return 1;
+    } else if (exponent > 0) {
+      // Recursive case: Calculate base^exponent using recursion
+      return base * pow(base, exponent - 1);
+    } else {
+      // Handle negative exponents by taking the reciprocal of the positive power
+      return 1 / pow(base, -exponent);
+    }
+  }
+  
+  // To check if you've completed the challenge, uncomment these console.logs!
+  console.log(pow(2, 4)); // Output: 16 (2^4 = 2 * 2 * 2 * 2 = 16)
+  console.log(pow(3, 5)); // Output: 243 (3^5 = 3 * 3 * 3 * 3 * 3 = 243)
+  console.log(pow(5, 0)); // Output: 1 (5^0 = 1)
+  console.log(pow(2, -3)); // Output: 0.125 (2^(-3) = 1 / (2^3) = 1 / 8 = 0.125)
+  
