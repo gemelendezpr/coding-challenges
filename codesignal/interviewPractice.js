@@ -1,4 +1,4 @@
-//1. Challenge: firstDuplicate 
+//Challenge 1. Challenge: firstDuplicate 
 
 // Given an array a that contains only numbers in the range from 1 to a.length, find the first duplicate number for which the second occurrence has the minimal index. In other words, if there are more than 1 duplicated numbers, return the number for which the second occurrence has a smaller index than the second occurrence of the other number does. If there are no such elements, return -1.
 
@@ -50,8 +50,13 @@ function solution(a) {
   console.log(solution(a2)); // Output: -1
 
   //This solution iterates through the array a, keeping track of encountered numbers in the seen object. If a number is encountered again, it's a duplicate, and the function returns that number. If no duplicates are found, the function returns -1.
+ 
   
-//2. Two Sum (Easy)
+
+
+
+
+//Challenge 2. Two Sum (Easy)
 
 // Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 
@@ -77,44 +82,66 @@ function solution(a) {
 
 //Solution
 
+// To solve the problem of finding two numbers in an array `nums` that add up to a target value `target`, we can use a hashmap (or JavaScript object) to keep track of the numbers we've seen so far as we iterate through the array. Here's the complete code with detailed explanations:
+
 // Define a function named twoSum that takes an array of integers nums and an integer target.
 var twoSum = function(nums, target) {
-    // Create an empty object to store the indices of visited numbers.
-    const visited = {};
+  // Step 1: Create an empty hashmap to store seen numbers and their indices
+  const numMap = {};
 
-    // Iterate through each element and its index in the nums array.
-    for (let i = 0; i < nums.length; i++) {
-        // Calculate the difference between the target and the current number.
-        const complement = target - nums[i];
-        
-        // Check if the complement exists in the visited object.
-        if (visited.hasOwnProperty(complement)) {
-            // If the complement exists, return the indices of the current number and its complement.
-            return [visited[complement], i];
-        }
-        
-        // Store the index of the current number in the visited object.
-        visited[nums[i]] = i;
+  // Step 2: Loop through the array
+  for (let i = 0; i < nums.length; i++) {
+    // Step 3: Calculate the complement needed to reach the target
+    const complement = target - nums[i];
+
+    // Step 4: Check if the complement exists in the hashmap (previously seen number)
+    if (complement in numMap) {
+      // If complement exists, return the indices of current number and its complement
+      return [numMap[complement], i];
     }
-    
-    // If no solution is found, return an empty array.
-    return [];
+
+    // Step 5: Store the current number and its index in the hashmap
+    numMap[nums[i]] = i;
+  }
+
+  // Step 6: If no solution is found, return an empty array (though problem states each input has exactly one solution)
+  return [];
 };
 
-// Example cases to test the solution
-const nums1 = [2, 7, 11, 15];
-const target1 = 9;
-console.log(twoSum(nums1, target1)); // Output: [0, 1]
+// Test cases
+console.log(twoSum([2, 7, 11, 15], 9)); // Output: [0, 1]
+console.log(twoSum([3, 2, 4], 6)); // Output: [1, 2]
+console.log(twoSum([3, 3], 6)); // Output: [0, 1]
 
-const nums2 = [3, 2, 4];
-const target2 = 6;
-console.log(twoSum(nums2, target2)); // Output: [1, 2]
+// Explanation:
 
-const nums3 = [3, 3];
-const target3 = 6;
-console.log(twoSum(nums3, target3)); // Output: [0, 1]
+// 1. **HashMap Initialization**:
+//    - We create an empty hashmap `numMap` to store the numbers we've seen so far as keys and their indices as values.
 
-  //3. Challenge: Rotate List (Medium)
+// 2. **Iterating Through the Array** (`for (let i = 0; i < nums.length; i++)`):
+//    - We loop through each number in the `nums` array using an index `i`.
+
+// 3. **Calculating Complement** (`const complement = target - nums[i];`):
+//    - For each number `nums[i]`, we calculate the complement needed to reach the `target` sum.
+
+// 4. **Checking Complement in HashMap** (`if (complement in numMap) { return [numMap[complement], i]; }`):
+//    - We check if the `complement` exists in our hashmap (`numMap`).
+//    - If the complement exists as a key in the hashmap, it means we've seen this complement before, and we found our solution. We return the indices `[numMap[complement], i]` representing the indices of the two numbers that add up to `target`.
+
+// 5. **Storing Number and Index in HashMap** (`numMap[nums[i]] = i;`):
+//    - If the complement is not found in the hashmap, we store the current number `nums[i]` as a key in the hashmap with its index `i` as the value.
+
+// 6. **Returning Result**:
+//    - If no solution is found after iterating through the entire array (though the problem guarantees a solution exists), we return an empty array `[]`.
+
+// This approach utilizes a single pass through the array (`O(n)` time complexity) and constant additional space (`O(n)` space complexity for the hashmap), making it efficient for finding the indices of two numbers that sum up to a given target in an array of integers. The provided test cases demonstrate the correctness of the solution for various input arrays and target values.
+
+
+
+
+
+
+//Challenge 3. Challenge: Rotate List (Medium)
 
 // Given the head of a linked list, rotate the list to the right by k places.
 // Example 1:  Input: head = [1,2,3,4,5], k = 2
