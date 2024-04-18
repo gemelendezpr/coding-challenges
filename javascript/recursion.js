@@ -143,3 +143,15 @@ function pow(base, exponent) {
   console.log(pow(5, 0)); // Output: 1 (5^0 = 1)
   console.log(pow(2, -3)); // Output: 0.125 (2^(-3) = 1 / (2^3) = 1 / 8 = 0.125)
   
+//   Explanation:
+
+// Base Case (if (exponent === 0) { return 1; }):
+// If the exponent is 0, we return 1 because any number raised to the power of 0 is 1 (base^0 = 1).
+// Recursive Case (else if (exponent > 0) { return base * pow(base, exponent - 1); }):
+// If the exponent is positive (exponent > 0), we recursively compute base^exponent by multiplying base with the result of pow(base, exponent - 1).
+// Each recursive call reduces the exponent by 1 until reaching the base case (exponent === 0).
+// Handling Negative Exponents (else { return 1 / pow(base, -exponent); }):
+// If the exponent is negative (exponent < 0), we handle it by taking the reciprocal of the positive power (base^-exponent is equivalent to 1 / (base^exponent)).
+// Return the Result:
+// The final result of pow(base, exponent) is computed using recursion based on the specified rules for positive, zero, and negative exponents.
+// This implementation demonstrates how to compute the power of a base raised to an exponent using recursion. The recursive approach efficiently breaks down the problem into smaller subproblems, leading to a solution that computes the expected value of base^exponent according to the specified rules. The provided test cases verify the correctness of the function by checking against expected outputs for different combinations of base and exponent values, including zero and negative exponents.
