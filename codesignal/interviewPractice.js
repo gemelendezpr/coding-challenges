@@ -484,3 +484,74 @@ console.log(productExceptSelf([-1, 1, 0, -3, 3])); // Output: [0, 0, 9, 0, 0]
 
 // This approach efficiently computes the product of all elements except the current element by leveraging prefix and suffix products. The algorithm runs in O(n) time complexity since it involves two passes over the input array (`nums`). The solution avoids using division, ensuring that it meets the problem's requirements. The provided test cases demonstrate the correctness of the solution for different input arrays.
 
+//7. 53. Maximum Subarray
+/* Medium
+
+Topics
+Companies
+Given an integer array nums, find the 
+subarray
+ with the largest sum, and return its sum.
+
+ 
+
+Example 1:
+
+Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
+Output: 6
+Explanation: The subarray [4,-1,2,1] has the largest sum 6.
+Example 2:
+
+Input: nums = [1]
+Output: 1
+Explanation: The subarray [1] has the largest sum 1.
+Example 3:
+
+Input: nums = [5,4,-1,7,8]
+Output: 23
+Explanation: The subarray [5,4,-1,7,8] has the largest sum 23.
+
+*/
+
+//To solve the problem of finding the maximum sum of any contiguous subarray within an array `nums`, we can use Kadane's algorithm, which efficiently computes this in O(n) time complexity.
+
+var maxSubArray = function(nums) {
+  // Step 1: Initialize variables
+  let maxSum = nums[0]; // Initialize maxSum with the first element of the array
+  let currentSum = nums[0]; // Initialize currentSum with the first element of the array
+  
+  // Step 2: Loop through the array starting from the second element
+  for (let i = 1; i < nums.length; i++) {
+    // Update currentSum to be the maximum of the current number or current number + previous sum
+    currentSum = Math.max(nums[i], currentSum + nums[i]);
+    
+    // Update maxSum to be the maximum of currentSum and maxSum
+    maxSum = Math.max(maxSum, currentSum);
+  }
+  
+  // Step 3: Return the maximum sum found
+  return maxSum;
+};
+
+// Test cases
+console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4])); // Output: 6
+console.log(maxSubArray([1])); // Output: 1
+console.log(maxSubArray([5, 4, -1, 7, 8])); // Output: 23
+
+
+// Explanation:
+
+// 1. **Initialization**:
+//    - Initialize `maxSum` and `currentSum` to the first element of the array (`nums[0]`). This sets the initial maximum sum and current sum to the value of the first element.
+
+// 2. **Loop through the Array** (`for (let i = 1; i < nums.length; i++)`):
+//    - Iterate through the array starting from the second element (`i = 1`).
+//    - For each element `nums[i]`, update `currentSum` to be the maximum between `nums[i]` (starting a new subarray) or `currentSum + nums[i]` (extending the current subarray).
+//    - Update `maxSum` to be the maximum between `maxSum` and `currentSum`. This ensures `maxSum` always holds the maximum sum of any subarray encountered so far.
+
+// 3. **Return the Maximum Sum**:
+//    - After iterating through the entire array, `maxSum` will hold the maximum sum of any contiguous subarray within `nums`.
+//    - Return `maxSum` as the final result.
+
+// This approach effectively computes the maximum sum of any contiguous subarray using Kadane's algorithm, which operates in O(n) time complexity and O(1) additional space. The provided test cases demonstrate the correctness of the solution for different input arrays.
+
