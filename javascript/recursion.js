@@ -155,3 +155,42 @@ function pow(base, exponent) {
 // Return the Result:
 // The final result of pow(base, exponent) is computed using recursion based on the specified rules for positive, zero, and negative exponents.
 // This implementation demonstrates how to compute the power of a base raised to an exponent using recursion. The recursive approach efficiently breaks down the problem into smaller subproblems, leading to a solution that computes the expected value of base^exponent according to the specified rules. The provided test cases verify the correctness of the function by checking against expected outputs for different combinations of base and exponent values, including zero and negative exponents.
+
+//5. Challenge: flow
+
+// Write a function that takes an array of functions and a number that will be piped through all those functions. The input number passes through the first function, whose output is passed as input to the second function, whose output is passed as input to the third function, and so on. Use recursion to return the final output of the last function in the array.
+
+// Input 1: {Number} input - number flowing through all functions
+// Input 2: {Array} funcArray - array of functions to pass input through
+// Output: {Number} - final output of final function
+
+
+function flow(input, funcArray) {
+    // Base case: if there are no functions left to apply, return the input
+    if (funcArray.length === 0) {
+        return input;
+    } else {
+        // Get the first function from the array
+        const currentFunction = funcArray[0];
+        // Apply the current function to the input
+        const output = currentFunction(input);
+        // Recursively call flow with the remaining functions and the output of the current function
+        return flow(output, funcArray.slice(1));
+    }
+}
+
+// To check if you've completed the challenge, uncomment this code!
+function multiplyBy2(num) { return num * 2; }
+function add7(num) { return num + 7; }
+function modulo4(num) { return num % 4; }
+function subtract10(num) { return num - 10; }
+const arrayOfFunctions = [multiplyBy2, add7, modulo4, subtract10];
+console.log(flow(2, arrayOfFunctions)); // -> -7
+
+
+// Explanation:
+// - In the `flow` function, we first check the base case. If `funcArray` (array of functions) is empty, meaning there are no functions left to apply, we return the `input` unchanged.
+// - Otherwise, we take the first function `currentFunction` from `funcArray`.
+// - We apply `currentFunction` to the `input`, which gives us the `output`.
+// - Then, we recursively call `flow` with this `output` as the new `input` and with the rest of the functions (`funcArray.slice(1)`) to continue applying the remaining functions.
+// - This recursion continues until we've applied all functions in `funcArray`, and finally, we return the result.
