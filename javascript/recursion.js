@@ -194,3 +194,65 @@ console.log(flow(2, arrayOfFunctions)); // -> -7
 // - We apply `currentFunction` to the `input`, which gives us the `output`.
 // - Then, we recursively call `flow` with this `output` as the new `input` and with the rest of the functions (`funcArray.slice(1)`) to continue applying the remaining functions.
 // - This recursion continues until we've applied all functions in `funcArray`, and finally, we return the result.
+
+//6. Challenge: shuffleCards
+
+// You are creating a card game application with your friend.
+
+// She already wrote a function that divides the deck of cards into top and bottom halves, but needs help writing a function that shuffles the two halves together again.
+
+// Challenge
+// Write a function that takes two arrays as inputs, representing the top and bottom halves of a deck of cards, and shuffles them together. The function will return a single array containing the elements from both input arrays interleaved, like so:
+
+// the first element should be the first element of the first input array,
+
+// the second element should be the first element of the second input array,
+
+// the third element should be the second element of the first input array,
+
+// the fourth element should be the second element of the second array,
+
+// and so on.
+
+// The arrays may be of different lengths. After interleaving the elements of the input arrays, any remaining elements should be appended to the end of the array.
+
+// This problem can be solved in many ways, but try to solve it with recursion!
+
+/**
+ * Interleave two arrays recursively to shuffle the cards.
+ * @param {Array} topHalf - Cards in the top half of the deck.
+ * @param {Array} bottomHalf - Cards in the bottom half of the deck.
+ * @returns {Array} - The shuffled deck of cards.
+ */
+function shuffleCards(topHalf, bottomHalf) {
+    // Base case: If both arrays are empty, return an empty array
+    if (topHalf.length === 0 && bottomHalf.length === 0) {
+        return [];
+    }
+
+    // Initialize result array
+    const result = [];
+
+    // If topHalf is not empty, add its first element to the result
+    if (topHalf.length > 0) {
+        result.push(topHalf.shift()); // Remove and return the first element of topHalf
+    }
+
+    // If bottomHalf is not empty, add its first element to the result
+    if (bottomHalf.length > 0) {
+        result.push(bottomHalf.shift()); // Remove and return the first element of bottomHalf
+    }
+
+    // Recursively shuffle the remaining parts of topHalf and bottomHalf
+    const remainingCards = shuffleCards(topHalf, bottomHalf);
+
+    // Concatenate the remaining cards to the result
+    return result.concat(remainingCards);
+}
+
+// Test the shuffleCards function
+const topHalf = ['Queen of Diamonds', 'Five of Hearts', 'Ace of Spades', 'Eight of Clubs'];
+const bottomHalf = ['Jack of Hearts', 'Ten of Spades'];
+console.log(shuffleCards(topHalf.slice(), bottomHalf.slice()));
+// Output:
+// ['Queen of Diamonds', 'Jack of Hearts', 'Five of Hearts', 'Ten of Spades', 'Ace of Spades', 'Eight of Clubs']
