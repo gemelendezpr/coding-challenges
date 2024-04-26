@@ -235,12 +235,14 @@ function shuffleCards(topHalf, bottomHalf) {
 
     // If topHalf is not empty, add its first element to the result
     if (topHalf.length > 0) {
-        result.push(topHalf.shift()); // Remove and return the first element of topHalf
+        result.push(topHalf[0]);
+        topHalf = topHalf.slice(1); // Remove the first element from topHalf
     }
 
     // If bottomHalf is not empty, add its first element to the result
     if (bottomHalf.length > 0) {
-        result.push(bottomHalf.shift()); // Remove and return the first element of bottomHalf
+        result.push(bottomHalf[0]);
+        bottomHalf = bottomHalf.slice(1); // Remove the first element from bottomHalf
     }
 
     // Recursively shuffle the remaining parts of topHalf and bottomHalf
@@ -253,6 +255,23 @@ function shuffleCards(topHalf, bottomHalf) {
 // Test the shuffleCards function
 const topHalf = ['Queen of Diamonds', 'Five of Hearts', 'Ace of Spades', 'Eight of Clubs'];
 const bottomHalf = ['Jack of Hearts', 'Ten of Spades'];
-console.log(shuffleCards(topHalf.slice(), bottomHalf.slice()));
+
+const shuffledDeck = shuffleCards(topHalf, bottomHalf);
+console.log(shuffledDeck);
 // Output:
 // ['Queen of Diamonds', 'Jack of Hearts', 'Five of Hearts', 'Ten of Spades', 'Ace of Spades', 'Eight of Clubs']
+
+
+// In this updated implementation:
+
+// - We use `result.push(topHalf[0])` and `result.push(bottomHalf[0])` to add the first elements of `topHalf` and `bottomHalf` arrays to the `result` array respectively.
+
+// - After pushing the first elements, we use `topHalf = topHalf.slice(1)` and `bottomHalf = bottomHalf.slice(1)` to remove the first elements from `topHalf` and `bottomHalf` arrays. This ensures that we progress to the next elements in each recursive call.
+
+// - We recursively call `shuffleCards` with the remaining parts of `topHalf` and `bottomHalf` arrays (`topHalf.slice(1)` and `bottomHalf.slice(1)`).
+
+// - The recursive calls continue until both `topHalf` and `bottomHalf` arrays are empty, at which point an empty array (`[]`) is returned to terminate the recursion.
+
+// - Finally, we concatenate `result` with `remainingCards` (result of the recursive call) using `result.concat(remainingCards)`, ensuring that the shuffled deck is correctly constructed with interleaved elements from `topHalf` and `bottomHalf`, with any remaining elements appended to the end.
+
+// This updated approach should correctly handle the interleaving of elements and appending of remaining elements, resulting in the shuffled deck of cards as expected. You can test this implementation with various input arrays to verify its correctness.
