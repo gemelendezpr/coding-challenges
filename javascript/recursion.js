@@ -275,3 +275,62 @@ console.log(shuffledDeck);
 // - Finally, we concatenate `result` with `remainingCards` (result of the recursive call) using `result.concat(remainingCards)`, ensuring that the shuffled deck is correctly constructed with interleaved elements from `topHalf` and `bottomHalf`, with any remaining elements appended to the end.
 
 // This updated approach should correctly handle the interleaving of elements and appending of remaining elements, resulting in the shuffled deck of cards as expected. You can test this implementation with various input arrays to verify its correctness.
+
+//7. Challenge: cascade
+
+// Write a function cascade that takes a positive integer and prints a cascade of this integer. Hint - this very challenging problem can be solved with and without string manipulation!
+
+// cascade(12345) should print
+
+// 12345
+// 1234
+// 123
+// 12
+// 1
+// 12
+// 123
+// 1234
+// 12345
+
+// Check my answer (Test)
+// cascade should be a function
+
+// cascade should return undefined
+
+// cascade should return a cascade of the input
+
+function cascade(number) {
+	// Base case: If number is less than or equal to 0, return undefined
+    if (number <= 0) {
+        return undefined;
+    }
+
+    // Print the current number
+    console.log(number);
+
+    // Recursively call cascade with the remaining part of the number
+    if (number >= 10) {
+        cascade(Math.floor(number / 10));
+    }
+
+    // Print the current number again (only if it's greater than 1 digit)
+    if (number >= 10) {
+        console.log(number);
+    }
+
+    // Explicitly return undefined
+    return undefined;
+}
+
+
+
+// // Uncomment to test your work!
+cascade(111);
+// should print
+/*
+111
+11
+1
+11
+111
+*/
