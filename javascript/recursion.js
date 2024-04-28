@@ -334,3 +334,24 @@ cascade(111);
 11
 111
 */
+
+// Explanation:
+
+// - In this updated implementation:
+//   - We start by handling the base case where if `number` is less than or equal to `0`, we explicitly return `undefined`.
+//   - We then print the current `number` using `console.log(number)`.
+//   - We recursively call `cascade(Math.floor(number / 10))` to cascade with the remaining part of the number (excluding the last digit), ensuring that the size of `number` reduces with each recursive call.
+//   - After the recursive call, we print the current `number` again using `console.log(number)` only if `number` is greater than or equal to `10` (i.e., if it's more than one digit).
+//   - Finally, we explicitly return `undefined` at the end of the function to satisfy the test case requirement.
+
+// This updated approach should prevent the issue of maximum call stack size exceeded by ensuring that the input `number` reduces correctly with each recursive call until it reaches the base case (`number <= 0`). The cascade effect is achieved by recursively printing the current number and its decreasing parts.
+
+// Now, when you run `cascade(111)`, it should produce the expected cascade output:
+
+// ```
+// 111
+// 11
+// 1
+// 11
+// 111
+// ```
