@@ -161,9 +161,9 @@ function eitherFilter(array, callback1, callback2) {
 
 // Uncomment these to check your work!
 // Define the array of numbers
-const arrOfNums = [10, 35, 105, 9];
-// Define the callback function to check if the number is an integer square root
-const integerSquareRoot = n => Math.sqrt(n) % 1 === 0;
+// const arrOfNums = [10, 35, 105, 9];
+// // Define the callback function to check if the number is an integer square root
+// const integerSquareRoot = n => Math.sqrt(n) % 1 === 0;
 // Define the call
 
 // //6. Challenge: eitherCallback
@@ -194,7 +194,7 @@ function filterArray(array, callback) {
   return newArray;
 }
 
-// Define the array of numbers
+/* Define the array of numbers
 const arrOfNums = [10, 35, 105, 9];
 // Define the callback function to check if the number is an integer square root
 const integerSquareRoot = n => Math.sqrt(n) % 1 === 0;
@@ -204,6 +204,7 @@ const over100 = n => n > 100;
 const intSqRtOrOver100 = eitherCallback(integerSquareRoot, over100);
 // Log the result of filtering arrOfNums using the combined callback function
 console.log(filterArray(arrOfNums, intSqRtOrOver100)); // should log: [105, 9]
+*/
 
 
 // //7. Challenge: reduce
@@ -241,12 +242,12 @@ function reduce(array, callback, initialValue) {
 }
 
 // Uncomment these to check your work!
-// Define an array of numbers
-const nums = [4, 1, 3];
-// Define a callback function to add two numbers
-const add = function(a, b) { return a + b; }
-// Log the result of reducing the nums array using the add callback and an initial value of 0
-console.log(reduce(nums, add, 0)); // should log 8
+// // Define an array of numbers
+// const nums = [4, 1, 3];
+// // Define a callback function to add two numbers
+// const add = function(a, b) { return a + b; }
+// // Log the result of reducing the nums array using the add callback and an initial value of 0
+// console.log(reduce(nums, add, 0)); // should log 8
 
 // //8. Challenge: intersection
 
@@ -272,11 +273,11 @@ function intersection(arrays) {
 
 // Uncomment these to check your work!
 // Define three arrays
-const arr1 = [5, 10, 15, 20];
-const arr2 = [15, 88, 1, 5, 7];
-const arr3 = [1, 10, 15, 5, 20];
-// Log the result of finding the intersection of the three arrays
-console.log(intersection([arr1, arr2, arr3])); // should log: [5, 15]
+// const arr1 = [5, 10, 15, 20];
+// const arr2 = [15, 88, 1, 5, 7];
+// const arr3 = [1, 10, 15, 5, 20];
+// // Log the result of finding the intersection of the three arrays
+// console.log(intersection([arr1, arr2, arr3])); // should log: [5, 15]
 
 
 // //9. Challenge: union
@@ -304,11 +305,11 @@ function union(arrays) {
 
 // Uncomment these to check your work!
 // Define three arrays
-const arr1 = [5, 10, 15];
-const arr2 = [15, 88, 1, 5, 7];
-const arr3 = [100, 15, 10, 1, 5];
-// Log the result of finding the union of the three arrays
-console.log(union([arr1, arr2, arr3])); // should log: [5, 10, 15, 88, 1, 7, 100]
+// const arr1 = [5, 10, 15];
+// const arr2 = [15, 88, 1, 5, 7];
+// const arr3 = [100, 15, 10, 1, 5];
+// // Log the result of finding the union of the three arrays
+// console.log(union([arr1, arr2, arr3])); // should log: [5, 10, 15, 88, 1, 7, 100]
 
 
 //10. Challenge: objOfMatches
@@ -434,16 +435,16 @@ function multiMap(values, callbacks) {
 }
 
 // Uncomment these to check your work!
-// Define callback functions to uppercase, capitalize, and repeat the strings
-function uppercaser(str) { return str.toUpperCase(); }
-function capitalize(str) { return str[0].toUpperCase() + str.slice(1).toLowerCase(); }
-function repeater(str) { return str + str; }
-// Define an array of strings to be processed
-const items = ['catfood', 'glue', 'beer'];
-// Define an array of callback functions
-const functions = [uppercaser, capitalize, repeater];
-// Call the multiMap function with the items array and the functions array
-console.log(multiMap(items, functions)); // should log: { catfood: ['CATFOOD', 'Catfood', 'catfoodcatfood'], glue: ['GLUE', 'Glue', 'glueglue'], beer: ['BEER', 'Beer', 'beerbeer'] }
+// // Define callback functions to uppercase, capitalize, and repeat the strings
+// function uppercaser(str) { return str.toUpperCase(); }
+// function capitalize(str) { return str[0].toUpperCase() + str.slice(1).toLowerCase(); }
+// function repeater(str) { return str + str; }
+// // Define an array of strings to be processed
+// const items = ['catfood', 'glue', 'beer'];
+// // Define an array of callback functions
+// const functions = [uppercaser, capitalize, repeater];
+// // Call the multiMap function with the items array and the functions array
+// console.log(multiMap(items, functions)); // should log: { catfood: ['CATFOOD', 'Catfood', 'catfoodcatfood'], glue: ['GLUE', 'Glue', 'glueglue'], beer: ['BEER', 'Beer', 'beerbeer'] }
 
 
 //Without arrow function:
