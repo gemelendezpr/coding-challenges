@@ -111,3 +111,13 @@ console.log(vicky2.age); // Output: 24
 
 In summary, while the original solution was already efficient, the refactored version leverages JavaScript's object literal shorthand to achieve greater simplicity and readability without sacrificing performance. This refactoring primarily focuses on coding style and best practices rather than significant optimization of time or space complexity, which was already optimal for this particular task.
 */
+
+//2. Challenge: Objects - Examining Properties
+/*
+Objects are data structures used to store related data represented with keys and associated values. Keys are also referred to as properties. Keys give us an easy way to reference the values, so they are almost always descriptive strings. Values can be any valid data type: a number, string, array, even other objects that contain even more objects!
+
+We can iterate through an object's properties in much the same way we iterate through the elements of an array, though the implementation is a bit different. Research for... in and Object.keys before continuing with these challenges.
+
+Challenge
+You are provided with an object called checkObj. Using a for... in loop, determine if the object contains the property foundNum. If it exists, reassign the value of found to 1. 
+*/
