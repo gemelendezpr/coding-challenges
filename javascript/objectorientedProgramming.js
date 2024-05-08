@@ -114,10 +114,43 @@ In summary, while the original solution was already efficient, the refactored ve
 
 //2. Challenge: Objects - Examining Properties
 /*
-Objects are data structures used to store related data represented with keys and associated values. Keys are also referred to as properties. Keys give us an easy way to reference the values, so they are almost always descriptive strings. Values can be any valid data type: a number, string, array, even other objects that contain even more objects!
+Challenge: personStore
 
-We can iterate through an object's properties in much the same way we iterate through the elements of an array, though the implementation is a bit different. Research for... in and Object.keys before continuing with these challenges.
+Inside personStore object, create a property greet where the value is a function that logs "hello".
+*/
 
-Challenge
-You are provided with an object called checkObj. Using a for... in loop, determine if the object contains the property foundNum. If it exists, reassign the value of found to 1. 
+// <<< ---------------------------------------------------------------------- BRUTE FORCE SOLUTION ---------------------------------------------------------------------- >>>
+
+const personStore = {
+    // Add the 'greet' property with a function that logs "hello"
+    greet: function() {
+        console.log("hello");
+    }
+};
+
+// Uncomment this line to check your work!
+personStore.greet(); // Output: Logs 'hello'
+
+/*
+### Explanation:
+
+1. **Object Initialization:**
+   - We initialize the `personStore` object using an object literal `{}`.
+
+2. **Adding the 'greet' Property:**
+   - Within the `personStore` object, we add a property named `greet`.
+   - The value assigned to this property is a function expression that logs "hello" to the console.
+
+3. **Defining the greet Function:**
+   - The `greet` property's value is defined as a function using the `function` keyword.
+   - This function is an anonymous function that doesn't take any arguments.
+
+4. **Logging "hello":**
+   - Inside the `greet` function body, we use `console.log("hello")` to output "hello" to the console when the function is called.
+
+5. **Calling the greet Function:**
+   - Finally, we invoke the `greet` function using `personStore.greet()`.
+   - This triggers the function to execute, resulting in the output "hello" being logged to the console.
+
+The `personStore` object now has a `greet` property containing a function that can be called to perform the specific action of logging "hello". This approach demonstrates how to use object properties to store functions (methods) within JavaScript objects, allowing for encapsulation of behavior and functionality within object structures. The code snippet provided achieves the desired behavior of logging "hello" when `personStore.greet()` is called.
 */
