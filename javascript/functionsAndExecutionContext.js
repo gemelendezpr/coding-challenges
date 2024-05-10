@@ -439,3 +439,38 @@ const myJob = (name, profession) => `Hi, my name is ${name} and I'm a ${professi
 
 console.log(myJob("Jon", "Knights Watchman"));
 
+//20. Challenge: lastLetter
+// Create a function lastLetter that takes a word (string) and returns the last character/letter of that string.
+
+// Hint- Remember that each character/letter in a string has an index position that you can access with brackets- '[]'
+
+function lastLetter(word){
+  // Check if the word is a non-empty string
+  if (word === 'string' && word.length > 0){
+    // Return the last character of the string using the word.length -1 as the index
+    return word[word.length -1];
+  } else {
+    //Return null for invalid input (empty string or non-string)
+    return null;
+  } 
+}
+
+// test code
+
+ console.log(lastLetter("hello")); // => o
+ console.log(lastLetter("goodbye!")); // => !
+ console.log(lastLetter("ZeltoiD")); // => D
+ console.log(lastLetter("i love Javascript")); // => t
+
+/*
+### Time Complexity:
+- The time complexity of this function is \( O(1) \) because accessing the last character of a string by index (`word[word.length - 1]`) is a constant-time operation.
+
+### Space Complexity:
+- The space complexity of this function is \( O(1) \) because it only uses a constant amount of additional space regardless of the input size (`word`). The function does not create any new data structures that grow with the input size.
+
+### Summary:
+- The `lastLetter` function efficiently returns the last character of a given string using basic string manipulation techniques.
+- It handles edge cases such as empty strings or non-string inputs by returning `null`.
+- The function is simple, straightforward, and has a constant time and space complexity, making it efficient for practical use cases.
+*/
