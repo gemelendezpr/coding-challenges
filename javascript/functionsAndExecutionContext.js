@@ -35,26 +35,44 @@ const Thrones = ["Jon", "Danny", "Tyrion", "The Mountain", "Cersei"];
 console.log(droids(starWars)); // should log: "Found Droids!"
 console.log(droids(thrones)); // should log: "These are not the droids you're looking for."
 
-// 3.Recreate the function droids from the previous challenge, but instead of using a FOR loop, use the built-in forEach method.
+// 3.Challenge: droids
+// Complete the function droids that accepts an array of strings and iterates through the array using a FOR loop. Update the variable result to "Found Droids!" if the array contains the string "Droids". Otherwise update the variable result to "These are not the droids you're looking for." Return your updated result.
+//Recreate the function droids from the previous challenge, but instead of using a FOR loop, use the built-in forEach method.
 function droids(arr) {
-  let result = "";
-
-  arr.forEach(function (item) {
-    if (item === "Droids") {
-      result = "Found Droids!";
+    // Initialize the result variable to an empty string.
+    let result = '';
+    // ADD CODE HERE
+    // Iterate through the array using forEach method
+    arr.forEach(function(item) {
+       // Check if the current item is "Droids"
+      if (item === "Droids"){
+        // Update result to "Found Droids!" if "Droids" is found
+        result = "Found Droids!";
+      }
+    });
+    // If result is still empty (no "Droids" found), update result accordingly
+    if (result === '') {
+      result = "These are not the droids you're looking for.";
     }
-  });
-  if (result === "") {
-    result = "These are not the droids you're looking for.";
-  }
-  return result;
-}
+    // Return the final result
+    return result;
+  } 
 
 const starWars = ["Luke", "Finn", "Rey", "Kylo", "Droids"];
 const thrones = ["Jon", "Danny", "Tyrion", "The Mountain", "Cersei"];
 
 console.log(droids(starWars)); // should log: "Found Droids!"
 console.log(droids(thrones)); //should log: "These are not the droids you're looking for."
+
+/*
+Time Complexity:
+The time complexity of the droids function is O(n), where n is the length of the input array arr.
+The forEach method iterates through each element of the array once, resulting in a linear time complexity proportional to the size of the input array.
+
+Space Complexity:
+The space complexity of the droids function is O(1) (constant space complexity).
+The function uses a constant amount of additional space regardless of the input array size. It only maintains the result variable, which stores a single string.
+*/
 
 //4. Challenge: For Loops - Updating Array Elements -> Using a FOR loop,
 //  write a function addN which adds the argument n to each number in the array arr and returns the updated arr.
