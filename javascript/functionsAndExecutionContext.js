@@ -230,6 +230,14 @@ function imAboutToExplodeWithExcitement(n){
 // Function Invocation: Finally, call the imAboutToExplodeWithExcitement function with an initial value of 10 to start the countdown.
 imAboutToExplodeWithExcitement(10); // expected log 10, 9, 8, 7, 6, 'Oh wow, I can't handle the anticipation!', 4, I'm about to explode with excitement!', 2, 1, 'That was kind of a let down'
 
+/*
+Time Complexity:
+The time complexity of this function is O(n), where n is the value passed to the function. The while loop iterates from n down to 1, so the number of iterations is directly proportional to n.
+
+Space Complexity:
+The space complexity of this function is O(1), which is constant. This is because the function only uses a fixed amount of space for the integer n and a few local variables (n and result).
+*/
+
 //11. Using an IF/ELSE statement, write a function closestToTheMark that takes two player inputs as number arguments. The function will return 'Player 1 is closest' or 'Player 2 is closest' depending on which player input is closest to the randomly generated number.
 //Note: Due to the output being based off of a random factor, the tests provided below cannot determine if you have solved the prompt exactly. The test cases for this challenge check for the correct data types only.
 
