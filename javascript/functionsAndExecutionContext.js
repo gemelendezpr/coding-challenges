@@ -336,46 +336,46 @@ The space complexity of this function is O(1), which is constant. We use a fixed
 //Similarly, addingAllTheWeirdStuff should also add the sum of all the even numbers in array2 to those elements over 10 in array1.
 //BONUS: If any element in array2 is greater than 20, add 1 to every element in array1.
 
-function addingAllTheWeirdStuff(array1, array2){
-  // ADD CODE HERE
-  // adds the sum of all odd numbers in array2 to each element under 10 in array1
-  // add the sum of all even numbers in array2 to those elements over 10 in array1
-  // If any element in array2 is greater than 20, add 1 to every element in array1
-
-  let oddSum = 0;
-  let evenSum = 0;
-  let isOverThen20 = false;
-
-  array2.forEach(ele=>{
-    if(ele % 2 !== 0){
-      oddSum += ele;
-    } else {
-      evenSum += ele;
-    }
-    
-    if(ele >20) {
-      isOverThen20 = true;
-    }
-  })
-  
-  array1.forEach((ele,i)=>{
-    if(ele < 10){
-      array1[i] = oddSum + ele;
-    }else if(ele > 10){
-      array1[i] = evenSum + ele;
-    }
-    if(isOverThen20){
-      array1[i] = array1[i]+1;
-    }
-  });
-  // return array
-  return array1;
+  function addingAllTheWeirdStuff(array1, array2){
+    // ADD CODE HERE
+    // Initialize an empty array that receives the calculated results operations
+    let sumOdd = 0;
+    let sumEven = 0;
+    let isOver20 = false;
+    // Calculate the sum of odd and even numbers in array2
+    for (let num of array2){
+      // Identify all the ood number in array 2
+      if (num % 2 !== 0){
+        sumOdd += num; // Sum odd numbers
+      } else {
+        sumEven += num; // Sum even numbers
+      }
+      
+      if (num > 20){
+        isOver20 = true;
+      }
+    } 
+      
+        // Loop through array1 and apply the specified operations
+        for (let i = 0; i < array1.length; i++) {
+          // Identify all the elements under 10 in array1 and adds the sum of all the odd numbers 
+          if (array1[i] < 10) {
+            array1[i] += sumOdd;
+          // Identify all the elements over 10 in array1 and adds the sum of all the even numbers 
+          } else if (array1[i] > 10) {
+            array1[i] += sumEven;
+          }
+          // Add 1 to every element if any element in array2 > 20
+          if (isOver20){
+            array1[i] += 1; 
+          }
+        }
+    return array1;
   }
-
-// Uncomment these to check your work!
-
- console.log(addingAllTheWeirdStuff([1, 3, 5, 17, 15], [1, 2, 3, 4, 5])); // expected log [10, 12, 14, 23, 21]
- console.log(addingAllTheWeirdStuff([1, 3, 5, 17, 15, 1], [1, 2, 3, 4, 5, 22])); // expected log [11, 13, 15, 46, 44, 11]
+  
+  // Uncomment these to check your work!
+  console.log(addingAllTheWeirdStuff([1, 3, 5, 17, 15], [1, 2, 3, 4, 5])); // expected log [10, 12, 14, 23, 21]
+  console.log(addingAllTheWeirdStuff([1, 3, 5, 17, 15, 1], [1, 2, 3, 4, 5, 22])); // expected log [11, 13, 15, 46, 44, 11]
 
  // <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
 
