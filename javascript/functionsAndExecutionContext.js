@@ -9,6 +9,8 @@ function sayHello(str) {
 console.log(sayHello("Mary")); // should log: 'Hi, Mary'
 console.log(sayHello("Haley")); // should log: 'Hi, Haley'
 
+// <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
+
 // 2. Complete the function droids that accepts an array of strings and iterates through the array using a FOR loop.
 //  Update the variable result to "Found Droids!" if the array contains the string "Droids". 
 // Otherwise update the variable result to "These are not the droids you're looking for." Return your updated result.
@@ -34,6 +36,8 @@ const StarWars = ["Luke", "Finn", "Rey", "Kylo", "Droids"];
 const Thrones = ["Jon", "Danny", "Tyrion", "The Mountain", "Cersei"];
 console.log(droids(starWars)); // should log: "Found Droids!"
 console.log(droids(thrones)); // should log: "These are not the droids you're looking for."
+
+// <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
 
 // 3.Challenge: droids
 // Complete the function droids that accepts an array of strings and iterates through the array using a FOR loop. Update the variable result to "Found Droids!" if the array contains the string "Droids". Otherwise update the variable result to "These are not the droids you're looking for." Return your updated result.
@@ -74,6 +78,8 @@ The space complexity of the droids function is O(1) (constant space complexity).
 The function uses a constant amount of additional space regardless of the input array size. It only maintains the result variable, which stores a single string.
 */
 
+// <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
+
 //4. Challenge: For Loops - Updating Array Elements -> Using a FOR loop,
 //  write a function addN which adds the argument n to each number in the array arr and returns the updated arr.
 
@@ -92,6 +98,8 @@ function addN(arr, n){
 // Uncomment these to check your work!
  console.log(addN([1, 2, 3], 3)); // expected log [4, 5, 6]
  console.log(addN([3, 4, 5], 2)); // expected log [5, 6, 7]
+
+ // <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
 
  //5. Challenge: makePlural -> Create a function makePlural that accepts an array argument. 
 //  makePlural will iterate through the array, add an 's' to the end of each array element, and return the mutated array.
@@ -116,6 +124,8 @@ const arr2 = ['computer', 'video game', 'system']
  console.log(makePlural(arr1)); // should log: ['lions', 'tigers', 'bears']
  console.log(makePlural(arr2)); // should log: ['computers', 'video games', 'systems']
 
+ // <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
+
  //6. Using a FOR loop, write a function getTheSum which adds each element in arr to find the array total.
 
  // function to get the sum of each element in the array
@@ -137,6 +147,8 @@ function getTheSum(arr){
 console.log(getTheSum([3, 6, 9])); // expected log 18
 console.log(getTheSum([10, 11, 12])); // expected log 33
 
+// <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
+
 //7. Write a function mergingElements which adds each element in array1 to the corresponding element of array2 and returns the new array.
 function mergingElements(array1, array2){
   // ADD CODE HERE
@@ -154,6 +166,8 @@ function mergingElements(array1, array2){
 // Uncomment these to check your work!
 console.log(mergingElements([1, 2, 3, 4], [5, 6, 7, 8])); // expected log [6, 8, 10, 12]
 console.log(mergingElements([7, 3, 6, 0], [3, 9, 17, 81])); // expected log [10, 12, 23, 81]
+
+// <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
 
 //8. Write a function mergingElements which adds each element in array1 to the corresponding element of array2 and returns the new array.
 
@@ -173,6 +187,8 @@ function mergingElements(array1, array2){
 // Uncomment these to check your work!
 console.log(mergingElements([1, 2, 3, 4], [5, 6, 7, 8])); // expected log [6, 8, 10, 12]
 console.log(mergingElements([7, 3, 6, 0], [3, 9, 17, 81])); // expected log [10, 12, 23, 81]
+
+// <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
 
 //9. Write a function mergingTripletsAndQuints which takes in two arrays as arguments. 
 //This function will return a new array replacing the elements in array1 if they are divisible by 3 or 5. 
@@ -198,6 +214,8 @@ function mergingTripletsAndQuints(array1, array2) {
  // Uncomment these to check your work!
   console.log(mergingTripletsAndQuints([1, 2, 3, 4, 5, 15], [1, 3, 6, 7, 8, 9])); // expected log [1, 2, 9, 4, 13, 24]
   console.log(mergingTripletsAndQuints([1, 1, 3, 9, 5, 15], [1, 2, 3, 4, 5, 6])); // expected log [1, 1, 6, 13, 10, 21]
+
+  // <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
 
   //10. Using a WHILE loop, write a function imAboutToExplodeWithExcitement which prints a countdown from n. 
   //When the countdown gets to 5, print 'Oh wow, I can't handle the anticipation!' When it's at 3, print 'I'm about to explode with excitement!'
@@ -238,6 +256,8 @@ Space Complexity:
 The space complexity of this function is O(1), which is constant. This is because the function only uses a fixed amount of space for the integer n and a few local variables (n and result).
 */
 
+// <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
+
 //11. Using an IF/ELSE statement, write a function closestToTheMark that takes two player inputs as number arguments. The function will return 'Player 1 is closest' or 'Player 2 is closest' depending on which player input is closest to the randomly generated number.
 //Note: Due to the output being based off of a random factor, the tests provided below cannot determine if you have solved the prompt exactly. The test cases for this challenge check for the correct data types only.
 
@@ -262,32 +282,55 @@ function closestToTheMark(player1, player2){
 // Uncomment the line below to check your work!
 console.log(closestToTheMark(25, 75));
 
-//12.Using a loop, write a function getTheRange which finds the range (difference between high and low) of arr. 
+// <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
+
+//12. Challenge: Loops - Range
+
+//Using a loop, write a function getTheRange which finds the range (difference between high and low) of arr. 
 //The value returned should be an array with the low, high, and range.
 
 function getTheRange(arr){
   // ADD CODE HERE
-  if (arr.length === 0) {
+  // Edge Case
+  if (arr.length === 0){
     return [null, null, 0];
   }
-
+  // Initialize variables to track the lowest and highest values
   let low = arr[0];
   let high = arr[0];
-
+  
+  // Iterate through the array to find the lowest and highest values
   for (let i = 1; i < arr.length; i++) {
     if (arr[i] < low) {
+      // Update low if the current elements is lower than the current low
       low = arr[i];
-    } else if (arr[i] > high) {
+    }
+    // Update high if the current elements is higher than the current high
+    if (arr[i] > high) {
       high = arr[i];
     }
   }
-
+  
+  // Calculate the range (difference between the high and low)
   const range = high - low;
-
+  
+  // Return an array containing low, high, and range
   return [low, high, range];
 }
+
 // Uncomment these to check your work!
 console.log(getTheRange([3, 2, 5, 4, 7, 9, 10])); // expect log [2, 10, 8]
+console.log(getTheRange([])); // expect log [null, null, 0]
+
+/*
+Time Complexity:
+The time complexity of this function is O(n), where n is the length of the input array arr. This is because we iterate through the array once to find the lowest and highest values.
+
+Space Complexity:
+The space complexity of this function is O(1), which is constant. We use a fixed amount of additional space (low, high, and range) regardless of the size of the input array.
+*/
+
+// <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
 
 //13. Write a function addingAllTheWeirdStuff which adds the sum of all the odd numbers in array2 to each element under 10 in array1. 
 //Similarly, addingAllTheWeirdStuff should also add the sum of all the even numbers in array2 to those elements over 10 in array1.
@@ -334,6 +377,8 @@ function addingAllTheWeirdStuff(array1, array2){
  console.log(addingAllTheWeirdStuff([1, 3, 5, 17, 15], [1, 2, 3, 4, 5])); // expected log [10, 12, 14, 23, 21]
  console.log(addingAllTheWeirdStuff([1, 3, 5, 17, 15, 1], [1, 2, 3, 4, 5, 22])); // expected log [11, 13, 15, 46, 44, 11]
 
+ // <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
+
  //14. Write a function disemvowel that takes in a string and returns a new string with all vowels removed.
 
  function disemvowel(string) {
@@ -352,6 +397,8 @@ console.log(disemvowel('CodeSmith')); // => 'CdSmth'
 console.log(disemvowel('BANANA')); // => 'BNN'
 console.log(disemvowel('hello world')); // => 'hll wrld'
 
+// <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
+
 //15. Challenge: addWaldo
 //Create a function addWaldo that accepts an object with keys being first names and values being last names. 
 //For example addWaldo({'Luke': 'Skywalker', 'Harley': 'Quinn', 'Ryan': 'Reynolds'}) should add the key 'Waldo' with the value 'unknown' to the object and return the mutated object.
@@ -368,6 +415,8 @@ function addWaldo(namesObject) {
 // Uncomment these to check your work!
 const siliconValley = {'Richard': 'Hendricks', 'Erlich': 'Bachman', 'Bertram': 'Gilfoyle'}
 console.log(addWaldo(siliconValley)) // should log:{ Richard: 'Hendricks', Erlich: 'Bachman', Bertram: 'Gilfoyle', Waldo: 'unknown' }
+
+// <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
 
 //16. Create a function findWaldo that accepts an object and returns the value associated with the key 'Waldo'. 
 //If the key 'Waldo' is not found, the function should return 'Where's Waldo?'
@@ -388,6 +437,8 @@ const DC = {'Bruce': 'Wayne', 'Harley': 'Quinn'}
 const supernatural = {'Sam': 'Winchester', 'Dean': 'Winchester', 'Waldo': 'unknown'}
 console.log(findWaldo(DC)) // should log: 'Where's Waldo?'
 console.log(findWaldo(supernatural)) // should log: 'unknown'
+
+// <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
 
 //17. Write a function arrayBuilder that takes in a count object and returns an array filled with the appropriate numbers of elements. 
 //The order of the elements in the array does not matter, but repeated elements should be grouped.
@@ -434,6 +485,8 @@ function arrayBuilder(obj) {
  console.log(arrayBuilder({'cats': 2, 'dogs': 1})); // => ['cats', 'cats', 'dogs']
  console.log(arrayBuilder({})); // => []
 
+ // <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
+
  //18. Convert the function named functionDeclaration to an anonymous function expression and assign it to a variable called myFunc.
  //first
 
@@ -452,6 +505,8 @@ function myFunc() {
 
 console.log(myFunc()) //should log: "Hi there!"
 
+// <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
+
 //19. For this challenge, convert the function myJob from ES5 syntax to arrow function syntax.
 function myJob (name, profession) {
   return `Hi, my name is ${name} and I'm a ${profession}.`
@@ -464,6 +519,8 @@ console.log(myJob("Jon", "Knights Watchman"));
 const myJob = (name, profession) => `Hi, my name is ${name} and I'm a ${profession}.`;
 
 console.log(myJob("Jon", "Knights Watchman"));
+
+// <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
 
 //20. Challenge: lastLetter
 // Create a function lastLetter that takes a word (string) and returns the last character/letter of that string.
