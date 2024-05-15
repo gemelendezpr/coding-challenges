@@ -263,3 +263,70 @@ function countHi(str) {
 console.log(countHi("abc hi ho")); // Output: 1 (one occurrence of "hi")
 console.log(countHi("ABChi hi")); // Output: 2 (two occurrences of "hi")
 console.log(countHi("hihi")); // Output: 2 (two occurrences of "hi")
+
+// <<< ---------------------------------------------------------------------- Live Challenges ---------------------------------------------------------------------- >>>
+/* 
+Declare a variable 'animals' and set it an array containing the strings 'dog', 'frog', 'armadillo', 'parrot', and 'cow'.
+*/
+
+let animals = ['dog', 'frog', 'armadillo', 'parrot', 'cow']
+
+console.log(animals);
+
+/* 
+Declare a function called 'capitalize', which takes in a string as an argument.
+If the string contains 5 or more characters, 'capitalize' should return that string with the first letter capitalized.
+If the string contains fewer than 5 characters, return a lowercase version of the entire string.
+*/
+
+// declare a function capitalie takes a string as an argument
+function capitalize (str){
+  //If the string contains 5 or more characters, 'capitalize' should return that string with the first letter capitalized. 
+let newStr = '';
+let remainingStr = '';
+
+  
+  if (str.length > 5){
+    newStr = str[0].toUpperCase();
+    remainingStr = str.substring(1);
+  } else {
+    return str.toLowerCase();
+  }
+ return newStr + remainingStr;
+  
+}
+
+
+// If the string contains fewer than 5 characters, return a lowercase version of the entire string.
+
+console.log(capitalize('gerardo')) //=> Gerardo 
+console.log(capitalize('JOSE')) //=> jose
+console.log(capitalize('Juan')) //=> juan
+console.log(capitalize('SANPEDRO')) //=> Sanpedro
+
+
+
+/* 
+Declare a function 'changeElements' which takes an array and a callback as arguments.
+'changeElements' should iterate through the array run the callback on each element. It should *replace* each array element with the result of running the callback on that element - i.e., the array should be modified in place rather than creating a copy.
+When finished, return the updated array.
+*/
+
+// Declare a function 'changeElements' which takes an array and a callback as arguments.
+function changeElements(arr, callback){
+  
+  let newArr = [];
+  // Iterate through the array using a for loop 
+  for ( let i = 0; i < arr.length; i++){
+    
+  }
+  // When finished, return the updated array.
+  return newArr
+}
+
+// iterate through the array run the callback on each element.
+// *replace* each array element with the result of running the callback on that element
+// the array should be modified in place rather than creating a copy.
+
+
+changeElements(animals, capitalize)
