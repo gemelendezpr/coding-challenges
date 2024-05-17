@@ -279,25 +279,25 @@ If the string contains 5 or more characters, 'capitalize' should return that str
 If the string contains fewer than 5 characters, return a lowercase version of the entire string.
 */
 
-// declare a function capitalie takes a string as an argument
-function capitalize (str){
-  //If the string contains 5 or more characters, 'capitalize' should return that string with the first letter capitalized. 
-let newStr = '';
-let remainingStr = '';
-
+// Define the capitalize function
+function capitalize(str) {
+  let newStr = '';
+  let remainingStr = '';
   
-  if (str.length > 5){
+  // If the string contains 5 or more characters, capitalize the first letter
+  if (str.length > 5) {
     newStr = str[0].toUpperCase();
-    remainingStr = str.substring(1);
+    remainingStr = str.slice(1).toLowerCase();
   } else {
+    // Otherwise, convert the string to lowercase
     return str.toLowerCase();
   }
- return newStr + remainingStr;
   
+  // Return the capitalized string
+  return newStr + remainingStr;
 }
 
 
-// If the string contains fewer than 5 characters, return a lowercase version of the entire string.
 
 console.log(capitalize('gerardo')) //=> Gerardo 
 console.log(capitalize('JOSE')) //=> jose
@@ -313,20 +313,15 @@ When finished, return the updated array.
 */
 
 // Declare a function 'changeElements' which takes an array and a callback as arguments.
-function changeElements(arr, callback){
-  
-  let newArr = [];
-  // Iterate through the array using a for loop 
-  for ( let i = 0; i < arr.length; i++){
-    
+function changeElements(array, callback){
+  // Iterate through the array
+  for (let i = 0; i < array.length; i++) {
+    // Run the callback function on each element and replace the array element with the result
+    array[i] = callback(array[i]);
   }
-  // When finished, return the updated array.
-  return newArr
+  
+  // Return the updated array
+  return array;
 }
 
-// iterate through the array run the callback on each element.
-// *replace* each array element with the result of running the callback on that element
-// the array should be modified in place rather than creating a copy.
-
-
-changeElements(animals, capitalize)
+console.log(changeElements(animals, capitalize));
