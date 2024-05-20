@@ -112,6 +112,8 @@ console.log(vicky2.age); // Output: 24
 In summary, while the original solution was already efficient, the refactored version leverages JavaScript's object literal shorthand to achieve greater simplicity and readability without sacrificing performance. This refactoring primarily focuses on coding style and best practices rather than significant optimization of time or space complexity, which was already optimal for this particular task.
 */
 
+// <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
+
 //2. Challenge: Objects - Examining Properties
 /*
 Challenge: personStore
@@ -121,6 +123,7 @@ Inside personStore object, create a property greet where the value is a function
 
 // <<< ---------------------------------------------------------------------- BRUTE FORCE SOLUTION ---------------------------------------------------------------------- >>>
 
+/*
 const personStore = {
     // Add the 'greet' property with a function that logs "hello"
     greet: function() {
@@ -130,6 +133,8 @@ const personStore = {
 
 // Uncomment this line to check your work!
 personStore.greet(); // Output: Logs 'hello'
+
+*/
 
 /*
 ### Explanation:
@@ -153,4 +158,46 @@ personStore.greet(); // Output: Logs 'hello'
    - This triggers the function to execute, resulting in the output "hello" being logged to the console.
 
 The `personStore` object now has a `greet` property containing a function that can be called to perform the specific action of logging "hello". This approach demonstrates how to use object properties to store functions (methods) within JavaScript objects, allowing for encapsulation of behavior and functionality within object structures. The code snippet provided achieves the desired behavior of logging "hello" when `personStore.greet()` is called.
+*/
+
+// <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
+
+// 3. Challenge: personFromPersonStore
+
+// Create a function personFromPersonStore that takes as input a name and an age. When called, the function will create person objects using the Object.create method on the personStore object.
+
+const personStore = {
+  greet: function() {
+    console.log('hello');
+  }
+};
+
+function personFromPersonStore(name, age) {
+  // Create a new object using Object.create and set its prototype to personStore
+  const newPerson = Object.create(personStore);
+
+  // Add name and age properties to the new object
+  newPerson.name = name;
+  newPerson.age = age;
+
+  // Return the new object
+  return newPerson;
+}
+
+const sandra = personFromPersonStore('Sandra', 26);
+
+// Uncomment these lines to check your work!
+console.log(sandra.name); // -> Logs 'Sandra'
+console.log(sandra.age);  // -> Logs 26
+sandra.greet();            // -> Logs 'hello'
+
+/*
+Explanation:
+- We start by defining the `personStore` object with a `greet` method.
+- The `personFromPersonStore` function takes `name` and `age` as parameters.
+- Inside `personFromPersonStore`, we create a new object named `newPerson` using `Object.create(personStore)`. This ensures that `newPerson` inherits properties and methods from `personStore`.
+- We then add `name` and `age` properties to `newPerson` using dot notation.
+- Finally, we return `newPerson`.
+- When we call `personFromPersonStore('Sandra', 26)`, it creates a new object named `sandra` with the name 'Sandra' and age 26.
+- We can access the `name` and `age` properties of `sandra` using dot notation (`sandra.name`, `sandra.age`) and call the `greet` method (`sandra.greet()`).
 */
