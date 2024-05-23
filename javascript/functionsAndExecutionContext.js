@@ -416,6 +416,15 @@ function addWaldo(namesObject) {
 const siliconValley = {'Richard': 'Hendricks', 'Erlich': 'Bachman', 'Bertram': 'Gilfoyle'}
 console.log(addWaldo(siliconValley)) // should log:{ Richard: 'Hendricks', Erlich: 'Bachman', Bertram: 'Gilfoyle', Waldo: 'unknown' }
 
+// Explanation:
+/*
+When you pass an object as a parameter to a function in JavaScript, you're essentially passing a reference to that object. This means that any changes made to the object within the function will affect the original object that was passed in.
+
+So, when you call addWaldo(siliconValley) where siliconValley is an object, the function addWaldo receives a reference to the siliconValley object. Any modifications made to namesObject within the function will directly affect the siliconValley object outside of the function.
+
+This behavior is because objects in JavaScript are passed by reference, whereas primitive data types like numbers and strings are passed by value. It's important to keep this in mind when working with objects in JavaScript functions.
+*/
+
 // <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
 
 //16. Create a function findWaldo that accepts an object and returns the value associated with the key 'Waldo'. 
@@ -479,6 +488,29 @@ function arrayBuilder(obj) {
    }
  
    return resultArray;
+ }
+ 
+ // Uncomment these to check your work!
+ console.log(arrayBuilder({'cats': 2, 'dogs': 1})); // => ['cats', 'cats', 'dogs']
+ console.log(arrayBuilder({})); // => []
+
+ // Solution using while loop
+
+
+function arrayBuilder(obj) {
+  // input: obj
+  // output: array
+  
+  const outputArray = [];
+   for (let key in obj) {
+    let repeatCount = obj[key];
+    while (repeatCount > 0) {
+      outputArray.push(key);
+      repeatCount -= 1;
+    }
+   }
+ 
+   return outputArray;
  }
  
  // Uncomment these to check your work!
