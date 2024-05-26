@@ -166,6 +166,7 @@ The `personStore` object now has a `greet` property containing a function that c
 
 // Create a function personFromPersonStore that takes as input a name and an age. When called, the function will create person objects using the Object.create method on the personStore object.
 
+/*
 const personStore = {
   greet: function() {
     console.log('hello');
@@ -190,6 +191,7 @@ const sandra = personFromPersonStore('Sandra', 26);
 console.log(sandra.name); // -> Logs 'Sandra'
 console.log(sandra.age);  // -> Logs 26
 sandra.greet();            // -> Logs 'hello'
+*/
 
 /*
 Explanation:
@@ -200,4 +202,67 @@ Explanation:
 - Finally, we return `newPerson`.
 - When we call `personFromPersonStore('Sandra', 26)`, it creates a new object named `sandra` with the name 'Sandra' and age 26.
 - We can access the `name` and `age` properties of `sandra` using dot notation (`sandra.name`, `sandra.age`) and call the `greet` method (`sandra.greet()`).
+*/
+
+// <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
+
+//4. Challenge: personFromPersonStore
+
+// Create a function personFromPersonStore that takes as input a name and an age. When called, the function will create person objects using the Object.create method on the personStore object.
+
+// The personStore object which contains a greet method
+const personStore = {
+  greet: function() {
+    console.log('hello');
+  }
+}
+
+// Function to create a new person object from personStore
+function personFromPersonStore(name, age) {
+  // Use Object.create to create a new object that inherits from personStore
+  const newPerson = Object.create(personStore);
+  // Add name property to the new object
+  newPerson.name = name;
+  // Add age property to the new object
+  newPerson.age = age;
+  // Return the newly created object
+  return newPerson;
+}
+
+const sandra = personFromPersonStore('Sandra', 26);
+
+// Uncomment these lines to check your work!
+console.log(sandra.name); // -> Logs 'Sandra'
+console.log(sandra.age); // -> Logs 26
+sandra.greet(); // -> Logs 'hello'
+
+/*
+
+**Explanation**:
+1.  This object contains a 'greet' method that logs "hello" to the console.
+
+2. **Define `personFromPersonStore` Function**:
+
+   - `Object.create(personStore)` creates a new object that has `personStore` as its prototype.
+   - `newPerson.name = name` adds a `name` property to the new object.
+   - `newPerson.age = age` adds an `age` property to the new object.
+   - Finally, the new object is returned.
+
+3. **Create a new person and test the function**:
+
+    const sandra = personFromPersonStore('Sandra', 26);
+
+    console.log(sandra.name); // -> Logs 'Sandra'
+    console.log(sandra.age); // -> Logs 26
+    sandra.greet(); // -> Logs 'hello'
+    ```
+   - A new person object `sandra` is created with the name "Sandra" and age 26.
+   - The `name` and `age` properties are logged to the console.
+   - The `greet` method is called, which logs "hello" to the console.
+
+**Time & Space Complexity**:
+- **Time Complexity**: O(1) - Creating an object and adding properties are constant-time operations.
+- **Space Complexity**: O(1) - The space used is constant and does not depend on the size of the input.
+
+This solution efficiently creates a new person object that inherits from `personStore` and adds the provided `name` and `age` properties.
 */

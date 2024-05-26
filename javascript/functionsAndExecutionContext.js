@@ -500,7 +500,7 @@ function arrayBuilder(obj) {
 function arrayBuilder(obj) {
   // input: obj
   // output: array
-  
+
   const outputArray = [];
    for (let key in obj) {
     let repeatCount = obj[key];
@@ -589,3 +589,8 @@ function lastLetter(word){
 - It handles edge cases such as empty strings or non-string inputs by returning `null`.
 - The function is simple, straightforward, and has a constant time and space complexity, making it efficient for practical use cases.
 */
+
+ // <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
+
+ // 21. Challenge: Functions - Function Expression
+// Convert the function named functionDeclaration to an anonymous function expression and assign it to a variable called myFunc.
