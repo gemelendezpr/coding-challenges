@@ -211,6 +211,8 @@ Explanation:
 // Create a function personFromPersonStore that takes as input a name and an age. When called, the function will create person objects using the Object.create method on the personStore object.
 
 // The personStore object which contains a greet method
+
+/*
 const personStore = {
   greet: function() {
     console.log('hello');
@@ -235,6 +237,8 @@ const sandra = personFromPersonStore('Sandra', 26);
 console.log(sandra.name); // -> Logs 'Sandra'
 console.log(sandra.age); // -> Logs 26
 sandra.greet(); // -> Logs 'hello'
+
+*/
 
 /*
 
@@ -266,3 +270,45 @@ sandra.greet(); // -> Logs 'hello'
 
 This solution efficiently creates a new person object that inherits from `personStore` and adds the provided `name` and `age` properties.
 */
+
+// <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
+
+//5. Challenge: introduce
+
+// Without editing the code you've already written, add an introduce method to the personStore object that logs "Hi, my name is [name]".
+
+const personStore = {
+    greet: function() {
+      console.log('hello');
+    }
+  }
+  
+  function personFromPersonStore(name, age) {
+      const person = Object.create(personStore);
+    person.name = name;
+    person.age = age;
+    return person;
+  }
+  
+  const sandra = personFromPersonStore('Sandra', 26);
+  
+  // add code here
+  // Add the introduce method to the personStore object
+  personStore.introduce = function() {
+    console.log(`Hi, my name is ${this.name}`);
+  }
+  
+  
+  // Uncomment this line to check your work!
+  sandra.introduce(); // -> Logs 'Hi, my name is Sandra'
+
+  /*
+Time & Space Complexity:
+
+Time Complexity: O(1) - Adding a method to an object and calling the method are constant-time operations.
+Space Complexity: O(1) - The space used is constant and does not depend on the size of the input.
+This solution efficiently adds an introduce method to the personStore object and allows person objects to introduce themselves by logging their name to the console.
+*/
+
+
+
