@@ -310,5 +310,59 @@ Space Complexity: O(1) - The space used is constant and does not depend on the s
 This solution efficiently adds an introduce method to the personStore object and allows person objects to introduce themselves by logging their name to the console.
 */
 
+//6. Challenge: PersonConstructor
 
+// Create a function PersonConstructor that uses the this keyword to save a single property onto its scope called greet. greet should be a function that logs the string "hello".
 
+// Define the PersonConstructor function
+function PersonConstructor() {
+  // Use the 'this' keyword to attach a greet method to the new object being created
+  this.greet = function() {
+    // The greet method logs 'hello' to the console
+    console.log('hello');
+  }
+}
+
+// Create a new instance of PersonConstructor
+const simon = new PersonConstructor();
+
+// Uncomment this line to check your work!
+simon.greet(); // -> Logs 'hello'
+
+/*
+**Explanation**:
+
+1. **Define the `PersonConstructor` Function**:
+   
+    function PersonConstructor() {
+    
+   - This function will serve as a constructor to create new person objects.
+
+2. **Attach the `greet` Method Using `this`**:
+   
+    this.greet = function() {
+      console.log('hello');
+    }
+    
+   - `this` refers to the new object being created by the constructor function.
+   - `this.greet` sets a new property `greet` on the new object, which is a function that logs "hello" to the console.
+
+3. **Create a New Instance of `PersonConstructor`**:
+    
+    const simon = new PersonConstructor();
+    
+   - This line creates a new instance of `PersonConstructor` and assigns it to the variable `simon`.
+   - The `new` keyword creates a new object, sets its prototype to the constructor's prototype, and calls the constructor function with `this` set to the new object.
+
+4. **Call the `greet` Method**:
+    
+    simon.greet(); // -> Logs 'hello'
+  
+   - This line calls the `greet` method on the `simon` object, which logs "hello" to the console.
+
+**Time & Space Complexity**:
+- **Time Complexity**: O(1) - Both the creation of the method and its invocation are constant-time operations.
+- **Space Complexity**: O(1) - The space used is constant and does not depend on the size of the input.
+
+This solution ensures that every instance created using `PersonConstructor` will have its own `greet` method, which logs "hello" when called.
+*/ 
