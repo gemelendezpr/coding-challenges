@@ -234,8 +234,9 @@
 
 
 // Group Meetings CSBin 
-// Challenge 1
-
+/* =========== *
+* Challenge 9 *
+* ============ */
 // Return the number of times that the string "hi" appears anywhere in the given string.
 
 // countHi("abc hi ho") → 1
@@ -265,6 +266,10 @@ console.log(countHi("ABChi hi")); // Output: 2 (two occurrences of "hi")
 console.log(countHi("hihi")); // Output: 2 (two occurrences of "hi")
 
 // <<< ---------------------------------------------------------------------- Live Challenges ---------------------------------------------------------------------- >>>
+/* =========== *
+* Challenge 10 *
+* ============ */
+
 /* 
 Declare a variable 'animals' and set it an array containing the strings 'dog', 'frog', 'armadillo', 'parrot', and 'cow'.
 */
@@ -304,8 +309,11 @@ console.log(capitalize('JOSE')) //=> jose
 console.log(capitalize('Juan')) //=> juan
 console.log(capitalize('SANPEDRO')) //=> Sanpedro
 
+ // <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
 
-
+/* =========== *
+* Challenge 11 *
+* ============ */
 /* 
 Declare a function 'changeElements' which takes an array and a callback as arguments.
 'changeElements' should iterate through the array run the callback on each element. It should *replace* each array element with the result of running the callback on that element - i.e., the array should be modified in place rather than creating a copy.
@@ -325,3 +333,99 @@ function changeElements(array, callback){
 }
 
 console.log(changeElements(animals, capitalize));
+
+ // <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
+
+ /* =========== *
+* Challenge 12 *
+* ============ */
+/*
+Declare a function 'NumberedList', which returns a new instance of a 'NumberedList' object when invoked with the 'new keyword.
+NumberedList objects should function similarly to arrays - i.e. they store values at number indexes, starting at 0. Any arguments passed into the 'NumberedList' constructor should be sequentially added to the NumberedList when it is instantiated.
+NumberedList objects should also contain a length property, which keeps track of the number of elements in the list.
+
+Example:
+Creating a Numbered ist from "dog", "bird", dat, Lenth: "dog', 1: "bird', 2: 'cat', Length: 3 }
+*/
+
+function NumberedList(...values) {
+  this.length = 0;
+// set the length as key = arg as parameter
+  for (const value of values) {
+    this [this.length] = value;
+    this.length++
+  }
+}
+const list = new NumberedList('dog', " cat", "snake");
+console.log(list); // => NumberedList { 0: 'dog', 1: 'cat', 2: 'snake', 3: 'koala', length: 4 }
+
+ // <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
+/* =========== *
+* Challenge 13 *
+* ============ */
+/*
+Create a function "between50And500" that takes a number as an argument.
+"between50And500" should return true if the number passed to it is between 50 and 500 exclusive.
+For example, if the input is 45 then your function should return false and if the input is 472 it should return true.
+*/
+
+
+
+/* Arrow Function Solution
+
+const between20And500 = (num) => (num <= 50) ? false : num < 500;
+
+or
+
+const between20And500 = (num) => num > 50 && num < 500; 
+
+*/
+
+console.log(between50And500(45)) // false
+console.log(between50And500(50)) // false
+console.log(between50And500(472)) // true
+console.log(between50And500(500)) // false
+
+ // <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
+
+/* =========== *
+* Challenge 14*
+* ============ */
+/*
+Create a function that takes an array of non-negative integers and strings and return a new array without the strings.
+
+filterArray([1, 2, "a", "b"]) ➞ [1, 2]
+
+filterArray([1, "a", "b", 0, 15]) ➞ [1, 0, 15]
+
+filterArray([1, 2, "aasf", "1", "123", 123]) ➞ [1, 2, 123]
+*/
+
+
+
+function filterArray (array) {
+  const result = [];
+  for (const elem of array) {  // for (let i = 0) (other option)
+    if (typeof elem === 'number') {
+      result.push(elem);
+    }
+  }
+  return result;
+}
+
+
+// Arrow Function Solution  
+
+// const filterArray = array => array.filter((item) => typeof item !== "string");
+
+console.log(filterArray([1, 2, "a", "b"])) //➞ [1, 2]
+
+console.log(filterArray([1, "a", "b", 0, 15])) //➞ [1, 0, 15]
+
+console.log(filterArray([1, 2, "aasf", "1", "123", 123])) //➞ [1, 2, 123]
+
+ // <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
+
+/* =========== *
+* Challenge 16 *
+* ============ */
