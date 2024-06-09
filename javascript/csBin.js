@@ -465,3 +465,21 @@ sole.log(returnUnique([9, 5, 6, 8, 7, 7, 1, 1, 1, 1, 1, 9, 8])); // ➞ [5, 6]
 /* =========== *
 * Challenge 16 *
 * ============ */
+
+
+// Write a function called repeatStr which repeats the given string exactly n times.
+
+// repeatStr(6, "I") // "IIIIII"
+// repeatStr(5, "Hello") // "HelloHelloHelloHelloHello"
+
+
+function repeatStr(n, string) {
+  // base case 
+  if (n === 1) return string;
+  // recursive call
+  return string + repeatStr(n - 1, string);
+}
+
+
+console.log(repeatStr(6, "I")) // "IIIIII"
+console.log(repeatStr(5, "Hello")) // "HelloHelloHelloHelloHello"
