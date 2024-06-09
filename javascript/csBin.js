@@ -424,7 +424,43 @@ console.log(filterArray([1, "a", "b", 0, 15])) //➞ [1, 0, 15]
 
 console.log(filterArray([1, 2, "aasf", "1", "123", 123])) //➞ [1, 2, 123]
 
- // <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
+// <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
+
+/* =========== *
+* Challenge 15 *
+* ============ */
+
+// In each input array, every number repeats at least once, except for two. Write a function that returns the two unique numbers.
+
+
+const returnUnique = (arr) => {
+  const dic = {} // { number: rep,  number2: rep2,  number3: rep3 }
+  
+  arr.forEach(num => {
+    //  if (!dic[num]) {
+    //    dic[num] = 0
+    //  } 
+    //  dic[num]++;
+    // })
+
+    // or 
+
+    dic[num] = (dic[num] || 0) + 1
+    
+  })
+  
+  return arr.filter(num => dic[num] === 1)
+    
+}
+
+
+console.log(returnUnique([1, 9, 8, 8, 7, 6, 1, 6])); // ➞ [9, 7]
+// 
+sole.log(returnUnique([5, 5, 2, 4, 4, 4, 9, 9, 9, 1])); // ➞ [2, 1]
+// 
+sole.log(returnUnique([9, 5, 6, 8, 7, 7, 1, 1, 1, 1, 1, 9, 8])); // ➞ [5, 6]
+
+// <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
 
 /* =========== *
 * Challenge 16 *
