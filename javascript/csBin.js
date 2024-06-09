@@ -483,3 +483,85 @@ function repeatStr(n, string) {
 
 console.log(repeatStr(6, "I")) // "IIIIII"
 console.log(repeatStr(5, "Hello")) // "HelloHelloHelloHelloHello"
+
+// <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
+
+/* =========== *
+* Challenge 17 *
+* ============ */ 
+
+// Declare a function 'NumArray', which takes in at most two arguments (length and initialValue) and returns an instance of a 'NumArray' object when invoked with the 'new' keyword. NumArray should function similarly to arrays - i.e. they will store values at numbered indexes, starting at 0. All NumArray objects should contain their own 'length' property to keep track of the number of elements in the array. When a NumArray is first created, 
+
+// it should initialize the length property to the length passed-in and set all values to the initial value passed-in (if the initial value is not provided, initialize all values to 0), and if the length is not passed-in, initialize the length property to 0.
+
+// - Task 1: Declare a function 'addAt', which is accessible to ALL instances of 'NumArray'. 'addAt' should take in two arguments (an index and a value), and when invoked on a NumArray instance, should add the value to that NumArray at the passed-in index. Update the NumArray's length property appropriately and return the length of the NumArray.
+
+// - Task 2: Declare a function 'applyFunc', which is accessible to ALL instances of 'NumArray'. 'applyFunc' should take in a callback function as a single argument, and when invoked on a NumArray instance, should run the callback on every element in the NumArray (except the length) and return an instance of NumArray.
+
+// - (Needs Solving)Task 3: Declare a function 'removeFrom', which is accessible to ALL instances of 'NumArray'. 'removeFrom' should take in at most two arguments (an index and a number K), and when invoked on a NumArray instance, should remove K elements from the NumArray starting from the index (inclusive). If the number K is not passed-in, remove only one element at the index. Remember to update the length property properly.
+
+
+function NumArray(length, initialValue) {
+  if (length) {
+    this.length = length;
+  } else {
+    this.length = 0;
+  }
+  for (let i = 0; i < this.length; i++) {
+    if (initialValue) {
+      this[i] = initialValue;
+    } else {
+      this[i] = 0;
+    }
+  }
+}
+
+NumArray.prototype.removeFrom = function (start, end) {
+
+  //Needs Solving
+}
+
+NumArray.prototype.applyFunc = function (callback) {
+  for (let i = 0; i < this.length; i++) {
+    this[i] = callback(this[i]);
+  }
+  return this;
+}
+
+NumArray.prototype.addAt = function(index, value) {
+  if (index > this.length - 1){
+    this[this.length] = value; 
+  } else {
+  	for (let i = this.length - 1; index <= i; i--){
+    	this[i + 1] = this[i];  
+  	}
+    this[index] = value;
+  }
+  return ++this.length;
+}
+
+const NewNumArray = new NumArray();
+
+// <<< ---------------------------------------------------------------------- Extra Next Challenge ---------------------------------------------------------------------- >>>
+
+// All OrderedList objects should contain their own 'length' property, which keeps track of the number of items they contain. An OrderedList should also keep track of whether it is sorted in reverse order with a isReversed property. When an OrderedList is first created, it should have a length of 0 and an isReversed value of false.
+// - Task 1: Declare a function, 'add', which is accessible to ALL instances of 'OrderedList'. 'add' should take in a number as a single argument, and when invoked on an OrderedList instance, should add the number to that OrderedList in descending order if the list is not reversed, or ascending order if the list is reversed. Update the OrderedList's length property appropriately, and return the length of the OrderedList.
+// - Task 2: Declare a function, 'reverse', which is accessible to ALL instances of 'OrderedList'. 'reverse' should take in no arguments, and when invoked on an OrderedList instance, should reverse the order of all elements in that OrderedList (except the 'length' property), and change the value of isReversed.
+// - Task 3: Declare a function, 'getMax', which is accessible to ALL instances of 'OrderedList'. 'getMax' should take in no arguments, and when invoked on an OrderedList instance, should return the maximum number in the instance.
+
+// Declare a function 'NumArray', which takes in at most two arguments (length and initialValue) and returns an instance of a 'NumArray' object when invoked with the 'new' keyword. NumArray should function similarly to arrays - i.e. they will store values at numbered indexes, starting at 0. All NumArray objects should contain their own 'length' property to keep track of the number of elements in the array. When a NumArray is first created, 
+// it should initialize the length property to the length passed-in and set all values to the initial value passed-in (if the initial value is not provided, initialize all values to 0), and if the length is not passed-in, initialize the length property to 0.
+// - Task 1: Declare a function 'addAt', which is accessible to ALL instances of 'NumArray'. 'addAt' should take in two arguments (an index and a value), and when invoked on a NumArray instance, should add the value to that NumArray at the passed-in index. Update the NumArray's length property appropriately and return the length of the NumArray.
+// - Task 2: Declare a function 'applyFunc', which is accessible to ALL instances of 'NumArray'. 'applyFunc' should take in a callback function as a single argument, and when invoked on a NumArray instance, should run the callback on every element in the NumArray (except the length) and return an instance of NumArray.
+// - Task 3: Declare a function 'removeFrom', which is accessible to ALL instances of 'NumArray'. 'removeFrom' should take in at most two arguments (an index and a number K), and when invoked on a NumArray instance, should remove K elements from the NumArray starting from the index (inclusive). If the number K is not passed-in, remove only one element at the index. Remember to update the length property properly.
+
+
+
+
+
+
+
+
+
+
+
