@@ -555,6 +555,187 @@ const NewNumArray = new NumArray();
 // - Task 2: Declare a function 'applyFunc', which is accessible to ALL instances of 'NumArray'. 'applyFunc' should take in a callback function as a single argument, and when invoked on a NumArray instance, should run the callback on every element in the NumArray (except the length) and return an instance of NumArray.
 // - Task 3: Declare a function 'removeFrom', which is accessible to ALL instances of 'NumArray'. 'removeFrom' should take in at most two arguments (an index and a number K), and when invoked on a NumArray instance, should remove K elements from the NumArray starting from the index (inclusive). If the number K is not passed-in, remove only one element at the index. Remember to update the length property properly.
 
+// <<< ---------------------------------------------------------------------- CS Prep Cohort 122 (2024) Challenges ---------------------------------------------------------------------- >>>
+
+////////////////////////////
+//     Challenge 1
+////////////////////////////
+
+// ADD CODE HERE
+// function printDriverHeight() {
+// 	console.log('The driver is 6 feet tall');  
+// }
+
+// // Uncomment the line below to test your code
+//  printDriverHeight();
+// should print the driver's height
+
+
+////////////////////////////
+//     Challenge 2
+////////////////////////////
+
+// // ADD CODE HERE
+// function printNavigatorName() {
+//   console.log('Jasen')
+// }
+// // Uncomment the line below to test your code
+// printNavigatorName();
+// // should print the navigator's name
+
+
+////////////////////////////
+//     Challenge 3
+////////////////////////////
+
+// // ADD CODE HERE
+// function printName (name) {
+//  console.log(name);  
+// }
+// // When you run your code, it should print the driver's name followed by the navigator's name
+
+// printName('Jasen');
+////////////////////////////
+//     Challenge 4
+////////////////////////////
+
+// ADD CODE HERE
+// function printGroupName(driverName, navigatorName) {
+//   console.log(`${driverName} and ${navigatorName}`);
+// }
+// // Uncomment the line below to test your code
+//  printGroupName('Sonny', 'Cher')
+// should print 'Sonny and Cher'
+
+
+////////////////////////////
+//     Challenge 5
+////////////////////////////
+
+// ADD CODE HERE
+// function name should be multiplyHeight
+// function multiplyHeight(driverHeight, navigatorHeight) {
+//   return driverHeight * navigatorHeight;
+// }
+// // Uncomment the line below to test your code
+// console.log('Challenge 5:', multiplyHeight(66, 72) === 4752)
+// // should print 'Challenge 5: true'
+
+
+////////////////////////////
+//     Challenge 6
+////////////////////////////
+
+function square(num){
+  return num ** 2;
+}
+
+// // Uncomment the line below to test your code
+// console.log('Challenge 6:', square(3) === 9 && square(-4) === 16)
+// // should print 'Challenge 6: true'
+
+
+////////////////////////////
+//     Challenge 7
+////////////////////////////
+
+// ADD CODE HERE
+
+// Uncomment the line below to test your code
+ console.log('Challenge 7:', getArea(5) === 78.5)
+// should print 'Challenge 7: true'
+
+
+////////////////////////////
+//     Challenge 8
+////////////////////////////
+
+// ADD CODE HERE
+
+// When you run it, it should print the following:
+// Hey followed by the navigator's name
+// Hello followed by the driver's name
+
+
+////////////////////////////
+//     Challenge 9
+////////////////////////////
+
+// ADD CODE HERE
+
+// Uncomment the lines below to test your code
+// isCodesmithOpen(10);
+// isCodesmithOpen(9);
+// should print 'Codesmith is open.'
+// followed by 'Sorry, Codesmith is closed.'
+
+
+////////////////////////////
+//     Challenge 10
+////////////////////////////
+
+// ADD CODE HERE
+
+// Uncomment the lines below to test your code
+// smallMediumOrLarge(5);
+// smallMediumOrLarge(4);
+// smallMediumOrLarge(3);
+// smallMediumOrLarge(2);
+// smallMediumOrLarge(1);
+// should print 'Large please!'
+// followed by 'Medium please!' twice
+// followed by 'Small please!' twice
+
+
+////////////////////////////
+//     Challenge 11
+////////////////////////////
+
+// ADD CODE HERE
+
+// Uncomment the lines below to test your code
+// isAGoodBoy(true, true);
+// isAGoodBoy(true, false);
+// isAGoodBoy(false, true);
+// isAGoodBoy(false, false);
+// Should print pet, train, train, train
+
+
+////////////////////////////
+//     Challenge 12
+////////////////////////////
+
+// ADD CODE HERE
+
+// Uncomment the lines below to test your code
+// shouldEatBanana('yellow', true);
+// shouldEatBanana('yellow', false);
+// shouldEatBanana('green', true);
+// shouldEatBanana('green', false);
+// shouldEatBanana('red', true);
+// Should print 'eat', "don't eat", 'wait', 'wait', "don't eat"
+
+
+////////////////////////////
+//     Challenge 13
+////////////////////////////
+
+// ADD CODE HERE
+
+// Uncomment the line below to test your code
+// countTo5();
+// should print '1, 2, 3, 4, 5'
+
+
+////////////////////////////
+//     Challenge 14
+////////////////////////////
+
+// ADD CODE HERE
+
+// Uncomment the line below to test your code
+// countMost();
+// should print '1, 2, 4, 5'
 
 
 
