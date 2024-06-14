@@ -261,9 +261,9 @@ function countHi(str) {
 }
 
 // Test cases to check the function
-console.log(countHi("abc hi ho")); // Output: 1 (one occurrence of "hi")
-console.log(countHi("ABChi hi")); // Output: 2 (two occurrences of "hi")
-console.log(countHi("hihi")); // Output: 2 (two occurrences of "hi")
+// console.log(countHi("abc hi ho")); // Output: 1 (one occurrence of "hi")
+// console.log(countHi("ABChi hi")); // Output: 2 (two occurrences of "hi")
+// console.log(countHi("hihi")); // Output: 2 (two occurrences of "hi")
 
 // <<< ---------------------------------------------------------------------- Live Challenges ---------------------------------------------------------------------- >>>
 /* =========== *
@@ -274,9 +274,9 @@ console.log(countHi("hihi")); // Output: 2 (two occurrences of "hi")
 Declare a variable 'animals' and set it an array containing the strings 'dog', 'frog', 'armadillo', 'parrot', and 'cow'.
 */
 
-let animals = ['dog', 'frog', 'armadillo', 'parrot', 'cow']
+// let animals = ['dog', 'frog', 'armadillo', 'parrot', 'cow']
 
-console.log(animals);
+// console.log(animals);
 
 /* 
 Declare a function called 'capitalize', which takes in a string as an argument.
@@ -304,10 +304,10 @@ function capitalize(str) {
 
 
 
-console.log(capitalize('gerardo')) //=> Gerardo 
-console.log(capitalize('JOSE')) //=> jose
-console.log(capitalize('Juan')) //=> juan
-console.log(capitalize('SANPEDRO')) //=> Sanpedro
+// console.log(capitalize('gerardo')) //=> Gerardo 
+// console.log(capitalize('JOSE')) //=> jose
+// console.log(capitalize('Juan')) //=> juan
+// console.log(capitalize('SANPEDRO')) //=> Sanpedro
 
  // <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
 
@@ -332,7 +332,7 @@ function changeElements(array, callback){
   return array;
 }
 
-console.log(changeElements(animals, capitalize));
+// console.log(changeElements(animals, capitalize));
 
  // <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
 
@@ -357,7 +357,7 @@ function NumberedList(...values) {
   }
 }
 const list = new NumberedList('dog', " cat", "snake");
-console.log(list); // => NumberedList { 0: 'dog', 1: 'cat', 2: 'snake', 3: 'koala', length: 4 }
+// console.log(list); // => NumberedList { 0: 'dog', 1: 'cat', 2: 'snake', 3: 'koala', length: 4 }
 
  // <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
 /* =========== *
@@ -381,10 +381,10 @@ const between20And500 = (num) => num > 50 && num < 500;
 
 */
 
-console.log(between50And500(45)) // false
-console.log(between50And500(50)) // false
-console.log(between50And500(472)) // true
-console.log(between50And500(500)) // false
+// console.log(between50And500(45)) // false
+// console.log(between50And500(50)) // false
+// console.log(between50And500(472)) // true
+// console.log(between50And500(500)) // false
 
  // <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
 
@@ -418,11 +418,11 @@ function filterArray (array) {
 
 // const filterArray = array => array.filter((item) => typeof item !== "string");
 
-console.log(filterArray([1, 2, "a", "b"])) //➞ [1, 2]
+// console.log(filterArray([1, 2, "a", "b"])) //➞ [1, 2]
 
-console.log(filterArray([1, "a", "b", 0, 15])) //➞ [1, 0, 15]
+// console.log(filterArray([1, "a", "b", 0, 15])) //➞ [1, 0, 15]
 
-console.log(filterArray([1, 2, "aasf", "1", "123", 123])) //➞ [1, 2, 123]
+// console.log(filterArray([1, 2, "aasf", "1", "123", 123])) //➞ [1, 2, 123]
 
 // <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
 
@@ -454,11 +454,11 @@ const returnUnique = (arr) => {
 }
 
 
-console.log(returnUnique([1, 9, 8, 8, 7, 6, 1, 6])); // ➞ [9, 7]
-// 
-sole.log(returnUnique([5, 5, 2, 4, 4, 4, 9, 9, 9, 1])); // ➞ [2, 1]
-// 
-sole.log(returnUnique([9, 5, 6, 8, 7, 7, 1, 1, 1, 1, 1, 9, 8])); // ➞ [5, 6]
+// console.log(returnUnique([1, 9, 8, 8, 7, 6, 1, 6])); // ➞ [9, 7]
+// // 
+// console.log(returnUnique([5, 5, 2, 4, 4, 4, 9, 9, 9, 1])); // ➞ [2, 1]
+// // 
+// console.log(returnUnique([9, 5, 6, 8, 7, 7, 1, 1, 1, 1, 1, 9, 8])); // ➞ [5, 6]
 
 // <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
 
@@ -481,8 +481,8 @@ function repeatStr(n, string) {
 }
 
 
-console.log(repeatStr(6, "I")) // "IIIIII"
-console.log(repeatStr(5, "Hello")) // "HelloHelloHelloHelloHello"
+// console.log(repeatStr(6, "I")) // "IIIIII"
+// console.log(repeatStr(5, "Hello")) // "HelloHelloHelloHelloHello"
 
 // <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
 
@@ -603,7 +603,7 @@ const NewNumArray = new NumArray();
 // function printGroupName(driverName, navigatorName) {
 //   console.log(`${driverName} and ${navigatorName}`);
 // }
-// // Uncomment the line below to test your code
+// // // Uncomment the line below to test your code
 //  printGroupName('Sonny', 'Cher')
 // should print 'Sonny and Cher'
 
@@ -642,7 +642,7 @@ function square(num){
 // ADD CODE HERE
 
 // Uncomment the line below to test your code
- console.log('Challenge 7:', getArea(5) === 78.5)
+//  console.log('Challenge 7:', getArea(5) === 78.5)
 // should print 'Challenge 7: true'
 
 
