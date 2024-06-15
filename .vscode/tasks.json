@@ -1,0 +1,28 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Run csBin.js",
+        "type": "shell",
+        "command": "npm",
+        "args": [
+          "start"
+        ],
+		"options": {
+			"cwd": "${workspaceFolder}/javascript"
+		},
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "presentation": {
+          "echo": true,
+          "reveal": "always",
+          "focus": false,
+          "panel": "shared"
+        },
+        "problemMatcher": []
+      }
+    ]
+  }
+  
