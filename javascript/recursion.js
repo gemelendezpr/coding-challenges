@@ -11,7 +11,7 @@
 
 // repeater(j) should return jjjjj
 
-console.log('Hello, world!'); // => 'Hello, world!'
+// console.log('Hello, world!'); // => 'Hello, world!'
 
 function repeater(char) {
 let repeatedString = '';
@@ -25,8 +25,8 @@ let repeatedString = '';
 }
 
 // To check if you've completed the challenge, uncomment these console.logs!
-console.log(repeater('g')); // => 'ggggg'
-console.log(repeater('j')); // => 'jjjjj'
+// console.log(repeater('g')); // => 'ggggg'
+// console.log(repeater('j')); // => 'jjjjj'
 
 //2. Challenge: Factorial
 
@@ -48,8 +48,8 @@ function factorial(num) {
    }
    
    // To check if you've completed the challenge, uncomment these console.logs!
-   console.log(factorial(4)); // -> 24
-   console.log(factorial(6)); // -> 720
+  //  console.log(factorial(4)); // -> 24
+  //  console.log(factorial(6)); // -> 720
    
 //    Explanation:
 
@@ -99,10 +99,10 @@ function getLength(array) {
     }
     
     // To check if you've completed the challenge, uncomment these console.logs!
-    console.log(getLength([1])); // -> 1
-    console.log(getLength([1, 2])); // -> 2
-    console.log(getLength([1, 2, 3, 4, 5])); // -> 5
-    console.log(getLength([])); // -> 0
+    // console.log(getLength([1])); // -> 1
+    // console.log(getLength([1, 2])); // -> 2
+    // console.log(getLength([1, 2, 3, 4, 5])); // -> 5
+    // console.log(getLength([])); // -> 0
     
 //     Explanation:
 
@@ -138,10 +138,10 @@ function pow(base, exponent) {
   }
   
   // To check if you've completed the challenge, uncomment these console.logs!
-  console.log(pow(2, 4)); // Output: 16 (2^4 = 2 * 2 * 2 * 2 = 16)
-  console.log(pow(3, 5)); // Output: 243 (3^5 = 3 * 3 * 3 * 3 * 3 = 243)
-  console.log(pow(5, 0)); // Output: 1 (5^0 = 1)
-  console.log(pow(2, -3)); // Output: 0.125 (2^(-3) = 1 / (2^3) = 1 / 8 = 0.125)
+  // console.log(pow(2, 4)); // Output: 16 (2^4 = 2 * 2 * 2 * 2 = 16)
+  // console.log(pow(3, 5)); // Output: 243 (3^5 = 3 * 3 * 3 * 3 * 3 = 243)
+  // console.log(pow(5, 0)); // Output: 1 (5^0 = 1)
+  // console.log(pow(2, -3)); // Output: 0.125 (2^(-3) = 1 / (2^3) = 1 / 8 = 0.125)
   
 //   Explanation:
 
@@ -185,7 +185,7 @@ function add7(num) { return num + 7; }
 function modulo4(num) { return num % 4; }
 function subtract10(num) { return num - 10; }
 const arrayOfFunctions = [multiplyBy2, add7, modulo4, subtract10];
-console.log(flow(2, arrayOfFunctions)); // -> -7
+// console.log(flow(2, arrayOfFunctions)); // -> -7
 
 
 // Explanation:
@@ -257,7 +257,7 @@ const topHalf = ['Queen of Diamonds', 'Five of Hearts', 'Ace of Spades', 'Eight 
 const bottomHalf = ['Jack of Hearts', 'Ten of Spades'];
 
 const shuffledDeck = shuffleCards(topHalf, bottomHalf);
-console.log(shuffledDeck);
+// console.log(shuffledDeck);
 // Output:
 // ['Queen of Diamonds', 'Jack of Hearts', 'Five of Hearts', 'Ten of Spades', 'Ace of Spades', 'Eight of Clubs']
 
@@ -325,7 +325,7 @@ function cascade(number) {
 
 
 // // Uncomment to test your work!
-cascade(111);
+// cascade(111);
 // should print
 /*
 111

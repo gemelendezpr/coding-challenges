@@ -626,9 +626,9 @@ const NewNumArray = new NumArray();
 //     Challenge 6
 ////////////////////////////
 
-function square(num){
-  return num ** 2;
-}
+// function square(num){
+//   return num ** 2;
+// }
 
 // // Uncomment the line below to test your code
 // console.log('Challenge 6:', square(3) === 9 && square(-4) === 16)
@@ -737,9 +737,55 @@ function square(num){
 // countMost();
 // should print '1, 2, 4, 5'
 
+// <<< ---------------------------------------------------------------------- CS Prep Cohort 122 (2024) POD  ---------------------------------------------------------------------- >>>
+/*
+POD Day 3 (Jun 12) - Regular - LargestAndSmallest -
+The function largestAndSmallest should take one parameter, an array, and return a new array containing the largest and smallest elements from the original array.
 
+EX:
 
+[1, 2, 3, 4, 5] --> [1, 5]
+[90, 30, 44, 66, 10] --> [10, 90]
+[16, -70, 122] --> [-70, 122]
+*/
 
+function largestAndSmallest(array) {
+  // If array is empty return the empty array
+  // Initialize two variables, one to keep track of the smallest element in the array and other one for the largest element in the array
+  // Iterate through the array 
+  // Update the largest element if its larger than the current element in the variable
+  // Update the smallest element if its the smaller element in the variable 
+  // Return the new array containing the smallest and largest elements 
+
+  if (array.length === 0) {
+    return [];
+  }
+
+  let smallestInArray = array[0];
+  let largestInArray = array[0];
+
+    for (let i = 1; i < array.length; i++) {
+      if (array[i] > smallestInArray) {
+        smallestInArray = array[i];
+      } 
+      else if (array[i] < largestInArray) {
+        largestInArray = array[i];
+      }
+    }
+  return [smallestInArray, largestInArray];
+
+  //   or
+
+  // return [Math.min(...array), Math.max(...array)];
+}
+
+console.log(largestAndSmallest([1, 2, 3, 4, 5])); // should log [1, 5]
+// console.log(largestAndSmallest([90, 30, 44, 66, 10])); // should log [10, 90]
+// console.log(largestAndSmallest([16, -70, 122])); // should log [-70, 122]
+//                    or with a message (down below): 
+// const inputArray = [1, 2, 3, 4, 5];
+// const result = largestAndSmallest(inputArray);
+// console.log("Result of finding the smallest and largest elements in array:", result); // should return [1, 5]
 
 
 
