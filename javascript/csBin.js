@@ -1124,6 +1124,27 @@ function largestAndSmallest(array) {
 // console.log("Result of finding the smallest and largest elements in array:", result); // should return [1, 5]
 
 
+function twoSum(arr, target) {
+  // Create an empty object to store the complement values
+  // iterate over the element in the array
+  // calculate the complement of the current element
+  // check if the complement exists in the map
+  // if the complement is found, return true
+  // otherwise, add the complement to the map with the current element as the key
+  // if no pair is found, return false
+  const complementMap = {};
+  for (let i = 0; i < arr.length; i++) {
+      const complement = target - arr[i];
+      if (complementMap[arr[i]] !== undefined) {   
+          return true;
+      }   
+      complementMap[complement] = i;
+  }
+  return false;
+}
+
+// console.log(twoSum([1, 2, 3, 4, 5], 9));  // should return true (4 + 5)
+// console.log(twoSum([1, 2, 3, 4, 5], 10)); // should return false
 
 
 
