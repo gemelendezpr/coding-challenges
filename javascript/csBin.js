@@ -1147,5 +1147,103 @@ function twoSum(arr, target) {
 // console.log(twoSum([1, 2, 3, 4, 5], 10)); // should return false
 
 
+function reverseInt(int) {
+  // Initialize a variable to hold the reversed number
+  // Iterate until the number is zero
+  // Get the last digit of the number
+  // Add the last digit to the reversed number
+  // Remove the last digit from the number
+  // Return the reversed number
+  let reversed = 0;
+
+  while (int > 0) {
+      let lastDigit = int % 10;
+      
+      reversed = reversed * 10 + lastDigit;
+      
+      int = Math.floor(int / 10);
+  }
+  return reversed;
+}
+
+function reverseIntTests() {
+  console.log(reverseInt(1234), ' -> ', 4321); // should return 4321
+  console.log(reverseInt(1), ' -> ', 1);       // should return 1
+  console.log(reverseInt(87654), ' -> ', 45678); // should return 45678
+  console.log(reverseInt(13542), ' -> ', 24531); // should return 24531
+}
+
+// reverseIntTests();
+
+// <<< ---------------------------------------------------------------------- CS Prep Cohort 122 (2024) CSBIN In Class  ---------------------------------------------------------------------- >>>
+
+
+////////////////////////////
+//     Challenge 1
+////////////////////////////
+
+/*
+Challenge 1
+Mode
+
+Given an array, return its mode (the number that appears most often)
+
+If there is a tie, return the greater number of tied modes.
+
+ex. mode([1,1,1,2,2,3]) -> returns 1
+
+ex. mode([1,3,1,3,1,3]) -> returns 3
+
+*/
+
+// FIND MODE
+
+// Given an array, return its mode (the number that appears most often)
+// If there is a tie, return the greater number of tied modes.
+// ex. mode([1,1,2,2,3,3,2,4,5]) === 2 // true because 2 appears most often in the array (the number 2 appears 3 times)
+// ex. mode([1,1,1,3,3,3]) === 3 // true, because 3 and 1 are tied as the mode, but 3 > 1 and the mode function will return the greater of the mode values
+function mode(array) {
+  // Goal: how many times each number appears?
+  // Initialize the mode with the first element of the array and count the max with its frequency 
+  // In each number if its frequency is greater than the max count store lets upgrade the mode and the maximus count 
+  // But if the frequency are equal to the max count but the number is greater than the current mode, we update the mode to the current number 
+  // First initialize an variable to an empty object to track the number that has been iterated 
+  const frequency = {};
+  // Count the frequency of each number inside the array 
+  for (let num of array) {
+    if (frequency[num]) {
+      frequency[num]++;
+    } else {
+      frequency[num] = 1;
+    }
+    console.log(`Processing ${num}, frequency:`, frequency);
+  }
+  // Initialize other variables to store the element and its frequency
+  let mode = array[0];
+  let maxCount = frequency[mode];
+
+  console.log(`Initial mode: ${mode}, Initial maxCount: ${maxCount}`);
+  // iterate through the frequency object to find the mode 
+  for (let num in frequency) {
+    console.log(`Check number ${num} with the frequency ${frequency[num]}`);
+    if (frequency[num] > maxCount || (frequency[num] === maxCount && Number(num) > mode)) {
+      mode = Number(num);
+      maxCount = frequency[num];
+      console.log(`New mode: ${mode}, New maxCount: ${maxCount}`)
+    }
+  } 
+  // 
+  return mode;
+}
+
+// Extension: solve this in 0(n) time
+
+function modeTests() {
+  console.log(mode([1,2,2,1,1,3, 7, 3]), ' -> 1');
+  console.log(mode([1]), '1');
+  console.log(mode([2, 2, 2, 2, 3, 3, 3]), ' -> 2');
+}
+
+modeTests() // uncomment to test!
 
 
