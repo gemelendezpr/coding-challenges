@@ -1229,7 +1229,7 @@ function mode(array) {
     if (frequency[num] > maxCount || (frequency[num] === maxCount && Number(num) > mode)) {
       mode = Number(num);
       maxCount = frequency[num];
-      console.log(`New mode: ${mode}, New maxCount: ${maxCount}`)
+      console.log('New mode:', mode, 'New maxCount:', maxCount);
     }
   } 
   // 
