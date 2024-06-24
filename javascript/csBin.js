@@ -1244,6 +1244,6 @@ function modeTests() {
   console.log(mode([2, 2, 2, 2, 3, 3, 3]), ' -> 2');
 }
 
-modeTests() // uncomment to test!
+// modeTests() // uncomment to test!
 
 
