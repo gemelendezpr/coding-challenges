@@ -1173,7 +1173,7 @@ function reverseIntTests() {
   console.log(reverseInt(13542), ' -> ', 24531); // should return 24531
 }
 
-// reverseIntTests();
+reverseIntTests();
 
 // <<< ---------------------------------------------------------------------- CS Prep Cohort 122 (2024) CSBIN In Class  ---------------------------------------------------------------------- >>>
 
@@ -1244,6 +1244,5 @@ function modeTests() {
   console.log(mode([2, 2, 2, 2, 3, 3, 3]), ' -> 2');
 }
 
-modeTests() // uncomment to test!
-
+// 
 

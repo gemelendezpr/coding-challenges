@@ -19,7 +19,7 @@ function createFunction() {
   
   // Uncomment these to check your work!
   const myFunction = createFunction();
-  console.log(myFunction()); //should log: 'hello world'
+  // console.log(myFunction()); //should log: 'hello world'
 
   //2. Challenge: createFunctionWithInput
 
@@ -46,9 +46,9 @@ function createFunctionWithInput(input) {
   }
   // UNCOMMENT THESE TO TEST YOUR WORK!
   const sampleFunc = createFunctionWithInput('sample');
-  console.log(sampleFunc()); // should log: 'sample'
+  // console.log(sampleFunc()); // should log: 'sample'
   const helloFunc = createFunctionWithInput('hello');
-  console.log(helloFunc()); // should log: 'hello'
+  // console.log(helloFunc()); // should log: 'hello'
 
   //3. Challenge: Scoping
 
@@ -75,20 +75,20 @@ function outer() {
   // Assigns the result of calling outer function to the variable jasCounter.
   const jasCounter = outer();
   
-  // Calls the function assigned to willCounter. Since it's the first time it's being called, the counter value will be 1.
-  willCounter(); // counter 1
+  // // Calls the function assigned to willCounter. Since it's the first time it's being called, the counter value will be 1.
+  // willCounter(); // counter 1
   
-  // Calls the function assigned to willCounter again. The counter value will increment to 2.
-  willCounter(); // counter 2
+  // // Calls the function assigned to willCounter again. The counter value will increment to 2.
+  // willCounter(); // counter 2
   
-  // Calls the function assigned to willCounter again. The counter value will increment to 3.
-  willCounter(); // counter 3
+  // // Calls the function assigned to willCounter again. The counter value will increment to 3.
+  // willCounter(); // counter 3
   
-  // Calls the function assigned to jasCounter. Since it's a new instance of the outer function, it will have its own counter variable starting from 1.
-  jasCounter(); // counter 1
+  // // Calls the function assigned to jasCounter. Since it's a new instance of the outer function, it will have its own counter variable starting from 1.
+  // jasCounter(); // counter 1
   
-  // Calls the function assigned to willCounter again. It continues incrementing the counter from where it left off, so the counter value will be 4.
-  willCounter(); // counter 4
+  // // Calls the function assigned to willCounter again. It continues incrementing the counter from where it left off, so the counter value will be 4.
+  // willCounter(); // counter 4
 
   //4. Challenge: addByX
 
@@ -121,11 +121,11 @@ function addByX(x) {
   
   // Now call addByTwo with an input of 1 and log the output
   // Calls addByTwo with an input of 1 and logs the output, which should be 2 + 1 = 3.
-  console.log(addByTwo(1)); // should return 3
+  // console.log(addByTwo(1)); // should return 3
   
   // Now call addByTwo with an input of 2 and log the output
   // Calls addByTwo with an input of 1 and logs the output, which should be 2 + 1 = 3.
-  console.log(addByTwo(1)); // should return 3
+  // console.log(addByTwo(1)); // should return 3
   
   //5. Challenge: once
 
@@ -160,9 +160,9 @@ function once(callback) {
   });
   
   // UNCOMMENT THESE TO TEST YOUR WORK!
-  console.log(addByTwoOnce(5));  //should log 7
-  console.log(addByTwoOnce(10));  //should log 7
-  console.log(addByTwoOnce(9001));  //should log 7
+  // console.log(addByTwoOnce(5));  //should log 7
+  // console.log(addByTwoOnce(10));  //should log 7
+  // console.log(addByTwoOnce(9001));  //should log 7
 
   //6. Challenge: after
 
@@ -196,9 +196,9 @@ function after(times, callback) {
   const afterCalled = after(3, called);
   
   // UNCOMMENT THESE LINES TO TEST YOUR WORK
-  console.log(afterCalled('world')); // -> undefined is printed
-  console.log(afterCalled('world')); // -> undefined is printed
-  console.log(afterCalled('world')); // -> 'hello world' is printed
+  // console.log(afterCalled('world')); // -> undefined is printed
+  // console.log(afterCalled('world')); // -> undefined is printed
+  // console.log(afterCalled('world')); // -> 'hello world' is printed
 
   //7. Challenge: delay
 
@@ -219,11 +219,11 @@ function delay(callback, waitTime) {
   }
   
   // UNCOMMENT THE CODE BELOW TO TEST DELAY
-  let count = 0;
-  const delayedFunc = delay(() => count++, 1000);
-  delayedFunc();
-  console.log(count); 												 // should print '0'
-  setTimeout(() => console.log(count), 1000); // should print '1' after 1 second
+  // let count = 0;
+  // const delayedFunc = delay(() => count++, 1000);
+  // delayedFunc();
+  // console.log(count); 												 // should print '0'
+  // setTimeout(() => console.log(count), 1000); // should print '1' after 1 second
 
   //8. Challenge: saveOutput
 
@@ -252,9 +252,9 @@ function saveOutput(func, password) {
   // Uncomment these to check your work!
   const multiplyBy2 = function(num) { return num * 2; };
   const multBy2AndLog = saveOutput(multiplyBy2, 'boo');
-  console.log(multBy2AndLog(2)); // should log: 4
-  console.log(multBy2AndLog(9)); // should log: 18
-  console.log(multBy2AndLog('boo')); // should log: { 2: 4, 9: 18 }
+  // console.log(multBy2AndLog(2)); // should log: 4
+  // console.log(multBy2AndLog(9)); // should log: 18
+  // console.log(multBy2AndLog('boo')); // should log: { 2: 4, 9: 18 }
 
   //9. Challenge: cycleIterator
 
@@ -295,10 +295,10 @@ function cycleIterator(array) {
 // Uncomment these to check your work!
 const threeDayWeekend = ['Fri', 'Sat', 'Sun'];
 const getDay = cycleIterator(threeDayWeekend);
-console.log(getDay()); // should log: 'Fri'
-console.log(getDay()); // should log: 'Sat'
-console.log(getDay()); // should log: 'Sun'
-console.log(getDay()); // should log: 'Fri'
+// console.log(getDay()); // should log: 'Fri'
+// console.log(getDay()); // should log: 'Sat'
+// console.log(getDay()); // should log: 'Sun'
+// console.log(getDay()); // should log: 'Fri'
 
 //10. Challenge: defineFirstArg
 
@@ -323,7 +323,7 @@ function defineFirstArg(func, arg) {
 // Uncomment these to check your work!
 const subtract = function(big, small) { return big - small; };
 const subFrom20 = defineFirstArg(subtract, 20);
-console.log(subFrom20(5)); // should log: 15
+// console.log(subFrom20(5)); // should log: 15
 
 //11. Challenge: hobbyTracker
 
@@ -372,9 +372,9 @@ function hobbyTracker(hobbies) {
  updateHobbies('yoga', 2);
  updateHobbies('baking', 4);
  updateHobbies('yoga', 1);
- console.log(updateHobbies('piano', 2)); // --> { yoga: 3, baking: 4, piano: 2 }
- console.log(updateHobbies()); // --> 'tracker has been reset!'
- console.log(updateHobbies('baking', 1)); // --> { yoga: 0, baking: 1, piano: 0}
+//  console.log(updateHobbies('piano', 2)); // --> { yoga: 3, baking: 4, piano: 2 }
+//  console.log(updateHobbies()); // --> 'tracker has been reset!'
+//  console.log(updateHobbies('baking', 1)); // --> { yoga: 0, baking: 1, piano: 0}
 
 //12. Challenge: dateStamp
 
@@ -417,8 +417,8 @@ function dateStamp(func) {
 
 // Uncomment these to check your work!
 const stampedMultBy2 = dateStamp(n => n * 2);
-console.log(stampedMultBy2(4)); // should log: { date: (today's date), output: 8 }
-console.log(stampedMultBy2(6)); // should log: { date: (today's date), output: 12 }
+// console.log(stampedMultBy2(4)); // should log: { date: (today's date), output: 8 }
+// console.log(stampedMultBy2(6)); // should log: { date: (today's date), output: 12 }
 
 //13. Challenge: censor
 
@@ -464,7 +464,7 @@ function censor() {
 const changeScene = censor();
 changeScene('dogs', 'cats');
 changeScene('quick', 'slow');
-console.log(changeScene('The quick, brown fox jumps over the lazy dogs.')); // should log: 'The slow, brown fox jumps over the lazy cats.'
+// console.log(changeScene('The quick, brown fox jumps over the lazy dogs.')); // should log: 'The slow, brown fox jumps over the lazy cats.'
 
 
 // Explanation:
