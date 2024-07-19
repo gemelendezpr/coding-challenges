@@ -156,7 +156,7 @@ function mergingElements(array1, array2){
   let newArray =[]
    // iterate through arrays
   for (let i = 0; i < array1.length; i++) {
-    // add the corresponding elemnt in the array 1 to the correspongind element in the array 2
+    // add the corresponding element in the array 1 to the correspongind element in the array 2
     newArray.push(array1[i] += array2[i]);
   }
   // return the new array
@@ -169,7 +169,7 @@ console.log(mergingElements([7, 3, 6, 0], [3, 9, 17, 81])); // expected log [10,
 
 // <<< ---------------------------------------------------------------------- Next Challenge ---------------------------------------------------------------------- >>>
 
-//8. Write a function mergingElements which adds each element in array1 to the corresponding element of array2 and returns the new array.
+//8. (Repeated) Write a function mergingElements which adds each element in array1 to the corresponding element of array2 and returns the new array.
 
 function mergingElements(array1, array2){
   // ADD CODE HERE
