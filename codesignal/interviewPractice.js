@@ -539,7 +539,7 @@ console.log(maxSubArray([1])); // Output: 1
 console.log(maxSubArray([5, 4, -1, 7, 8])); // Output: 23
 
 
-// Explanation:
+// Explanation Steps:
 
 // 1. **Initialization**:
 //    - Initialize `maxSum` and `currentSum` to the first element of the array (`nums[0]`). This sets the initial maximum sum and current sum to the value of the first element.
