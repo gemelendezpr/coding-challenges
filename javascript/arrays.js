@@ -39,6 +39,8 @@ s consists of English letters, digits, symbols and spaces.
  * @param {string} s
  * @return {number}
  */
+
+/* 
 var lengthOfLongestSubstring = function(s) {
     // Initialize the maximum length to 0, which will hold the result.
     let maxLength = 0;
@@ -91,4 +93,44 @@ testCases.forEach(({ input, expected }, index) => {
     }
 });
 
+*/
+
 // <<< -------------------- OPTIMIZE SOLUTION -------------------- >>>
+
+// Define the function using the sliding window technique
+var lengthOfLongestSubstring = function(s) {
+    let charIndexMap = new Map();
+    let maxLength = 0;
+    let start = 0;
+    
+    for (let end = 0; end < s.length; end++) {
+        if (charIndexMap.has(s[end])) {
+            start = Math.max(start, charIndexMap.get(s[end]) + 1);
+        }
+        charIndexMap.set(s[end], end);
+        maxLength = Math.max(maxLength, end - start + 1);
+    }
+    
+    return maxLength;
+};
+
+// Test cases
+const testCases = [
+    { input: "abcabcbb", expected: 3 },
+    { input: "bbbbb", expected: 1 },
+    { input: "pwwkew", expected: 3 },
+    { input: "", expected: 0 },
+    { input: "au", expected: 2 },
+    { input: "dvdf", expected: 3 },
+    { input: "ohvhjdml", expected: 6 },
+];
+
+// Run and log the test cases
+testCases.forEach(({ input, expected }, index) => {
+    const result = lengthOfLongestSubstring(input);
+    console.log(`Test Case ${index + 1}`);
+    console.log(`Input: "${input}"`);
+    console.log(`Expected Output: ${expected}`);
+    console.log(`Actual Output: ${result}`);
+    console.log(result === expected ? "Test Passed\n" : "Test Failed\n");
+});
