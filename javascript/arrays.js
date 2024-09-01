@@ -97,7 +97,7 @@ testCases.forEach(({ input, expected }, index) => {
 
 // <<< -------------------- OPTIMIZE SOLUTION -------------------- >>>
 
-// Define the function using the sliding window technique
+/*
 var lengthOfLongestSubstring = function(s) {
     let charIndexMap = new Map();
     let maxLength = 0;
@@ -134,3 +134,9 @@ testCases.forEach(({ input, expected }, index) => {
     console.log(`Actual Output: ${result}`);
     console.log(result === expected ? "Test Passed\n" : "Test Failed\n");
 });
+
+*/
+
+/* ========== *
+* Challenge 2 *
+* =========== */
