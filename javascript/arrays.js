@@ -146,10 +146,7 @@ testCases.forEach(({ input, expected }, index) => {
 2. Minimum Size Subarray Sum
 
 Given an array of positive integers nums and a positive integer target, return the minimal length of a 
-subarray
- whose sum is greater than or equal to target. If there is no such subarray, return 0 instead.
-
- 
+subarray whose sum is greater than or equal to target. If there is no such subarray, return 0 instead.
 
 Example 1:
 
@@ -167,6 +164,9 @@ Output: 0
 
 */
 
+// Problem Statement Recap:
+// Given an array of positive integers nums and a positive integer target, we need to find the minimal length of a subarray whose sum is greater than or equal to target. If no such subarray exists, return 0.
+
 // <<< -------------------- BRUTE FORCE SOLUTION -------------------- >>>
 
 /*
@@ -176,6 +176,7 @@ Output: 0
  */
 
 /*
+
 var minSubArrayLen = function(target, nums) {
     // Initialize the minimum length of the subarray to be a large number.
     // This will be updated as we find valid subarrays.
@@ -205,27 +206,29 @@ var minSubArrayLen = function(target, nums) {
     return minLength === Infinity ? 0 : minLength;
 };
 
-// Test case 1: Basic example with a valid subarray
-console.log(minSubArrayLen(7, [2, 3, 1, 2, 4, 3])); 
-// Output: 2 (subarray [4, 3] has sum >= 7 and length 2)
-
-// Test case 2: Single element array equal to target
-console.log(minSubArrayLen(4, [1, 4, 4])); 
-// Output: 1 (subarray [4] has sum >= 4 and length 1)
-
-// Test case 3: Array with no subarray that meets the target
-console.log(minSubArrayLen(11, [1, 1, 1, 1, 1, 1, 1, 1])); 
-// Output: 0 (no subarray has sum >= 11)
-
-// Test case 4: Array with multiple valid subarrays
-console.log(minSubArrayLen(8, [1, 2, 3, 4, 5])); 
-// Output: 2 (subarray [3, 5] has sum >= 8 and length 2)
-
-// Test case 5: Array where the minimum length subarray is the entire array
-console.log(minSubArrayLen(15, [1, 2, 3, 4, 5])); 
-// Output: 5 (the entire array has sum >= 15 and length 5)
-
 */
+
+// Explanation of the Code:
+
+// 1. Initialization:
+// minLength is initialized to Infinity to ensure that any valid subarray found will update it to a smaller value.
+// 2. Outer Loop (Starting Index):
+// The outer loop iterates over each possible starting index of the subarray (start).
+// 3. Inner Loop (Ending Index):
+// For each starting index, the inner loop calculates the sum of the subarray starting at start and ending at end.
+// If the sum of the current subarray is greater than or equal to target, update minLength to the smaller value between minLength and the current subarray length.
+// Break out of the inner loop as we have found a valid subarray.
+// 4. Return Result:
+// After checking all possible subarrays, return 0 if no valid subarray was found (i.e., minLength is still Infinity); otherwise, return minLength.
+
+// Time Complexity:
+// Brute Force Complexity: The outer loop runs n times, and for each iteration, the inner loop may run up to n times, resulting in a time complexity of O(n^2), where n is the length of the array nums.
+
+// Space Complexity:
+// Space Complexity: The space complexity is O(1) because we only use a few extra variables regardless of the input size.
+
+// Potential Improvements:
+// Sliding Window Approach: A more efficient approach would be to use a sliding window technique which can reduce the time complexity to O(n). The sliding window approach maintains a window with a sum greater than or equal to the target and dynamically adjusts the window size to find the minimum length subarray.
 
 // <<< -------------------- OPTIMIZE SOLUTION -------------------- >>>
 
@@ -296,12 +299,43 @@ testCases.forEach(({ input, expected }, index) => {
 });
 
 /*
-Explanation:
-Test Cases Structure:
-Each test case is an object containing input (with target and nums array) and expected output.
-The input property holds an object with the target value and the nums array.
-Running Test Cases:
-The forEach loop iterates through each test case, extracts the target and nums, and calls the minSubArrayLen function.
-It then compares the function's result with the expected output.
-It logs the results, including whether the test passed or failed.
-This code structure is useful for organizing and running multiple test cases systematically. */
+### Explanation:
+- **Test Cases Structure:**
+  - Each test case is an object containing `input` (with `target` and `nums` array) and `expected` output.
+  - The `input` property holds an object with the `target` value and the `nums` array.
+
+- **Running Test Cases:**
+  - The `forEach` loop iterates through each test case, extracts the `target` and `nums`, and calls the `minSubArrayLen` function.
+  - It then compares the function's result with the `expected` output.
+  - It logs the results, including whether the test passed or failed.
+
+This code structure is useful for organizing and running multiple test cases systematically. 
+*/
+
+/*
+### Explanation of the Sliding Window Approach:
+1. **Initialize Variables:**
+   - `minLength` is set to `Infinity` to store the minimum length of any subarray that meets the condition.
+   - `left` is the left boundary of the sliding window.
+   - `sum` keeps track of the sum of the current window.
+
+2. **Expand the Window:**
+   - The `right` pointer iterates over the array, expanding the window by adding the current element (`nums[right]`) to the `sum`.
+
+3. **Shrink the Window:**
+   - Once the sum of the current window is greater than or equal to the target, start shrinking the window from the left by moving the `left` pointer to the right.
+   - After moving `left`, subtract the element at the `left` pointer from the `sum` to maintain the window's sum.
+   - During each shrinkage, update `minLength` with the smaller value between `minLength` and the current window size (`right - left + 1`).
+
+4. **Return Result:**
+   - If no valid subarray is found, `minLength` will remain `Infinity`, so return `0` in that case.
+   - Otherwise, return the smallest subarray length found.
+
+### Time Complexity:
+- **Time Complexity:** The time complexity is \( O(n) \) because each element in the array is processed at most twice — once when expanding the window and once when shrinking the window.
+
+### Space Complexity:
+- **Space Complexity:** The space complexity is \( O(1) \) since we are using only a few extra variables, regardless of the input size.
+
+This approach is significantly more efficient than the brute-force method, making it well-suited for large input sizes. 
+*/
