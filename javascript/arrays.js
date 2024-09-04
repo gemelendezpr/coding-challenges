@@ -166,3 +166,59 @@ Input: target = 11, nums = [1,1,1,1,1,1,1,1]
 Output: 0
 
 */
+
+// <<< -------------------- BRUTE FORCE SOLUTION -------------------- >>>
+
+/**
+ * @param {number} target
+ * @param {number[]} nums
+ * @return {number}
+ */
+var minSubArrayLen = function(target, nums) {
+    // Initialize the minimum length of the subarray to be a large number.
+    // This will be updated as we find valid subarrays.
+    let minLength = Infinity;
+    
+    // Iterate over the starting index of the subarray.
+    for (let start = 0; start < nums.length; start++) {
+        // Initialize the sum for the current subarray and its length.
+        let sum = 0;
+        
+        // Iterate over the ending index of the subarray from the starting index.
+        for (let end = start; end < nums.length; end++) {
+            // Add the current element to the sum.
+            sum += nums[end];
+            
+            // Check if the current sum is greater than or equal to the target.
+            if (sum >= target) {
+                // Update the minimum length if the current subarray length is smaller.
+                minLength = Math.min(minLength, end - start + 1);
+                // Break out of the inner loop as we have found a valid subarray.
+                break;
+            }
+        }
+    }
+    
+    // If no valid subarray was found, return 0; otherwise, return the minimum length.
+    return minLength === Infinity ? 0 : minLength;
+};
+
+// Test case 1: Basic example with a valid subarray
+console.log(minSubArrayLen(7, [2, 3, 1, 2, 4, 3])); 
+// Output: 2 (subarray [4, 3] has sum >= 7 and length 2)
+
+// Test case 2: Single element array equal to target
+console.log(minSubArrayLen(4, [1, 4, 4])); 
+// Output: 1 (subarray [4] has sum >= 4 and length 1)
+
+// Test case 3: Array with no subarray that meets the target
+console.log(minSubArrayLen(11, [1, 1, 1, 1, 1, 1, 1, 1])); 
+// Output: 0 (no subarray has sum >= 11)
+
+// Test case 4: Array with multiple valid subarrays
+console.log(minSubArrayLen(8, [1, 2, 3, 4, 5])); 
+// Output: 2 (subarray [3, 5] has sum >= 8 and length 2)
+
+// Test case 5: Array where the minimum length subarray is the entire array
+console.log(minSubArrayLen(15, [1, 2, 3, 4, 5])); 
+// Output: 5 (the entire array has sum >= 15 and length 5)
