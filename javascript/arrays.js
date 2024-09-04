@@ -169,11 +169,13 @@ Output: 0
 
 // <<< -------------------- BRUTE FORCE SOLUTION -------------------- >>>
 
-/**
+/*
  * @param {number} target
  * @param {number[]} nums
  * @return {number}
  */
+
+/*
 var minSubArrayLen = function(target, nums) {
     // Initialize the minimum length of the subarray to be a large number.
     // This will be updated as we find valid subarrays.
@@ -222,3 +224,84 @@ console.log(minSubArrayLen(8, [1, 2, 3, 4, 5]));
 // Test case 5: Array where the minimum length subarray is the entire array
 console.log(minSubArrayLen(15, [1, 2, 3, 4, 5])); 
 // Output: 5 (the entire array has sum >= 15 and length 5)
+
+*/
+
+// <<< -------------------- OPTIMIZE SOLUTION -------------------- >>>
+
+/**
+ * @param {number} target
+ * @param {number[]} nums
+ * @return {number}
+ */
+var minSubArrayLen = function(target, nums) {
+    let minLength = Infinity;  // Initialize minLength to a very large value
+    let left = 0;              // Left pointer of the sliding window
+    let sum = 0;               // Variable to store the sum of the current window
+
+    // Iterate through the array with the right pointer
+    for (let right = 0; right < nums.length; right++) {
+        sum += nums[right];  // Add the current element to the sum
+
+        // Shrink the window as small as possible while the sum is still >= target
+        while (sum >= target) {
+            // Update the minimum length
+            minLength = Math.min(minLength, right - left + 1);
+            sum -= nums[left];  // Subtract the element at the left pointer from the sum
+            left++;  // Move the left pointer to the right to reduce the window size
+        }
+    }
+
+    // Return 0 if no valid subarray was found, otherwise return the minLength
+    return minLength === Infinity ? 0 : minLength;
+};
+
+// // Test case 1: Basic example with a valid subarray
+// console.log(minSubArrayLen(7, [2, 3, 1, 2, 4, 3])); 
+// // Output: 2 (subarray [4, 3] has sum >= 7 and length 2)
+
+// // Test case 2: Single element array equal to target
+// console.log(minSubArrayLen(4, [1, 4, 4])); 
+// // Output: 1 (subarray [4] has sum >= 4 and length 1)
+
+// // Test case 3: Array with no subarray that meets the target
+// console.log(minSubArrayLen(11, [1, 1, 1, 1, 1, 1, 1, 1])); 
+// // Output: 0 (no subarray has sum >= 11)
+
+// // Test case 4: Array with multiple valid subarrays
+// console.log(minSubArrayLen(8, [1, 2, 3, 4, 5])); 
+// // Output: 2 (subarray [3, 5] has sum >= 8 and length 2)
+
+// // Test case 5: Array where the minimum length subarray is the entire array
+// console.log(minSubArrayLen(15, [1, 2, 3, 4, 5])); 
+// // Output: 5 (the entire array has sum >= 15 and length 5)
+
+// Test cases
+const testCases = [
+    { input: { target: 7, nums: [2, 3, 1, 2, 4, 3] }, expected: 2 },
+    { input: { target: 4, nums: [1, 4, 4] }, expected: 1 },
+    { input: { target: 11, nums: [1, 1, 1, 1, 1, 1, 1, 1] }, expected: 0 },
+    { input: { target: 8, nums: [1, 2, 3, 4, 5] }, expected: 2 },
+    { input: { target: 15, nums: [1, 2, 3, 4, 5] }, expected: 5 },
+];
+
+// Run and log the test cases
+testCases.forEach(({ input, expected }, index) => {
+    const result = minSubArrayLen(input.target, input.nums);
+    console.log(`Test Case ${index + 1}`);
+    console.log(`Input: "target=${input.target}, nums=${input.nums}"`);
+    console.log(`Expected Output: ${expected}`);
+    console.log(`Actual Output: ${result}`);
+    console.log(result === expected ? "Test Passed\n" : "Test Failed\n");
+});
+
+/*
+Explanation:
+Test Cases Structure:
+Each test case is an object containing input (with target and nums array) and expected output.
+The input property holds an object with the target value and the nums array.
+Running Test Cases:
+The forEach loop iterates through each test case, extracts the target and nums, and calls the minSubArrayLen function.
+It then compares the function's result with the expected output.
+It logs the results, including whether the test passed or failed.
+This code structure is useful for organizing and running multiple test cases systematically. */
