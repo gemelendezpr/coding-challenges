@@ -81,12 +81,12 @@ const testCases = [
     { input: 6 },
 ];
 
-// Run and log the test cases
-testCases.forEach(({input}, index) =>{
-    const result = countUpAndDown(input);
-    console.log(`Test case ${index + 1}`);
-    console.log(`Input: "${input}"`)
-});
+// // Run and log the test cases
+// testCases.forEach(({input}, index) =>{
+//     const result = countUpAndDown(input);
+//     console.log(`Test case ${index + 1}`);
+//     console.log(`Input: "${input}"`)
+// });
 
 
 // Big O is O(n). Each loop is O(n) so there's two O(n). But the big picture is O(n). Because the number of operations is ( eventually) bounded by a multiple of n(say, 10n)
