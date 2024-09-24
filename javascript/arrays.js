@@ -1,4 +1,4 @@
-// <<< ---------------------------------------------------------------------- Array cheatsheet ---------------------------------------------------------------------- >>>
+// <<< ---------------------------------------------------------------------- Array cheatsheet (techinterviewhandbook) ---------------------------------------------------------------------- >>>
 
 // <<< ---------------------------------------------------------------------- Sliding Window Technique ---------------------------------------------------------------------- >>>
 
@@ -279,6 +279,7 @@ var minSubArrayLen = function(target, nums) {
 // console.log(minSubArrayLen(15, [1, 2, 3, 4, 5])); 
 // // Output: 5 (the entire array has sum >= 15 and length 5)
 
+/*
 // Test cases
 const testCases = [
     { input: { target: 7, nums: [2, 3, 1, 2, 4, 3] }, expected: 2 },
@@ -297,6 +298,7 @@ testCases.forEach(({ input, expected }, index) => {
     console.log(`Actual Output: ${result}`);
     console.log(result === expected ? "Test Passed\n" : "Test Failed\n");
 });
+*/
 
 /*
 ### Explanation:
@@ -339,3 +341,255 @@ This code structure is useful for organizing and running multiple test cases sys
 
 This approach is significantly more efficient than the brute-force method, making it well-suited for large input sizes. 
 */
+
+
+/* ========== *
+* Challenge 3 *
+* =========== */
+
+/*
+76. Minimum Window Substring (Hard)
+
+Given two strings s and t of lengths m and n respectively, return the minimum window substring of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string "".
+
+The testcases will be generated such that the answer is unique.
+
+Example 1:
+Input: s = "ADOBECODEBANC", t = "ABC"
+Output: "BANC"
+Explanation: The minimum window substring "BANC" includes 'A', 'B', and 'C' from string t.
+
+Example 2:
+Input: s = "a", t = "a"
+Output: "a"
+Explanation: The entire string s is the minimum window.
+
+Example 3:
+Input: s = "a", t = "aa"
+Output: ""
+Explanation: Both 'a's from t must be included in the window.
+
+Since the largest window of s only has one 'a', return empty string.
+*/
+
+// Problem Statement Recap:
+//To solve the problem of finding the minimum window substring that contains all characters of string `t` in string `s`, we can use a brute-force approach first.
+// We can generate all possible substrings of `s`, check if they contain all characters of `t`, and then keep track of the smallest such substring.
+
+// <<< -------------------- BRUTE FORCE SOLUTION -------------------- >>>
+
+// /**
+//  * @param {string} s
+//  * @param {string} t
+//  * @return {string}
+//  */
+
+var minWindow = function(s, t) {
+    // Function to check if all characters of 't' are present in the substring
+    function containsAllChars(subStr, t) {
+        const tCharCount = {}; // Character count for string t
+        for (let char of t) {
+            tCharCount[char] = (tCharCount[char] || 0) + 1; // Count frequency of characters in t
+        }
+
+        const subStrCharCount = {}; // Character count for substring
+        for (let char of subStr) {
+            subStrCharCount[char] = (subStrCharCount[char] || 0) + 1; // Count frequency of characters in subStr
+        }
+
+        // Check if all characters in tCharCount are in subStrCharCount with at least the same frequency
+        for (let char in tCharCount) {
+            if (!subStrCharCount[char] || subStrCharCount[char] < tCharCount[char]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    let minLength = Infinity; // Initialize with a large value
+    let minWindowStr = "";    // Store the minimum window substring
+
+    // Generate all substrings of s
+    for (let i = 0; i < s.length; i++) {
+        for (let j = i + 1; j <= s.length; j++) {
+            const subStr = s.slice(i, j); // Get substring from index i to j
+
+            // Check if substring contains all characters from t
+            if (containsAllChars(subStr, t)) {
+                if (subStr.length < minLength) {  // Update minimum if found
+                    minLength = subStr.length;
+                    minWindowStr = subStr;
+                }
+            }
+        }
+    }
+
+    return minWindowStr;
+};
+
+/*
+### Explanation of the Code:
+1. **containsAllChars(subStr, t)**:
+   - This helper function checks if all characters in `t` (including their frequencies) are present in the substring `subStr`.
+   - It does this by building character frequency maps for both `subStr` and `t`, then comparing them.
+
+2. **Main Function**:
+   - We initialize `minLength` to a large value (`Infinity`) and `minWindowStr` to an empty string.
+   - The two nested loops generate all possible substrings of `s`. For each substring, we use the helper function `containsAllChars` to check if it contains all the characters of `t`.
+   - If it does, and its length is smaller than the current `minLength`, we update `minLength` and `minWindowStr`.
+
+3. **Return**:
+   - Finally, we return the smallest valid substring found.
+*/
+
+// ### Test Cases:
+
+// console.log(minWindow("ADOBECODEBANC", "ABC")); // Output: "BANC"
+// console.log(minWindow("a", "a"));               // Output: "a"
+// console.log(minWindow("a", "aa"));              // Output: ""
+
+/*
+### Time Complexity:
+- The brute-force solution generates all possible substrings, which takes **O(n^3)** in the worst case (`O(n^2)` for generating the substrings and `O(n)` to check if they contain all characters of `t`).
+  
+  Therefore, **Time Complexity**: **O(n^3)**, where `n` is the length of string `s`.
+
+### Space Complexity:
+- The space complexity is **O(n + m)**, where `n` is the length of `s` and `m` is the length of `t`. This is because of the storage used for the substring and the character frequency maps.
+
+### Optimized Approach: Sliding Window
+This brute-force solution is inefficient for large inputs. It can be improved using a **sliding window** technique, which reduces the time complexity significantly. We'll discuss that in the next step.
+*/
+
+// <<< -------------------- OPTIMIZE SOLUTION -------------------- >>>
+/*
+Here's the optimized solution for the **Minimum Window Substring** problem using the **sliding window technique**. The sliding window approach efficiently tracks the current window and moves the window boundaries to find the minimum window.
+
+### Sliding Window Approach:
+We maintain a window that expands and contracts while keeping track of whether all characters from `t` are contained in the window. Once a valid window is found, we try to minimize it by contracting the window from the left side.
+
+### Optimized Solution:
+*/
+
+// /**
+//  * @param {string} s
+//  * @param {string} t
+//  * @return {string}
+//  */
+var minWindow = function(s, t) {
+    if (s.length === 0 || t.length === 0) return "";  // Edge case
+
+    // Step 1: Build the frequency map for the string 't'
+    const tCharCount = {};
+    for (let char of t) {
+        tCharCount[char] = (tCharCount[char] || 0) + 1;
+    }
+
+    // Step 2: Initialize variables for the sliding window
+    let required = Object.keys(tCharCount).length;  // Number of unique characters in 't'
+    let left = 0, right = 0;  // Window boundaries
+    let formed = 0;  // Tracks how many unique characters match the required count
+    const windowCounts = {};  // Count of characters in the current window
+
+    // Step 3: Variables to track the minimum window
+    let minLength = Infinity;
+    let minWindowStart = 0;
+
+    // Step 4: Expand the window by moving the right pointer
+    while (right < s.length) {
+        let char = s[right];
+        windowCounts[char] = (windowCounts[char] || 0) + 1;
+
+        // If this character is in t and its count matches the required count in t, increment `formed`
+        if (tCharCount[char] && windowCounts[char] === tCharCount[char]) {
+            formed++;
+        }
+
+        // Step 5: Contract the window by moving the left pointer to minimize the window
+        while (left <= right && formed === required) {
+            char = s[left];
+
+            // Update the result if this window is smaller than the previous best
+            if (right - left + 1 < minLength) {
+                minLength = right - left + 1;
+                minWindowStart = left;
+            }
+
+            // Contract the window
+            windowCounts[char]--;
+            if (tCharCount[char] && windowCounts[char] < tCharCount[char]) {
+                formed--;
+            }
+            left++;
+        }
+
+        // Expand the window by moving the right pointer
+        right++;
+    }
+
+    // Step 6: Return the result
+    return minLength === Infinity ? "" : s.substring(minWindowStart, minWindowStart + minLength);
+};
+
+/*
+### Explanation:
+1. **Frequency Map of `t`**:
+   - We first build a frequency map `tCharCount` to keep track of the required count for each character in `t`.
+   
+2. **Sliding Window Variables**:
+   - `left` and `right` are pointers for the window's boundaries.
+   - `windowCounts` keeps track of the counts of characters in the current window.
+   - `required` is the number of unique characters in `t` that must appear in the window.
+   - `formed` is the number of unique characters that meet the required frequency in the current window.
+
+3. **Sliding the Right Pointer**:
+   - We expand the window by moving the `right` pointer and include the character in the window. We update its count in `windowCounts`.
+   - If the count of the character in the current window matches its count in `t`, we increment `formed`.
+
+4. **Sliding the Left Pointer**:
+   - When the current window contains all characters of `t` (i.e., `formed === required`), we try to minimize the window by moving the `left` pointer. We also check if the current window is smaller than the previous minimum and update the result accordingly.
+
+5. **Return the Minimum Window**:
+   - If a valid window is found, we return the substring from `minWindowStart` to `minWindowStart + minLength`. If no valid window is found, we return an empty string.
+*/
+
+// Test cases
+const testCases = [
+    { input: { s: "ADOBECODEBANC", t: "ABC" }, expected: "BANC" },
+    { input: { s: "a", t: "a" }, expected: "a" },
+    { input: { s: "a", t: "aa" }, expected: "" },
+    { input: { s: "", t: "ABC" }, expected: "" },           // Edge case: empty string 's', no window can be found
+    { input: { s: "ABC", t: "" }, expected: "" },           // Edge case: empty string 't', return an empty string since 't' is empty
+    { input: { s: "ABC", t: "D" }, expected: "" },          // Edge case: character in 't' is not in 's'
+    { input: { s: "ABBC", t: "BB" }, expected: "BB" },      // Edge case: 't' contains duplicate characters and 's' has them
+    { input: { s: "aabbcc", t: "abc" }, expected: "abbc" }, // Edge case: multiple occurrences of target characters
+    { input: { s: "a".repeat(1000) + "b".repeat(1000) + "c".repeat(1000), t: "abc" }, expected: "a" + "b".repeat(1000) + "c" }, // Edge case: very large string 's' with repeating characters
+];
+
+// Run and log the test cases
+testCases.forEach(({ input, expected }, index) => {
+    const result = minWindow(input.s, input.t);
+    // Ensure `s` is a string before applying slice
+    const slicedInputS = typeof input.s === "string" ? input.s.slice(0, 20) + "..." : input.s;
+    
+    console.log(`Test Case ${index + 1}`);
+    console.log(`Input: "s=${slicedInputS}, t=${input.t}"`); // Slice 's' for readability if it's too long
+    console.log(`Expected Output: ${expected}`);
+    console.log(`Actual Output: ${result}`);
+    console.log(result === expected ? "Test Passed\n" : "Test Failed\n");
+});
+
+
+/*
+### Time Complexity:
+- **Time Complexity**: **O(m + n)**, where `m` is the length of `s` and `n` is the length of `t`. Both pointers (left and right) traverse the string `s` at most once, so the time complexity is linear in terms of the size of `s`. Constructing and checking the frequency map for `t` takes linear time as well.
+  
+### Space Complexity:
+- **Space Complexity**: **O(m + n)**, where `m` is the length of `s` and `n` is the length of `t`. We use space for the frequency maps and some extra variables.
+
+### Optimization Insight:
+- The sliding window technique optimizes the brute-force approach by not generating all possible substrings and only expanding and contracting the window when necessary. This drastically reduces the time complexity from **O(m^3)** to **O(m + n)**.
+
+This solution is optimal for the given problem constraints.
+*/
+
