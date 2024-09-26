@@ -2,9 +2,11 @@
 
 // <<< ---------------------------------------------------------------------- Sliding Window Technique ---------------------------------------------------------------------- >>>
 
-/* ========== *
-* Challenge 1 *
-* =========== */
+// Concept: In a sliding window, the two pointers usually move in the same direction will never overtake each other. This ensures that each value is only visited at most twice and the time complexity is still O(n).
+
+/* ========== * * ========== * * ========== * * ========== * * ========== *
+* Challenge 1 * * Challenge 1 * * Challenge 1 * * Challenge 1 * * Challenge 1 *
+* =========== * * =========== * * =========== * * =========== * * ========== */
 
 /* 
 1. Longest Substring Without Repeating Characters (Medium)
@@ -137,9 +139,10 @@ testCases.forEach(({ input, expected }, index) => {
 
 */
 
-/* ========== *
-* Challenge 2 *
-* =========== */
+/* ========== * * ========== * * ========== * * ========== * * ========== *
+* Challenge 2 * * Challenge 2 * * Challenge 2 * * Challenge 2 * * Challenge 2 *
+* =========== * * =========== * * =========== * * =========== * * ========== */
+
 
 /*
 
@@ -343,9 +346,10 @@ This approach is significantly more efficient than the brute-force method, makin
 */
 
 
-/* ========== *
-* Challenge 3 *
-* =========== */
+/* ========== * * ========== * * ========== * * ========== * * ========== *
+* Challenge 3 * * Challenge 3 * * Challenge 3 * * Challenge 3 * * Challenge 3 *
+* =========== * * =========== * * =========== * * =========== * * ========== */
+
 
 /*
 76. Minimum Window Substring (Hard)
@@ -593,3 +597,30 @@ testCases.forEach(({ input, expected }, index) => {
 This solution is optimal for the given problem constraints.
 */
 
+// <<< ---------------------------------------------------------------------- Two pointers Technique ---------------------------------------------------------------------- >>>
+
+//Concept: Two pointers is a more general version of sliding window where the pointers can cross each other and can be on different arrays.
+
+/* ========== * * ========== * * ========== * * ========== * * ========== *
+* Challenge 1 * * Challenge 1 * * Challenge 1 * * Challenge 1 * * Challenge 1 *
+* =========== * * =========== * * =========== * * =========== * * ========== */
+
+/*
+75. Sort Colors (Medium)
+
+Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue.
+
+We will use the integers 0, 1, and 2 to represent the color red, white, and blue, respectively.
+
+You must solve this problem without using the library's sort function.
+
+ 
+
+Example 1:
+Input: nums = [2,0,2,1,1,0]
+Output: [0,0,1,1,2,2]
+
+Example 2:
+Input: nums = [2,0,1]
+Output: [0,1,2]
+*/
