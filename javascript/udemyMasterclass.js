@@ -75,11 +75,11 @@ function countUpAndDown(n) {
 }
 
 // // Test cases
-const testCases = [
-    { input: 2 },
-    { input: 4 },
-    { input: 6 },
-];
+// const testCases = [
+//     { input: 2 },
+//     { input: 4 },
+//     { input: 6 },
+// ];
 
 // // Run and log the test cases
 // testCases.forEach(({input}, index) =>{
@@ -116,3 +116,40 @@ const testCases = [
     // - What happen if we only receive one number? Do we add o or undefined etc
 // 5. How should I label the important pieces of data that are a part of the problem?
     // - add -num1 - num2 -sum 
+
+    function charCount(str) {
+        // Make an object to return at the end
+    let result = {};
+    // Loop over string, for each character...
+    for (let char of str) {
+        // Convert to lowercase
+        char = char.toLowerCase();
+        // If the char is a letter/number AND is a key in object, add one to count
+        if (/[a-z0-9]/.test(char)) {
+            result[char] = (result[char] || 0) + 1;
+        }
+        // If character is something else (space, period, etc.) don't do anything
+    }
+    // Return object at end
+    return result;
+    }
+
+    // Test Case
+    const testCases = [
+        { input: "hello", expected: {h:1, e:1, l:2, o:1} },
+        { input: "BYE", expected: {b:1, y:1, e:1 } },
+        { input: "H e l l o", expected: {h: 1, e: 1, l: 2, o: 1} },
+        { input: " ", expected: {}},
+        { input: "Hello, World! 123", expected: { h: 1, e: 1, l: 3, o: 2, w: 1, r: 1, d: 1, "1": 1, "2": 1, "3": 1 } }
+    ]
+
+    testCases.forEach(({ input, expected }, index) => {
+        const result = charCount(input);
+        console.log(`Test case ${index + 1}`);
+        console.log(`Input: "${input}"`);
+        console.log(`Expected Output:`, expected);
+        console.log(`Actual Output:`, result);
+        console.log(JSON.stringify(result) === JSON.stringify(expected) ? "Test Passed\n" : "Test Failed\n");
+    });
+
+    
