@@ -116,6 +116,9 @@ function countUpAndDown(n) {
     // - What happen if we only receive one number? Do we add o or undefined etc
 // 5. How should I label the important pieces of data that are a part of the problem?
     // - add -num1 - num2 -sum 
+    
+// <<< -------------------- (regular expression) SOLUTION -------------------- >>>
+
 
     function charCount(str) {
         // Make an object to return at the end
@@ -134,22 +137,51 @@ function countUpAndDown(n) {
     return result;
     }
 
-    // Test Case
-    const testCases = [
-        { input: "hello", expected: {h:1, e:1, l:2, o:1} },
-        { input: "BYE", expected: {b:1, y:1, e:1 } },
-        { input: "H e l l o", expected: {h: 1, e: 1, l: 2, o: 1} },
-        { input: " ", expected: {}},
-        { input: "Hello, World! 123", expected: { h: 1, e: 1, l: 3, o: 2, w: 1, r: 1, d: 1, "1": 1, "2": 1, "3": 1 } }
-    ]
+// <<< -------------------- (characater code is faster (Non-regular expression) OPTIMIZE SOLUTION -------------------- >>>
 
-    testCases.forEach(({ input, expected }, index) => {
-        const result = charCount(input);
-        console.log(`Test case ${index + 1}`);
-        console.log(`Input: "${input}"`);
-        console.log(`Expected Output:`, expected);
-        console.log(`Actual Output:`, result);
-        console.log(JSON.stringify(result) === JSON.stringify(expected) ? "Test Passed\n" : "Test Failed\n");
-    });
+    function charCount(str) {
+        // Make an object to return at the end
+    let result = {};
+    // Loop over string, for each character...
+    for (let char of str) {
+        if (isAlphaNumeric(char)) {
+            // Convert to lowercase
+            char = char.toLowerCase();
+            // If the char is a letter/number AND is a key in object, add one to count
+            result[char] = (result[char] || 0) + 1;
+        }
+    }
+    // Return object at end
+    return result;
+    }
+
+    function isAlphaNumeric(char){
+        let code = char.charCodeAt (0);
+        if (!(code > 47 && code < 58) && // numeric (0-9)
+            !(code > 64 && code < 91) && // numeric (0-9)
+            !(code > 96 && code < 123)) { // numeric (0-9)
+          return false;
+        }
+        return true;
+    }
+
+
+    // Test Cases
+    // const testCases = [
+    //     { input: "hello", expected: {h:1, e:1, l:2, o:1} },
+    //     { input: "BYE", expected: {b:1, y:1, e:1 } },
+    //     { input: "H e l l o", expected: {h: 1, e: 1, l: 2, o: 1} },
+    //     { input: " ", expected: {}},
+    //     { input: "Hello, World! 123", expected: { h: 1, e: 1, l: 3, o: 2, w: 1, r: 1, d: 1, "1": 1, "2": 1, "3": 1 } }
+    // ]
+
+    // testCases.forEach(({ input, expected }, index) => {
+    //     const result = charCount(input);
+    //     console.log(`Test case ${index + 1}`);
+    //     console.log(`Input: "${input}"`);
+    //     console.log(`Expected Output:`, expected);
+    //     console.log(`Actual Output:`, result);
+    //     console.log(JSON.stringify(result) === JSON.stringify(expected) ? "Test Passed\n" : "Test Failed\n");
+    // });
 
     
