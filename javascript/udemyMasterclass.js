@@ -167,21 +167,21 @@ function countUpAndDown(n) {
 
 
     // Test Cases
-    // const testCases = [
-    //     { input: "hello", expected: {h:1, e:1, l:2, o:1} },
-    //     { input: "BYE", expected: {b:1, y:1, e:1 } },
-    //     { input: "H e l l o", expected: {h: 1, e: 1, l: 2, o: 1} },
-    //     { input: " ", expected: {}},
-    //     { input: "Hello, World! 123", expected: { h: 1, e: 1, l: 3, o: 2, w: 1, r: 1, d: 1, "1": 1, "2": 1, "3": 1 } }
-    // ]
+    const testCases = [
+        { input: "hello", expected: {h:1, e:1, l:2, o:1} },
+        { input: "BYE", expected: {b:1, y:1, e:1 } },
+        { input: "H e l l o", expected: {h: 1, e: 1, l: 2, o: 1} },
+        { input: " ", expected: {}},
+        { input: "Hello, World! 123", expected: { h: 1, e: 1, l: 3, o: 2, w: 1, r: 1, d: 1, "1": 1, "2": 1, "3": 1 } }
+    ]
 
-    // testCases.forEach(({ input, expected }, index) => {
-    //     const result = charCount(input);
-    //     console.log(`Test case ${index + 1}`);
-    //     console.log(`Input: "${input}"`);
-    //     console.log(`Expected Output:`, expected);
-    //     console.log(`Actual Output:`, result);
-    //     console.log(JSON.stringify(result) === JSON.stringify(expected) ? "Test Passed\n" : "Test Failed\n");
-    // });
+    testCases.forEach(({ input, expected }, index) => {
+        const result = charCount(input);
+        console.log(`Test case ${index + 1}`);
+        console.log(`Input: "${input}"`);
+        console.log(`Expected Output:`, expected);
+        console.log(`Actual Output:`, result);
+        console.log(JSON.stringify(result) === JSON.stringify(expected) ? "Test Passed\n" : "Test Failed\n");
+    });
 
     
