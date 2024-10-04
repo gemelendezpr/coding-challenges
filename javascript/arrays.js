@@ -747,33 +747,33 @@ var sortColors = function(nums) {
     }
 };
 
-// Test cases
-const testCases = [
-    // General cases
-    { input: [2, 0, 2, 1, 1, 0], expected: [0, 0, 1, 1, 2, 2] },
-    { input: [2, 0, 1], expected: [0, 1, 2] },
-    { input: [0, 1, 2], expected: [0, 1, 2] }, // Already sorted
-    { input: [2, 2, 2, 1, 1, 1, 0, 0, 0], expected: [0, 0, 0, 1, 1, 1, 2, 2, 2] },
+// // Test cases
+// const testCases = [
+//     // General cases
+//     { input: [2, 0, 2, 1, 1, 0], expected: [0, 0, 1, 1, 2, 2] },
+//     { input: [2, 0, 1], expected: [0, 1, 2] },
+//     { input: [0, 1, 2], expected: [0, 1, 2] }, // Already sorted
+//     { input: [2, 2, 2, 1, 1, 1, 0, 0, 0], expected: [0, 0, 0, 1, 1, 1, 2, 2, 2] },
 
-    // Edge cases
-    { input: [0], expected: [0] },             // Single element 0
-    { input: [1], expected: [1] },             // Single element 1
-    { input: [2], expected: [2] },             // Single element 2
-    { input: [0, 1], expected: [0, 1] },       // Two sorted elements
-    { input: [2, 1, 0], expected: [0, 1, 2] }, // Reverse sorted
-    { input: [1, 1, 1], expected: [1, 1, 1] }, // All elements are the same
-    { input: [], expected: [] },               // Empty array
-];
+//     // Edge cases
+//     { input: [0], expected: [0] },             // Single element 0
+//     { input: [1], expected: [1] },             // Single element 1
+//     { input: [2], expected: [2] },             // Single element 2
+//     { input: [0, 1], expected: [0, 1] },       // Two sorted elements
+//     { input: [2, 1, 0], expected: [0, 1, 2] }, // Reverse sorted
+//     { input: [1, 1, 1], expected: [1, 1, 1] }, // All elements are the same
+//     { input: [], expected: [] },               // Empty array
+// ];
 
-// Run and log the test cases
-testCases.forEach(({ input, expected }, index) => {
-    sortColors(input); // In-place sorting
-    console.log(`Test Case ${index + 1}`);
-    console.log(`Input: ${input}`);
-    console.log(`Expected Output: ${expected}`);
-    console.log(`Actual Output: ${input}`);
-    console.log(JSON.stringify(input) === JSON.stringify(expected) ? "Test Passed\n" : "Test Failed\n");
-});
+// // Run and log the test cases
+// testCases.forEach(({ input, expected }, index) => {
+//     sortColors(input); // In-place sorting
+//     console.log(`Test Case ${index + 1}`);
+//     console.log(`Input: ${input}`);
+//     console.log(`Expected Output: ${expected}`);
+//     console.log(`Actual Output: ${input}`);
+//     console.log(JSON.stringify(input) === JSON.stringify(expected) ? "Test Passed\n" : "Test Failed\n");
+// });
 
 /*
 ### Explanation of Test Cases:
@@ -830,3 +830,43 @@ For the input `nums = [2, 0, 2, 1, 1, 0]`:
 ### Edge Case:
 - For input `nums = [0]`, the array is already sorted, and the algorithm will exit quickly without unnecessary swaps.
 */
+
+/* ========== * * ========== * * ========== * * ========== * * ========== *
+* Challenge 2 * * Challenge 2 * * Challenge 2 * * Challenge 2 * * Challenge 2 *
+* =========== * * =========== * * =========== * * =========== * * ========== */
+
+/*
+647. Palindromic Substrings (Medium)
+
+Given a string s, return the number of palindromic substrings in it. 
+
+A string is a palindrome when it reads the same backward as forward.
+
+A substring is a contiguous sequence of characters within the string.
+
+Example 1:
+
+Input: s = "abc"
+Output: 3
+Explanation: Three palindromic strings: "a", "b", "c".
+Example 2:
+
+Input: s = "aaa"
+Output: 6
+Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
+ 
+
+Constraints:
+
+1 <= s.length <= 1000
+s consists of lowercase English letters.
+*/
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var countSubstrings = function(s) {
+    
+};
+
