@@ -48,7 +48,7 @@ var twoSum = function(nums, target) {
     return [];
 };
 
-//Test Cases -> Test Results (Use them as Test cases tu run the code)
+//Test Cases -> Test Results (Use them as Test cases tu run the code). 
 Input
 nums =
 [2,7,11,15]
