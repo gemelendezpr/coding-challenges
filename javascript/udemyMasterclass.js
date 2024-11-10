@@ -189,3 +189,71 @@ function countUpAndDown(n) {
     // <<< -------------------- 1st Pattern "FREQUENCY COUNTER" -------------------- >>>
 
     // This pattern uses objects or sets to collect values/ frequencies of values. This can often avoid the need for nested loops or O(N^2) operations with arrays / strings.
+
+    // Write a function called same, which accepts two arrays. The function should return true if every value in the array has its corresponding value squared in the second arrays. The frequency of values must be the same. 
+    
+    /*
+    Here’s the solution:
+
+    1. Check Array Lengths: If the arrays don’t have the same length, we can return false immediately since they can't have corresponding squared values in equal frequency.
+    2. Use Frequency Counters: Create two frequency counters (objects) for each array:
+    - One counter will count the frequency of each number in the first array.
+    - The other will count the frequency of each squared value in the second array.
+    3. Compare Counters: Check that:
+    - Every key in the first counter has its squared key in the second counter.
+    - The frequency of each key in the first counter matches the frequency of its squared key in the second counter. */
+
+    function same(arr1, arr2) {
+        // Step 1: Check if arrays have the same length
+        if (arr1.length !== arr2.length) return false;
+    
+        // Step 2: Initialize frequency counters for both arrays
+        const frequencyCounter1 = {};
+        const frequencyCounter2 = {};
+    
+        // Step 3: Populate frequencyCounter1 with counts of values in arr1
+        for (let val of arr1) {
+            frequencyCounter1[val] = (frequencyCounter1[val] || 0) + 1;
+        }
+    
+        // Step 4: Populate frequencyCounter2 with counts of values in arr2
+        for (let val of arr2) {
+            frequencyCounter2[val] = (frequencyCounter2[val] || 0) + 1;
+        }
+    
+        // Step 5: Check if each value in arr1 has a corresponding squared value in arr2
+        for (let key in frequencyCounter1) {
+            const squaredKey = key ** 2;
+            if (!(squaredKey in frequencyCounter2)) {
+                return false; // No corresponding squared value
+            }
+            if (frequencyCounter2[squaredKey] !== frequencyCounter1[key]) {
+                return false; // Frequency mismatch
+            }
+        }
+    
+        return true;
+    }
+
+    // Test Cases
+const testCases = [
+    { input: [[1, 2, 3], [1, 4, 9]], expected: true },
+    { input: [[1, 2, 3], [1, 9]], expected: false },
+    { input: [[1, 2, 1], [4, 4, 1]], expected: false },
+    { input: [[2, 3, 4], [9, 4, 16]], expected: true },
+    { input: [[], []], expected: true },                  // Edge case: both arrays empty
+    { input: [[1, 2, 3], []], expected: false },          // Edge case: one array empty
+    { input: [[1, 1, 1], [1, 1, 1]], expected: false }    // Edge case: values without squares
+];
+
+testCases.forEach(({ input, expected }, index) => {
+    const [arr1, arr2] = input;
+    const result = same(arr1, arr2);
+    console.log(`Test case ${index + 1}`);
+    console.log(`Input: arr1 = [${arr1}], arr2 = [${arr2}]`);
+    console.log(`Expected Output: ${expected}`);
+    console.log(`Actual Output: ${result}`);
+    console.log(result === expected ? "Test Passed\n" : "Test Failed\n");
+});
+
+    
