@@ -235,25 +235,25 @@ function countUpAndDown(n) {
         return true;
     }
 
-    // Test Cases
-// const testCases = [
-//     { input: [[1, 2, 3], [1, 4, 9]], expected: true },
-//     { input: [[1, 2, 3], [1, 9]], expected: false },
-//     { input: [[1, 2, 1], [4, 4, 1]], expected: false },
-//     { input: [[2, 3, 4], [9, 4, 16]], expected: true },
-//     { input: [[], []], expected: true },                  // Edge case: both arrays empty
-//     { input: [[1, 2, 3], []], expected: false },          // Edge case: one array empty
-//     { input: [[1, 1, 1], [1, 1, 1]], expected: false }    // Edge case: values without squares
-// ];
+//     Test Cases
+const testCases = [
+    { input: [[1, 2, 3], [1, 4, 9]], expected: true },
+    { input: [[1, 2, 3], [1, 9]], expected: false },
+    { input: [[1, 2, 1], [4, 4, 1]], expected: false },
+    { input: [[2, 3, 4], [9, 4, 16]], expected: true },
+    { input: [[], []], expected: true },                  // Edge case: both arrays empty
+    { input: [[1, 2, 3], []], expected: false },          // Edge case: one array empty
+    { input: [[1, 1, 1], [1, 1, 1]], expected: false }    // Edge case: values without squares
+];
 
-// testCases.forEach(({ input, expected }, index) => {
-//     const [arr1, arr2] = input;
-//     const result = same(arr1, arr2);
-//     console.log(`Test case ${index + 1}`);
-//     console.log(`Input: arr1 = [${arr1}], arr2 = [${arr2}]`);
-//     console.log(`Expected Output: ${expected}`);
-//     console.log(`Actual Output: ${result}`);
-//     console.log(result === expected ? "Test Passed\n" : "Test Failed\n");
-// });
+testCases.forEach(({ input, expected }, index) => {
+    const [arr1, arr2] = input;
+    const result = same(arr1, arr2);
+    console.log(`Test case ${index + 1}`);
+    console.log(`Input: arr1 = [${arr1}], arr2 = [${arr2}]`);
+    console.log(`Expected Output: ${expected}`);
+    console.log(`Actual Output: ${result}`);
+    console.log(result === expected ? "Test Passed\n" : "Test Failed\n");
+});
 
     
