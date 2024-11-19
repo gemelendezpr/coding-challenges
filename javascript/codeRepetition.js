@@ -247,7 +247,7 @@ const thrones1 = ["Jon", "Danny", "Tyrion", "The Mountain", "Cersei"];
 // console.log(droids1(starWars1)); // => "Found Droids!"
 // console.log(droids1(thrones1)); // => "These are not the droids you're looking for."
 
-//13. Challenge: Using forEach
+//13. Challenge: Using forEach method
 // Recreate the function droids from the previous challenge, but instead of using a FOR loop, use the built-in forEach method.
 
 function droids2(arr) {
